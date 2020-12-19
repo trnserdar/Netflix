@@ -8,13 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		4F1353F1258E3D1500F2C585 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1353F0258E3D1500F2C585 /* AppDelegate.swift */; };
-		4F1353F3258E3D1500F2C585 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1353F2258E3D1500F2C585 /* SceneDelegate.swift */; };
-		4F1353F5258E3D1500F2C585 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1353F4258E3D1500F2C585 /* ViewController.swift */; };
-		4F1353F8258E3D1500F2C585 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F1353F6258E3D1500F2C585 /* Main.storyboard */; };
 		4F1353FA258E3D1600F2C585 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F1353F9258E3D1600F2C585 /* Assets.xcassets */; };
 		4F1353FD258E3D1600F2C585 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F1353FB258E3D1600F2C585 /* LaunchScreen.storyboard */; };
 		4F135408258E3D1600F2C585 /* NetflixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F135407258E3D1600F2C585 /* NetflixTests.swift */; };
 		4F135413258E3D1600F2C585 /* NetflixUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F135412258E3D1600F2C585 /* NetflixUITests.swift */; };
+		4F135438258E3DED00F2C585 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F135437258E3DED00F2C585 /* TabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,9 +35,6 @@
 /* Begin PBXFileReference section */
 		4F1353ED258E3D1500F2C585 /* Netflix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Netflix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F1353F0258E3D1500F2C585 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4F1353F2258E3D1500F2C585 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4F1353F4258E3D1500F2C585 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4F1353F7258E3D1500F2C585 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4F1353F9258E3D1600F2C585 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F1353FC258E3D1600F2C585 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F1353FE258E3D1600F2C585 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +44,7 @@
 		4F13540E258E3D1600F2C585 /* NetflixUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetflixUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F135412258E3D1600F2C585 /* NetflixUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixUITests.swift; sourceTree = "<group>"; };
 		4F135414258E3D1600F2C585 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F135437258E3DED00F2C585 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +95,14 @@
 		4F1353EF258E3D1500F2C585 /* Netflix */ = {
 			isa = PBXGroup;
 			children = (
-				4F1353F0258E3D1500F2C585 /* AppDelegate.swift */,
-				4F1353F2258E3D1500F2C585 /* SceneDelegate.swift */,
-				4F1353F4258E3D1500F2C585 /* ViewController.swift */,
-				4F1353F6258E3D1500F2C585 /* Main.storyboard */,
-				4F1353F9258E3D1600F2C585 /* Assets.xcassets */,
-				4F1353FB258E3D1600F2C585 /* LaunchScreen.storyboard */,
-				4F1353FE258E3D1600F2C585 /* Info.plist */,
+				4F135429258E3D3200F2C585 /* App */,
+				4F135430258E3D5F00F2C585 /* Coordinator */,
+				4F13542D258E3D4A00F2C585 /* Models */,
+				4F13542F258E3D5900F2C585 /* Networking */,
+				4F13542E258E3D5300F2C585 /* SupportingFiles */,
+				4F13542C258E3D4400F2C585 /* ViewControllers */,
+				4F13542B258E3D3E00F2C585 /* ViewModels */,
+				4F13542A258E3D3800F2C585 /* Views */,
 			);
 			path = Netflix;
 			sourceTree = "<group>";
@@ -126,6 +123,67 @@
 				4F135414258E3D1600F2C585 /* Info.plist */,
 			);
 			path = NetflixUITests;
+			sourceTree = "<group>";
+		};
+		4F135429258E3D3200F2C585 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4F1353F0258E3D1500F2C585 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		4F13542A258E3D3800F2C585 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4F1353FB258E3D1600F2C585 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4F13542B258E3D3E00F2C585 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4F13542C258E3D4400F2C585 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4F135437258E3DED00F2C585 /* TabBarViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4F13542D258E3D4A00F2C585 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4F13542E258E3D5300F2C585 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				4F1353FE258E3D1600F2C585 /* Info.plist */,
+				4F1353F9258E3D1600F2C585 /* Assets.xcassets */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		4F13542F258E3D5900F2C585 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		4F135430258E3D5F00F2C585 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +291,6 @@
 			files = (
 				4F1353FD258E3D1600F2C585 /* LaunchScreen.storyboard in Resources */,
 				4F1353FA258E3D1600F2C585 /* Assets.xcassets in Resources */,
-				4F1353F8258E3D1500F2C585 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +315,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F1353F5258E3D1500F2C585 /* ViewController.swift in Sources */,
+				4F135438258E3DED00F2C585 /* TabBarViewController.swift in Sources */,
 				4F1353F1258E3D1500F2C585 /* AppDelegate.swift in Sources */,
-				4F1353F3258E3D1500F2C585 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +352,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4F1353F6258E3D1500F2C585 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4F1353F7258E3D1500F2C585 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4F1353FB258E3D1600F2C585 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -438,7 +486,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 75PKQ5LQ7V;
-				INFOPLIST_FILE = Netflix/Info.plist;
+				INFOPLIST_FILE = Netflix/SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,7 +506,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 75PKQ5LQ7V;
-				INFOPLIST_FILE = Netflix/Info.plist;
+				INFOPLIST_FILE = Netflix/SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
