@@ -8,23 +8,40 @@
 import UIKit
 
 class TabBarViewController: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = .blue
-        // Do any additional setup after loading the view.
+        configureTabBar()
+        configureTabs()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func configureTabBar() {
+        tabBar.barTintColor = StyleConstants.TabBar.barTintColor
+        tabBar.tintColor = StyleConstants.TabBar.tintColor
+        tabBar.unselectedItemTintColor = StyleConstants.TabBar.unselectedItemTintColor
+        
     }
-    */
+    
+    func configureTabs() {
+        let homeViewController = HomeViewController()
+        let homeTabBarItem = UITabBarItem(title: StyleConstants.TabBar.TabBarTitle.home.rawValue, image: UIImage(systemName: StyleConstants.TabBar.TabBarImage.home.rawValue), selectedImage: nil)
+        homeViewController.tabBarItem = homeTabBarItem
+        
+        let genresViewController = GenresViewController()
+        let genresTabBarItem = UITabBarItem(title: StyleConstants.TabBar.TabBarTitle.genres.rawValue, image: UIImage(systemName: StyleConstants.TabBar.TabBarImage.genres.rawValue), selectedImage: nil)
+        genresViewController.tabBarItem = genresTabBarItem
+                
+        let searchViewController = SearchViewController()
+        let searchTabBarItem = UITabBarItem(title: StyleConstants.TabBar.TabBarTitle.genres.rawValue, image: UIImage(systemName: StyleConstants.TabBar.TabBarImage.search.rawValue), selectedImage: nil)
+        searchViewController.tabBarItem = searchTabBarItem
+        
+        let profileViewController = ProfileViewController()
+        let profileTabBarItem = UITabBarItem(title: StyleConstants.TabBar.TabBarTitle.genres.rawValue, image: UIImage(systemName: StyleConstants.TabBar.TabBarImage.profile.rawValue), selectedImage: nil)
+        profileViewController.tabBarItem = profileTabBarItem
+        
+        viewControllers = [homeViewController, genresViewController, searchViewController, profileViewController]
+        
+    }
 
 }
