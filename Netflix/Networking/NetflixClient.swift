@@ -37,8 +37,8 @@ class NetflixClient {
         }
     }
     
-    func search(query: String, completion: @escaping (_ searchResults: [SearchResult?]?, _ error: Error?) -> Void) {
-        serviceClient.makeRequest(route: NetflixRouter.search(query: query), decodingType: SearchResultResponse.self) { (response, error) in
+    func search(query: String, genreId: String = "0", completion: @escaping (_ searchResults: [SearchResult]?, _ error: Error?) -> Void) {
+        serviceClient.makeRequest(route: NetflixRouter.search(query: query, genreId: genreId), decodingType: SearchResultResponse.self) { (response, error) in
             
             guard let response = response,
                   let items = response.items,

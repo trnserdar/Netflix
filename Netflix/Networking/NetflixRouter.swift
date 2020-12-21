@@ -13,7 +13,7 @@ enum NetflixRouter: URLRequestConvertible {
     static let baseURLPath = NetworkConstants.baseURL
     
     case genres
-    case search(query: String)
+    case search(query: String, genreId: String = "0") // get:new100
     case titleDetail(id: String)
     case episodeDetail(id: String)
     case newReleases(days: String, country: String = "US")
@@ -39,8 +39,8 @@ enum NetflixRouter: URLRequestConvertible {
         switch self {
         case .genres:
             return ["t": "genres"]
-        case .search(query: let query):
-            return ["t": "ns", "cl": "all", "st": "adv", "ob": "Relevance", "p": "1", "sa": "and", "q": "\(query)-!1900,2020-!0,5-!0,10-!0-!Any-!Any-!Any-!gt100-!%7Bdownloadable%7D"]
+        case .search(query: let query, genreId: let genreId):
+            return ["t": "ns", "cl": "all", "st": "adv", "ob": "Relevance", "p": "1", "sa": "and", "q": "\(query)-!1900,2020-!0,5-!0,10-!\(genreId)-!Any-!Any-!Any-!gt100-!%7Bdownloadable%7D"]
         case .titleDetail(id: let id):
             return ["t": "loadvideo", "q": id]
         case .episodeDetail(id: let id):
