@@ -13,11 +13,11 @@ class GenresViewController: UIViewController {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = StyleConstants.Color.lightGray
+        tableView.separatorStyle = .none
+        tableView.keyboardDismissMode = .onDrag
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.keyboardDismissMode = .onDrag
         return tableView
-
     }()
     
     lazy var searchBar: UISearchBar = {
@@ -26,7 +26,7 @@ class GenresViewController: UIViewController {
         searchBar.backgroundColor = StyleConstants.Color.lightGray
         searchBar.isTranslucent = true
         searchBar.searchBarStyle = .prominent
-        searchBar.placeholder = " Search..."
+        searchBar.placeholder = TextConstants.searchPlaceholder
         searchBar.sizeToFit()
         searchBar.showsCancelButton = true
         searchBar.returnKeyType = .search
@@ -34,11 +34,23 @@ class GenresViewController: UIViewController {
         return searchBar
     }()
 
-    var sources: [String] = ["A", "B", "C"]
+    lazy var netflixClient = NetflixClient()
+    private(set) var genres: [Genre] = [] {
+        didSet {
+            self.filteredViewModels = genres.filter({ !$0.name.contains("All") }).map({ GenreViewModel(genre: $0) })
+        }
+    }
+    private(set) var filteredViewModels: [GenreViewModel] = [] {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = TextConstants.genres
+        getGenres()
     }
     
     override func viewWillLayoutSubviews() {
@@ -67,16 +79,40 @@ class GenresViewController: UIViewController {
         
     }
     
+    func getGenres() {
+        netflixClient.getGenres { (genres, error) in
+            guard let genres = genres,
+                  genres.count > 0 else {
+                return
+            }
+            
+            self.genres = genres
+        }
+        
+    }
+    
+    func getNew100(genreId: String) {
+        
+        netflixClient.search(query: "get:new100", genreId: genreId) { (response, error) in
+                        
+            guard let response = response,
+                  (response.count != 0) else {
+                return
+            }
+            
+            response.forEach { (result) in
+                print("\(result)")
+            }
+        }
+    }
+    
 }
 
 extension GenresViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("GenresViewController searchText: \(searchText)")
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        print("GenresViewController searchBarTextDidEndEditing: \(searchBar.text)")
+        let filteredGenres = genres.filter( { $0.name.lowercased().contains(searchText.lowercased()) && !$0.name.contains("All") })
+        self.filteredViewModels = !filteredGenres.isEmpty ? filteredGenres.map({ GenreViewModel(genre: $0) }) : genres.map({ GenreViewModel(genre: $0) })
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -91,7 +127,7 @@ extension GenresViewController: UISearchBarDelegate {
 extension GenresViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("GenresViewController didSelect: \(indexPath.row)")
+        getNew100(genreId: filteredViewModels[indexPath.row].selectedId)
     }
 }
 
@@ -102,14 +138,15 @@ extension GenresViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sources.count
+        return filteredViewModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.backgroundColor = StyleConstants.Color.lightGray
         cell.selectionStyle = .none
-        cell.textLabel?.text = sources[indexPath.row]
+        cell.textLabel?.font = StyleConstants.Font.body
+        cell.textLabel?.text = filteredViewModels[indexPath.row].nameText
         return cell
     }
 }
