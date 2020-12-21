@@ -14,7 +14,7 @@ class SearchViewController: UIViewController {
 
         view.backgroundColor = .purple
 
-        // Do any additional setup after loading the view.
+        navigationItem.title = TextConstants.search
     }
     
 

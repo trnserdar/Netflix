@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
 
         view.backgroundColor = .blue
         // Do any additional setup after loading the view.
+        navigationItem.title = TextConstants.home
     }
     
 
