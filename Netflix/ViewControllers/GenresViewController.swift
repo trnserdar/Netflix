@@ -100,10 +100,15 @@ class GenresViewController: UIViewController {
                 return
             }
             
-            response.forEach { (result) in
-                print("\(result)")
-            }
+            self.goSearchResultVC(results: response)
         }
+    }
+    
+    func goSearchResultVC(results: [SearchResult]) {
+        
+        let searchResultViewController = SearchResultViewController()
+        searchResultViewController.searchResults = results
+        self.navigationController?.pushViewController(searchResultViewController, animated: true)
     }
     
 }
