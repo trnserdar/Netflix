@@ -35,12 +35,12 @@ class TabBarViewController: UITabBarController {
         let genresNavigationController = MainNavigationController(rootViewController: genresViewController)
         
         let searchViewController = SearchViewController()
-        let searchTabBarItem = UITabBarItem(title: StyleConstants.TabBar.TabBarTitle.genres.rawValue, image: UIImage(systemName: StyleConstants.TabBar.TabBarImage.search.rawValue), selectedImage: nil)
+        let searchTabBarItem = UITabBarItem(title: StyleConstants.TabBar.TabBarTitle.search.rawValue, image: UIImage(systemName: StyleConstants.TabBar.TabBarImage.search.rawValue), selectedImage: nil)
         searchViewController.tabBarItem = searchTabBarItem
         let searchNavigationController = MainNavigationController(rootViewController: searchViewController)
 
         let profileViewController = ProfileViewController()
-        let profileTabBarItem = UITabBarItem(title: StyleConstants.TabBar.TabBarTitle.genres.rawValue, image: UIImage(systemName: StyleConstants.TabBar.TabBarImage.profile.rawValue), selectedImage: nil)
+        let profileTabBarItem = UITabBarItem(title: StyleConstants.TabBar.TabBarTitle.profile.rawValue, image: UIImage(systemName: StyleConstants.TabBar.TabBarImage.profile.rawValue), selectedImage: nil)
         profileViewController.tabBarItem = profileTabBarItem
         let profileNavigationController = MainNavigationController(rootViewController: profileViewController)
         
