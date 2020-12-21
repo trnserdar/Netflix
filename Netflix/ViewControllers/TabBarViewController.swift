@@ -27,20 +27,24 @@ class TabBarViewController: UITabBarController {
         let homeViewController = HomeViewController()
         let homeTabBarItem = UITabBarItem(title: StyleConstants.TabBar.TabBarTitle.home.rawValue, image: UIImage(systemName: StyleConstants.TabBar.TabBarImage.home.rawValue), selectedImage: nil)
         homeViewController.tabBarItem = homeTabBarItem
+        let homeNavigationController = MainNavigationController(rootViewController: homeViewController)
         
         let genresViewController = GenresViewController()
         let genresTabBarItem = UITabBarItem(title: StyleConstants.TabBar.TabBarTitle.genres.rawValue, image: UIImage(systemName: StyleConstants.TabBar.TabBarImage.genres.rawValue), selectedImage: nil)
         genresViewController.tabBarItem = genresTabBarItem
-                
+        let genresNavigationController = MainNavigationController(rootViewController: genresViewController)
+        
         let searchViewController = SearchViewController()
         let searchTabBarItem = UITabBarItem(title: StyleConstants.TabBar.TabBarTitle.genres.rawValue, image: UIImage(systemName: StyleConstants.TabBar.TabBarImage.search.rawValue), selectedImage: nil)
         searchViewController.tabBarItem = searchTabBarItem
-        
+        let searchNavigationController = MainNavigationController(rootViewController: searchViewController)
+
         let profileViewController = ProfileViewController()
         let profileTabBarItem = UITabBarItem(title: StyleConstants.TabBar.TabBarTitle.genres.rawValue, image: UIImage(systemName: StyleConstants.TabBar.TabBarImage.profile.rawValue), selectedImage: nil)
         profileViewController.tabBarItem = profileTabBarItem
+        let profileNavigationController = MainNavigationController(rootViewController: profileViewController)
         
-        viewControllers = [homeViewController, genresViewController, searchViewController, profileViewController]
+        viewControllers = [homeNavigationController, genresNavigationController, searchNavigationController, profileNavigationController]
         
     }
 
