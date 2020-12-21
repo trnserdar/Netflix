@@ -7,6 +7,7 @@ target 'Netflix' do
 
   # Pods for Netflix
 pod 'Alamofire', '~> 5.2'
+pod 'Kingfisher', '~> 5.0'
 
   target 'NetflixTests' do
     inherit! :search_paths
