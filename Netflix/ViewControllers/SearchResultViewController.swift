@@ -9,23 +9,8 @@ import UIKit
 
 class SearchResultViewController: UIViewController {
 
-    lazy var collectionView: UICollectionView = {
-        
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
-        layout.minimumLineSpacing = 16.0
-        
-        let collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = StyleConstants.Color.lightGray
-        collectionView.keyboardDismissMode = .onDrag
-        collectionView.register(SearchResultCollectionViewCell.self, forCellWithReuseIdentifier: SearchResultCollectionViewCell.identifier)
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        return collectionView
-    }()
-    
-    
+    var searchResultView = SearchResultView()
+    var genre: Genre?
     var searchResults: [SearchResult] = [] {
         didSet {
             searchResultViewModels = searchResults.map({ SearchResultViewModel(searchResult: $0) })
@@ -33,28 +18,20 @@ class SearchResultViewController: UIViewController {
     }
     var searchResultViewModels: [SearchResultViewModel] = [] {
         didSet {
-            collectionView.reloadData()
+            searchResultView.collectionView.reloadData()
         }
+    }
+    
+    override func loadView() {
+        view = searchResultView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-    }
-    
-    override func viewWillLayoutSubviews() {
-        configureCollectionView()
-    }
-    
-    func configureCollectionView() {
-        view.addSubview(collectionView)
-        NSLayoutConstraint.activate([
-            collectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            collectionView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
-        ])
-        
+        searchResultView.collectionView.delegate = self
+        searchResultView.collectionView.dataSource = self
+        navigationItem.title = genre?.name ?? ""
     }
     
 }
