@@ -15,8 +15,7 @@ import UIKit
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let rootViewController = TabBarViewController()
-        self.window?.rootViewController = rootViewController
+        self.window?.rootViewController = TabBarViewController()
         self.window?.makeKeyAndVisible()
         
         return true
