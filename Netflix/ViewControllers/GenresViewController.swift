@@ -9,31 +9,7 @@ import UIKit
 
 class GenresViewController: UIViewController {
     
-    lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = StyleConstants.Color.lightGray
-        tableView.separatorStyle = .none
-        tableView.keyboardDismissMode = .onDrag
-        tableView.delegate = self
-        tableView.dataSource = self
-        return tableView
-    }()
-    
-    lazy var searchBar: UISearchBar = {
-        let searchBar = UISearchBar()
-        searchBar.translatesAutoresizingMaskIntoConstraints = false
-        searchBar.backgroundColor = StyleConstants.Color.lightGray
-        searchBar.isTranslucent = true
-        searchBar.searchBarStyle = .prominent
-        searchBar.placeholder = TextConstants.searchPlaceholder
-        searchBar.sizeToFit()
-        searchBar.showsCancelButton = true
-        searchBar.returnKeyType = .search
-        searchBar.delegate = self
-        return searchBar
-    }()
-
+    let genresView = GenresView()
     lazy var netflixClient = NetflixClient()
     private(set) var genres: [Genre] = [] {
         didSet {
@@ -42,40 +18,28 @@ class GenresViewController: UIViewController {
     }
     private(set) var filteredViewModels: [GenreViewModel] = [] {
         didSet {
-            self.tableView.reloadData()
+            self.genresView.tableView.reloadData()
         }
+    }
+    
+    weak var coordinator: GenresCoordinator?
+    
+    override func loadView() {
+        view = genresView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationItem.title = TextConstants.genres
+        configureDelegates()
         getGenres()
-    }
-    
-    override func viewWillLayoutSubviews() {
-        configureSearchBar()
-        configureTableView()
-    }
-    
-    func configureSearchBar() {
-        view.addSubview(searchBar)
-        NSLayoutConstraint.activate([
-            searchBar.leftAnchor.constraint(equalTo: view.leftAnchor),
-            searchBar.rightAnchor.constraint(equalTo: view.rightAnchor),
-            searchBar.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor)
-        ])
         
     }
     
-    func configureTableView() {
-        view.addSubview(tableView)
-        NSLayoutConstraint.activate([
-            tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-        ])
+    func configureDelegates() {
+        genresView.tableView.delegate = self
+        genresView.tableView.dataSource = self
+        genresView.searchBar.delegate = self
         
     }
     
@@ -91,24 +55,17 @@ class GenresViewController: UIViewController {
         
     }
     
-    func getNew100(genreId: String) {
-        
-        netflixClient.search(query: "get:new100", genreId: genreId) { (response, error) in
+    func getNew100(genre: Genre) {
+        netflixClient.search(query: "get:new100", genreId: "\(genre.ids?.first ?? 0)") { (response, error) in
                         
             guard let response = response,
                   (response.count != 0) else {
                 return
             }
             
-            self.goSearchResultVC(results: response)
+            self.coordinator?.showResult(selectedGenre: genre, results: response)
         }
-    }
-    
-    func goSearchResultVC(results: [SearchResult]) {
         
-        let searchResultViewController = SearchResultViewController()
-        searchResultViewController.searchResults = results
-        self.navigationController?.pushViewController(searchResultViewController, animated: true)
     }
     
 }
@@ -132,7 +89,7 @@ extension GenresViewController: UISearchBarDelegate {
 extension GenresViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        getNew100(genreId: filteredViewModels[indexPath.row].selectedId)
+        getNew100(genre: filteredViewModels[indexPath.row].genre)
     }
 }
 
