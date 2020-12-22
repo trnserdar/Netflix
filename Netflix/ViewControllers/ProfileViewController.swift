@@ -9,6 +9,8 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    weak var coordinator: ProfileCoordinator?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
