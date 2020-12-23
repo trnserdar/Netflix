@@ -45,6 +45,7 @@
 		4F9C340C259215F100141C67 /* GenresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C340B259215F100141C67 /* GenresView.swift */; };
 		4F9C34122592179300141C67 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C34112592179300141C67 /* SearchResultView.swift */; };
 		4F9C341A2592293400141C67 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C34192592293400141C67 /* SearchView.swift */; };
+		4F9C34B12593565B00141C67 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C34B02593565B00141C67 /* HomeView.swift */; };
 		B7FB2A9B95C28BB4BC42F0C9 /* Pods_NetflixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7813E6D14EDF5A935930396B /* Pods_NetflixTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +111,7 @@
 		4F9C340B259215F100141C67 /* GenresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresView.swift; sourceTree = "<group>"; };
 		4F9C34112592179300141C67 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 		4F9C34192592293400141C67 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		4F9C34B02593565B00141C67 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		69F07A74B4A63FEEAE096974 /* Pods_Netflix_NetflixUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Netflix_NetflixUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		762D5866AF19BE304F2B44CC /* Pods-NetflixTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetflixTests.debug.xcconfig"; path = "Target Support Files/Pods-NetflixTests/Pods-NetflixTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7813E6D14EDF5A935930396B /* Pods_NetflixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetflixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -228,6 +230,7 @@
 			children = (
 				4F9C33D12590E76F00141C67 /* UICollectionViewCells */,
 				4F1353FB258E3D1600F2C585 /* LaunchScreen.storyboard */,
+				4F9C34B02593565B00141C67 /* HomeView.swift */,
 				4F9C340B259215F100141C67 /* GenresView.swift */,
 				4F9C34112592179300141C67 /* SearchResultView.swift */,
 				4F9C34192592293400141C67 /* SearchView.swift */,
@@ -620,6 +623,7 @@
 				4F135497258FA6AF00F2C585 /* ProfileViewController.swift in Sources */,
 				4F9C34122592179300141C67 /* SearchResultView.swift in Sources */,
 				4F9C33EF2592078300141C67 /* HomeCoordinator.swift in Sources */,
+				4F9C34B12593565B00141C67 /* HomeView.swift in Sources */,
 				4F13549C258FA78C00F2C585 /* StyleConstants.swift in Sources */,
 				4F9C341A2592293400141C67 /* SearchView.swift in Sources */,
 				4F13545C258E63B700F2C585 /* Genre.swift in Sources */,

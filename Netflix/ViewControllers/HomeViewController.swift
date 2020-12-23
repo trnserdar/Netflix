@@ -9,12 +9,16 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    let homeView = HomeView()
     weak var coordinator: HomeCoordinator?
+    
+    override func loadView() {
+        view = homeView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .blue
-        // Do any additional setup after loading the view.
+        
         navigationItem.title = TextConstants.home
     }
     
