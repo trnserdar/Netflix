@@ -34,6 +34,12 @@ class ResultDetailView: UIView {
         return titleDetailView
     }()
     
+    lazy var summaryView: SummaryView = {
+        let summaryView = SummaryView(viewModel: viewModel!)
+        summaryView.translatesAutoresizingMaskIntoConstraints = false
+        return summaryView
+    }()
+    
     var viewModel: ResultDetailViewModel?
     
     init(viewModel: ResultDetailViewModel? = nil) {
@@ -54,6 +60,7 @@ class ResultDetailView: UIView {
         
         if viewModel != nil {
             configureTitleDetailView()
+            configureSummaryView()
         }
     }
     
@@ -84,7 +91,15 @@ class ResultDetailView: UIView {
         stackView.addArrangedSubview(titleDetailView)
         NSLayoutConstraint.activate([
             titleDetailView.widthAnchor.constraint(equalTo: stackView.widthAnchor),
-            titleDetailView.heightAnchor.constraint(greaterThanOrEqualToConstant: 100.0)
+            titleDetailView.heightAnchor.constraint(greaterThanOrEqualToConstant: 50.0)
+        ])
+    }
+    
+    func configureSummaryView() {
+        stackView.addArrangedSubview(summaryView)
+        NSLayoutConstraint.activate([
+            summaryView.widthAnchor.constraint(equalTo: stackView.widthAnchor),
+            summaryView.heightAnchor.constraint(greaterThanOrEqualToConstant: 100.0)
         ])
     }
 }

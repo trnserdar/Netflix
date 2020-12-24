@@ -94,7 +94,7 @@ class TitleDetailView: UIView {
             titleLabel.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor, constant: 16),
             titleLabel.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor, constant: -16),
             titleLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
-            titleLabel.bottomAnchor.constraint(lessThanOrEqualTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -16.0),
+            titleLabel.bottomAnchor.constraint(lessThanOrEqualTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -8.0),
             titleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 30.0)
         ])
         
@@ -107,7 +107,7 @@ class TitleDetailView: UIView {
             stackView.rightAnchor.constraint(lessThanOrEqualTo: self.titleLabel.rightAnchor),
             stackView.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 8),
             stackView.heightAnchor.constraint(equalToConstant: 30.0),
-            stackView.bottomAnchor.constraint(lessThanOrEqualTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -16.0),
+            stackView.bottomAnchor.constraint(lessThanOrEqualTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -8.0),
         ])
     }
     
