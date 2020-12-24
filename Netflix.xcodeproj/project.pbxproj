@@ -31,6 +31,9 @@
 		4F13549C258FA78C00F2C585 /* StyleConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13549B258FA78C00F2C585 /* StyleConstants.swift */; };
 		4F1354A2258FAE9F00F2C585 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1354A1258FAE9F00F2C585 /* UIColor+Hex.swift */; };
 		4F41B3C72590E4C500429659 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F41B3C62590E4C500429659 /* SearchResultViewController.swift */; };
+		4F46A1182594C029001CAB8D /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F46A1172594C029001CAB8D /* CategoryView.swift */; };
+		4F46A1202594CD18001CAB8D /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F46A11F2594CD18001CAB8D /* CategoryViewModel.swift */; };
+		4F46A1252594D13D001CAB8D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F46A1242594D13D001CAB8D /* HomeViewModel.swift */; };
 		4F97588C25906C7B00E0300C /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F97588B25906C7B00E0300C /* MainNavigationController.swift */; };
 		4F975894259087D500E0300C /* TextConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F975893259087D500E0300C /* TextConstants.swift */; };
 		4F97589925908DF800E0300C /* GenreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F97589825908DF800E0300C /* GenreViewModel.swift */; };
@@ -97,6 +100,9 @@
 		4F13549B258FA78C00F2C585 /* StyleConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleConstants.swift; sourceTree = "<group>"; };
 		4F1354A1258FAE9F00F2C585 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		4F41B3C62590E4C500429659 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		4F46A1172594C029001CAB8D /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryView.swift; path = Netflix/Views/CategoryView.swift; sourceTree = SOURCE_ROOT; };
+		4F46A11F2594CD18001CAB8D /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		4F46A1242594D13D001CAB8D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		4F97588B25906C7B00E0300C /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		4F975893259087D500E0300C /* TextConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextConstants.swift; sourceTree = "<group>"; };
 		4F97589825908DF800E0300C /* GenreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreViewModel.swift; sourceTree = "<group>"; };
@@ -234,6 +240,7 @@
 				4F9C340B259215F100141C67 /* GenresView.swift */,
 				4F9C34112592179300141C67 /* SearchResultView.swift */,
 				4F9C34192592293400141C67 /* SearchView.swift */,
+				4F46A1172594C029001CAB8D /* CategoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -243,6 +250,8 @@
 			children = (
 				4F97589825908DF800E0300C /* GenreViewModel.swift */,
 				4F9C33D72590F0A700141C67 /* SearchResultViewModel.swift */,
+				4F46A11F2594CD18001CAB8D /* CategoryViewModel.swift */,
+				4F46A1242594D13D001CAB8D /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -603,6 +612,7 @@
 				4F9C340C259215F100141C67 /* GenresView.swift in Sources */,
 				4F135469258E8E4A00F2C585 /* SearchResult.swift in Sources */,
 				4F135473258EAE5E00F2C585 /* Episode.swift in Sources */,
+				4F46A1202594CD18001CAB8D /* CategoryViewModel.swift in Sources */,
 				4F1354A2258FAE9F00F2C585 /* UIColor+Hex.swift in Sources */,
 				4F13544C258E5C2E00F2C585 /* NetflixRouter.swift in Sources */,
 				4F9C33FE259207A800141C67 /* ProfileCoordinator.swift in Sources */,
@@ -614,6 +624,8 @@
 				4F9C33D82590F0A700141C67 /* SearchResultViewModel.swift in Sources */,
 				4F975894259087D500E0300C /* TextConstants.swift in Sources */,
 				4F9C340725920B6500141C67 /* SearchResulting.swift in Sources */,
+				4F46A1252594D13D001CAB8D /* HomeViewModel.swift in Sources */,
+				4F46A1182594C029001CAB8D /* CategoryView.swift in Sources */,
 				4F97589925908DF800E0300C /* GenreViewModel.swift in Sources */,
 				4F135451258E5C3900F2C585 /* NetflixClient.swift in Sources */,
 				4F13548D258FA68000F2C585 /* GenresViewController.swift in Sources */,

@@ -12,7 +12,7 @@ struct HomeViewModel {
     var newRelease: CategoryViewModel
     var action: CategoryViewModel
 
-    init(newRelease: CategoryViewModel = CategoryViewModel(categoryName: TextConstants.home, searchResults: [], sizeOption: .big), action: CategoryViewModel = CategoryViewModel(categoryName: TextConstants.crimeActionAdventure, searchResults: [], sizeOption: .small)) {
+    init(newRelease: CategoryViewModel = CategoryViewModel(categoryName: TextConstants.newReleases, searchResults: [], sizeOption: .big), action: CategoryViewModel = CategoryViewModel(categoryName: TextConstants.crimeActionAdventure, searchResults: [], sizeOption: .small)) {
         self.newRelease = newRelease
         self.action = action
     }
