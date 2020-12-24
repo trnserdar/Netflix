@@ -15,4 +15,9 @@ struct TextConstants {
     static let profile = "Profile"
     
     static let searchPlaceholder = "Search..."
+    
+    static let showAll = "Show All"
+    static let newReleases = "New Releases"
+    static let action = "Action"
+    static let crimeActionAdventure = "Crime, Action, Adventure"
 }
