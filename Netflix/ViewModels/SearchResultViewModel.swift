@@ -11,22 +11,43 @@ import UIKit
 struct SearchResultViewModel {
     
     var searchResult: SearchResult
+    var sizeOption: SizeOption
     
-    init(searchResult: SearchResult) {
+    init(searchResult: SearchResult, sizeOption: SizeOption = .small) {
         self.searchResult = searchResult
+        self.sizeOption = sizeOption
     }
     
     var itemWidth: CGFloat {
-        return (UIScreen.main.bounds.width - 48) / 2
+        
+        if sizeOption == .small {
+            return (UIScreen.main.bounds.width - 48) / 2
+        }
+        
+        return 284
     }
     
     var itemHeight: CGFloat {
-        return (itemWidth * 233) / 166
+        
+        if sizeOption == .small {
+            return (itemWidth * 233) / 166
+        }
+        
+        return 398
     }
     
     var imageURL: URL? {
         
-        guard let urlString = searchResult.image else {
+        if sizeOption == .small {
+         
+            guard let urlString = searchResult.image else {
+                return nil
+            }
+            
+            return URL(string: urlString)
+        }
+
+        guard let urlString = searchResult.largeimage else {
             return nil
         }
         
