@@ -25,9 +25,28 @@ class HomeView: UIView {
         stackView.alignment = .fill
         stackView.distribution = .fill
         stackView.spacing = 0.0
-        stackView.backgroundColor = .red
         return stackView
     }()
+    
+    lazy var newReleaseView : CategoryView = {
+        let categoryView = CategoryView(viewModel: viewModel.newRelease)
+        categoryView.translatesAutoresizingMaskIntoConstraints = false
+        return categoryView
+    }()
+    
+    lazy var actionView : CategoryView = {
+        let categoryView = CategoryView(viewModel: viewModel.action)
+        categoryView.translatesAutoresizingMaskIntoConstraints = false
+        return categoryView
+    }()
+    
+    var viewModel: HomeViewModel = HomeViewModel() {
+        didSet {
+            
+            newReleaseView.viewModel = viewModel.newRelease
+            actionView.viewModel = viewModel.action
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,6 +61,8 @@ class HomeView: UIView {
     func configureSubviews() {
         configureScrollView()
         configureStackView()
+        configureNewReleaseView()
+        configureActionView()
     }
     
     func configureScrollView() {
@@ -67,4 +88,22 @@ class HomeView: UIView {
         ])
     }
     
+    func configureNewReleaseView() {
+        stackView.addArrangedSubview(newReleaseView)
+        NSLayoutConstraint.activate([
+            newReleaseView.leftAnchor.constraint(equalTo: stackView.leftAnchor),
+            newReleaseView.rightAnchor.constraint(equalTo: stackView.rightAnchor),
+            newReleaseView.topAnchor.constraint(equalTo: stackView.topAnchor),
+            newReleaseView.widthAnchor.constraint(equalTo: stackView.widthAnchor),
+            newReleaseView.heightAnchor.constraint(equalToConstant: 482)
+        ])
+    }
+    
+    func configureActionView() {
+        stackView.addArrangedSubview(actionView)
+        NSLayoutConstraint.activate([
+            actionView.widthAnchor.constraint(equalTo: stackView.widthAnchor),
+            actionView.heightAnchor.constraint(equalToConstant: 317)
+        ])
+    }
 }
