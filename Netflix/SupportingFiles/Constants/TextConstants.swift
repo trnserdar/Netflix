@@ -21,4 +21,5 @@ struct TextConstants {
     static let action = "Action"
     static let crimeActionAdventure = "Crime, Action, Adventure"
     static let allCast = "All Cast"
+    static let seasons = "Seasons"
 }
