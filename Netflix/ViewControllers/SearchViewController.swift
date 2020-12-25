@@ -11,12 +11,6 @@ class SearchViewController: UIViewController {
 
     let searchView = SearchView()
     lazy var netflixClient = NetflixClient()
-    var searchResultViewModels: [SearchResultViewModel] = [] {
-        didSet {
-            searchView.searchResultViewModels = searchResultViewModels
-        }
-    }
-    
     weak var coordinator: SearchCoordinator?
 
     override func loadView() {
@@ -40,7 +34,6 @@ class SearchViewController: UIViewController {
         
     }
     
-    
     func search(query: String) {
         netflixClient.search(query: query) { (response, error) in
                         
@@ -49,7 +42,7 @@ class SearchViewController: UIViewController {
                 return
             }
 
-            self.searchResultViewModels = response.map({ SearchResultViewModel(searchResult: $0) })
+            self.searchView.searchResultViewModels = response.map({ SearchResultViewModel(searchResult: $0) })
         }
         
     }
