@@ -60,4 +60,11 @@ struct ResultDetailViewModel {
         return titleDetail.nfinfo?.synopsis ?? ""
     }
     
+    var genreViewModels: [GenreViewModel] {
+        return titleDetail.genres.map({ GenreViewModel(genre: $0) }) 
+    }
+    
+    var allCastIsEnabled: Bool {
+        return !(titleDetail.people?.isEmpty ?? true) ? true : false
+    }
 }

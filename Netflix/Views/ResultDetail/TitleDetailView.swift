@@ -14,7 +14,7 @@ class TitleDetailView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = StyleConstants.Font.largeTitle
         label.textColor = StyleConstants.Color.darkGray
-        label.text = viewModel.titleText
+        label.text = viewModel?.titleText ?? ""
         label.numberOfLines = 0
         return label
     }()
@@ -35,7 +35,7 @@ class TitleDetailView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = StyleConstants.Font.body
         label.textColor = StyleConstants.Color.darkGray
-        label.text = viewModel.releaseDateText
+        label.text = viewModel?.releaseDateText ?? ""
         return label
     }()
     
@@ -44,7 +44,7 @@ class TitleDetailView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = StyleConstants.Font.body
         label.textColor = StyleConstants.Color.darkGray
-        label.text = viewModel.countryText
+        label.text = viewModel?.countryText ?? ""
         return label
     }()
     
@@ -53,13 +53,21 @@ class TitleDetailView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = StyleConstants.Font.body
         label.textColor = StyleConstants.Color.darkGray
-        label.text = viewModel.runtimeText
+        label.text = viewModel?.runtimeText ?? ""
         return label
     }()
     
-    var viewModel: ResultDetailViewModel
+    var viewModel: ResultDetailViewModel? {
+        didSet {
+            configureSubviews()
+            
+            if viewModel != nil {
+                configureView(viewModel: viewModel!)
+            }
+        }
+    }
     
-    init(viewModel: ResultDetailViewModel) {
+    init(viewModel: ResultDetailViewModel? = nil) {
         self.viewModel = viewModel
         super.init(frame: .zero)
         
@@ -75,20 +83,24 @@ class TitleDetailView: UIView {
         configureTitleLabel()
         configureStackView()
         
-        if viewModel.releaseDateIsEnabled {
+        if viewModel != nil &&
+            viewModel!.releaseDateIsEnabled {
             configureYearLabel()
         }
         
-        if viewModel.countryIsEnabled {
+        if viewModel != nil &&
+            viewModel!.countryIsEnabled {
             configureCountryLabel()
         }
         
-        if viewModel.runtimeIsEnabled {
+        if viewModel != nil &&
+            viewModel!.runtimeIsEnabled {
             configureRuntimeLabel()
         }
     }
     
     func configureTitleLabel() {
+        guard !self.subviews.contains(titleLabel) else { return }
         self.addSubview(titleLabel)
         NSLayoutConstraint.activate([
             titleLabel.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor, constant: 16),
@@ -101,6 +113,7 @@ class TitleDetailView: UIView {
     }
     
     func configureStackView() {
+        guard !self.subviews.contains(stackView) else { return }
         self.addSubview(stackView)
         NSLayoutConstraint.activate([
             stackView.leftAnchor.constraint(equalTo: self.titleLabel.leftAnchor),
@@ -112,6 +125,7 @@ class TitleDetailView: UIView {
     }
     
     func configureYearLabel() {
+        guard !stackView.subviews.contains(yearLabel) else { return }
         stackView.addArrangedSubview(yearLabel)
         NSLayoutConstraint.activate([
             yearLabel.widthAnchor.constraint(equalToConstant: 35.0)
@@ -120,6 +134,7 @@ class TitleDetailView: UIView {
     }
     
     func configureCountryLabel() {
+        guard !stackView.subviews.contains(countryLabel) else { return }
         stackView.addArrangedSubview(countryLabel)
         NSLayoutConstraint.activate([
             countryLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 30.0)
@@ -128,6 +143,7 @@ class TitleDetailView: UIView {
     }
     
     func configureRuntimeLabel() {
+        guard !stackView.subviews.contains(runtimeLabel) else { return }
         stackView.addArrangedSubview(runtimeLabel)
         NSLayoutConstraint.activate([
             runtimeLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 30.0)
@@ -135,4 +151,10 @@ class TitleDetailView: UIView {
 
     }
     
+    func configureView(viewModel: ResultDetailViewModel) {
+        titleLabel.text = viewModel.titleText
+        yearLabel.text = viewModel.releaseDateText
+        countryLabel.text = viewModel.countryText
+        runtimeLabel.text = viewModel.runtimeText
+    }
 }

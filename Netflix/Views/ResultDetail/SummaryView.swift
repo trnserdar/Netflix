@@ -33,7 +33,7 @@ class SummaryView: UIView {
         label.font = StyleConstants.Font.body!
         label.textColor = StyleConstants.Color.darkGray
         label.textAlignment = .center
-        label.text = viewModel.ratingText
+        label.text = viewModel?.ratingText ?? ""
         return label
     }()
     
@@ -42,19 +42,33 @@ class SummaryView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = StyleConstants.Font.body
         label.textColor = StyleConstants.Color.darkGray
-        label.text = viewModel.summaryText
+        label.text = viewModel?.summaryText ?? ""
         label.numberOfLines = 0
         return label
     }()
     
-    var viewModel: ResultDetailViewModel
+    var viewModel: ResultDetailViewModel? {
+        didSet {
+            
+            guard let viewModel = viewModel else {
+                return
+            }
+            
+            configureSubviews()
+            configureView(viewModel: viewModel)
+        }
+    }
     
-    init(viewModel: ResultDetailViewModel) {
+    init(viewModel: ResultDetailViewModel? = nil) {
         self.viewModel = viewModel
         super.init(frame: .zero)
         
         self.backgroundColor = StyleConstants.Color.lightGray
         configureSubviews()
+        
+        if viewModel != nil {
+            configureView(viewModel: viewModel!)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -63,14 +77,15 @@ class SummaryView: UIView {
     
     func configureSubviews() {
         configureImageView()
-        if viewModel.ratingIsEnabled {
+        if viewModel != nil,
+           viewModel!.ratingIsEnabled {
             configureRatingView()
         }
         configureSummaryLabel()
     }
     
     func configureImageView() {
-        imageView.kf.setImage(with: viewModel.imageURL)
+        guard !self.subviews.contains(imageView) else { return }
         self.addSubview(imageView)
         NSLayoutConstraint.activate([
             imageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16.0),
@@ -83,7 +98,7 @@ class SummaryView: UIView {
     }
     
     func configureRatingView() {
-        
+        guard !self.subviews.contains(ratingView) else { return }
         self.addSubview(ratingView)
         NSLayoutConstraint.activate([
             ratingView.rightAnchor.constraint(equalTo: self.imageView.rightAnchor, constant: -8),
@@ -103,6 +118,7 @@ class SummaryView: UIView {
     }
     
     func configureSummaryLabel() {
+        guard !self.subviews.contains(summaryLabel) else { return }
         self.addSubview(summaryLabel)
         NSLayoutConstraint.activate([
             summaryLabel.leftAnchor.constraint(equalTo: imageView.rightAnchor, constant: 12),
@@ -111,6 +127,13 @@ class SummaryView: UIView {
             summaryLabel.bottomAnchor.constraint(lessThanOrEqualTo: imageView.bottomAnchor)
         ])
         
+    }
+    
+    func configureView(viewModel: ResultDetailViewModel) {
+        imageView.kf.setImage(with: viewModel.imageURL)
+        ratingLabel.text = viewModel.ratingText
+        summaryLabel.text = viewModel.summaryText
+
     }
 
 }

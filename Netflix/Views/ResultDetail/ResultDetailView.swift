@@ -29,18 +29,40 @@ class ResultDetailView: UIView {
     }()
     
     lazy var titleDetailView: TitleDetailView = {
-        let titleDetailView = TitleDetailView(viewModel: viewModel!)
+        let titleDetailView = TitleDetailView()
         titleDetailView.translatesAutoresizingMaskIntoConstraints = false
         return titleDetailView
     }()
     
     lazy var summaryView: SummaryView = {
-        let summaryView = SummaryView(viewModel: viewModel!)
+        let summaryView = SummaryView()
         summaryView.translatesAutoresizingMaskIntoConstraints = false
         return summaryView
     }()
     
-    var viewModel: ResultDetailViewModel?
+    lazy var resultCategoryView: ResultCategoryView = {
+        let resultCategoryView = ResultCategoryView()
+        resultCategoryView.translatesAutoresizingMaskIntoConstraints = false
+        return resultCategoryView
+    }()
+    
+    lazy var resultAllCastView: ResultAllCastView = {
+        let resultAllCastView = ResultAllCastView()
+        resultAllCastView.translatesAutoresizingMaskIntoConstraints = false
+        return resultAllCastView
+    }()
+    
+    var viewModel: ResultDetailViewModel? {
+        didSet {
+            configureSubviews()
+            
+            guard let viewModel = viewModel else {
+                return
+            }
+            
+            self.configureView(viewModel: viewModel)
+        }
+    }
     
     init(viewModel: ResultDetailViewModel? = nil) {
         self.viewModel = viewModel
@@ -61,10 +83,17 @@ class ResultDetailView: UIView {
         if viewModel != nil {
             configureTitleDetailView()
             configureSummaryView()
+            configureResultCategoryView()
+        }
+        
+        if viewModel != nil &&
+            viewModel!.allCastIsEnabled {
+            configureResultAllCastView()
         }
     }
     
     func configureScrollView() {
+        guard !self.subviews.contains(scrollView) else { return }
         self.addSubview(scrollView)
         NSLayoutConstraint.activate([
             scrollView.leftAnchor.constraint(equalTo: self.leftAnchor),
@@ -77,6 +106,7 @@ class ResultDetailView: UIView {
     }
     
     func configureStackView() {
+        guard !scrollView.subviews.contains(stackView) else { return }
         scrollView.addSubview(stackView)
         NSLayoutConstraint.activate([
             stackView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
@@ -85,21 +115,53 @@ class ResultDetailView: UIView {
             stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
         ])
+        
     }
     
     func configureTitleDetailView() {
+        guard !stackView.subviews.contains(titleDetailView) else { return }
         stackView.addArrangedSubview(titleDetailView)
         NSLayoutConstraint.activate([
             titleDetailView.widthAnchor.constraint(equalTo: stackView.widthAnchor),
             titleDetailView.heightAnchor.constraint(greaterThanOrEqualToConstant: 50.0)
         ])
+        
     }
     
     func configureSummaryView() {
+        guard !stackView.subviews.contains(summaryView) else { return }
         stackView.addArrangedSubview(summaryView)
         NSLayoutConstraint.activate([
             summaryView.widthAnchor.constraint(equalTo: stackView.widthAnchor),
             summaryView.heightAnchor.constraint(greaterThanOrEqualToConstant: 100.0)
         ])
+        
+    }
+    
+    func configureResultCategoryView() {
+        guard !stackView.subviews.contains(resultCategoryView) else { return }
+        stackView.addArrangedSubview(resultCategoryView)
+        NSLayoutConstraint.activate([
+            resultCategoryView.widthAnchor.constraint(equalTo: stackView.widthAnchor),
+            resultCategoryView.heightAnchor.constraint(greaterThanOrEqualToConstant: 30.0)
+        ])
+        
+    }
+    
+    func configureResultAllCastView() {
+        guard !stackView.subviews.contains(resultAllCastView) else { return }
+        stackView.addArrangedSubview(resultAllCastView)
+        NSLayoutConstraint.activate([
+            resultAllCastView.widthAnchor.constraint(equalTo: stackView.widthAnchor),
+            resultAllCastView.heightAnchor.constraint(greaterThanOrEqualToConstant: 30.0)
+        ])
+        
+    }
+    
+    func configureView(viewModel: ResultDetailViewModel) {
+        titleDetailView.viewModel = viewModel
+        summaryView.viewModel = viewModel
+        resultCategoryView.viewModels = viewModel.genreViewModels
+//        resultAllCastView.viewModel = viewModel
     }
 }
