@@ -67,4 +67,8 @@ struct ResultDetailViewModel {
     var allCastIsEnabled: Bool {
         return !(titleDetail.people?.isEmpty ?? true) ? true : false
     }
+    
+    var episodesIsEnabled: Bool {
+        return titleDetail.nfinfo?.type == "series" ? true : false
+    }
 }
