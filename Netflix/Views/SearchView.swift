@@ -20,6 +20,7 @@ class SearchView: UIView {
         searchBar.sizeToFit()
         searchBar.showsCancelButton = true
         searchBar.returnKeyType = .search
+        searchBar.delegate = self
         return searchBar
     }()
     
@@ -34,8 +35,19 @@ class SearchView: UIView {
         collectionView.backgroundColor = StyleConstants.Color.lightGray
         collectionView.keyboardDismissMode = .onDrag
         collectionView.register(SearchResultCollectionViewCell.self, forCellWithReuseIdentifier: SearchResultCollectionViewCell.identifier)
+        collectionView.delegate = self
+        collectionView.dataSource = self
         return collectionView
     }()
+    
+    var searchResultViewModels: [SearchResultViewModel] = [] {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
+    
+    var searchButtonTapped: ((String) -> Void)?
+    var resultSelected: ((SearchResultViewModel) -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -71,5 +83,55 @@ class SearchView: UIView {
             collectionView.bottomAnchor.constraint(equalTo: self.layoutMarginsGuide.bottomAnchor)
         ])
         
+    }
+}
+
+extension SearchView: UISearchBarDelegate {
+        
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+        
+        guard let query = searchBar.text,
+              query != "" else {
+            return
+        }
+        
+        searchButtonTapped?(query)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+}
+
+extension SearchView: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        resultSelected?(searchResultViewModels[indexPath.row])
+    }
+}
+
+extension SearchView: UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return searchResultViewModels.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchResultCollectionViewCell.identifier, for: indexPath) as! SearchResultCollectionViewCell
+        cell.configureCell(viewModel: searchResultViewModels[indexPath.row])
+        return cell
+    }
+
+}
+
+extension SearchView: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: searchResultViewModels[indexPath.row].itemWidth, height: searchResultViewModels[indexPath.row].itemHeight)
     }
 }
