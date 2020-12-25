@@ -78,7 +78,7 @@ extension SearchViewController: UISearchBarDelegate {
 extension SearchViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("SearchViewController selected: \(searchResults[indexPath.row])")
+        coordinator?.showResultDetail(result: searchResults[indexPath.row])
     }
 }
 

@@ -31,9 +31,20 @@ extension GenresCoordinator: SearchResulting {
     
     func showResult(selectedGenre: Genre?, results: [SearchResult]) {
         let searchResultViewController = SearchResultViewController()
+        searchResultViewController.coordinator = self
         searchResultViewController.genre = selectedGenre
         searchResultViewController.searchResults = results
         navigationController.pushViewController(searchResultViewController, animated: true)
         
+    }
+}
+
+extension GenresCoordinator: ResultDetailing {
+    
+    func showResultDetail(result: SearchResult) {
+        let resultDetailViewController = ResultDetailViewController()
+        resultDetailViewController.coordinator = self
+        resultDetailViewController.searchResult = result
+        navigationController.pushViewController(resultDetailViewController, animated: true)
     }
 }

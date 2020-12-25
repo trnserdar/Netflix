@@ -16,14 +16,19 @@ class SearchResultViewController: UIViewController {
             searchResultView.searchResultViewModels = searchResults.map({ SearchResultViewModel(searchResult: $0) })
         }
     }
-    
+    weak var coordinator: ResultDetailing?
+
     override func loadView() {
         view = searchResultView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = genre?.name ?? ""
+        
+        searchResultView.resultSelected = { [weak self] searchResultViewModel in
+            guard let self = self else { return }
+            self.coordinator?.showResultDetail(result: searchResultViewModel.searchResult)
+        }
     }
     
 }
