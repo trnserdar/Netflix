@@ -36,3 +36,13 @@ extension HomeCoordinator: SearchResulting {
         
     }
 }
+
+extension HomeCoordinator: ResultDetailing {
+    
+    func showResultDetail(result: SearchResult) {
+        let resultDetailViewController = ResultDetailViewController()
+        resultDetailViewController.coordinator = self
+        resultDetailViewController.searchResult = result
+        navigationController.pushViewController(resultDetailViewController, animated: true)
+    }
+}
