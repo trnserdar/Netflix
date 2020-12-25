@@ -54,6 +54,10 @@
 		4F9C34122592179300141C67 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C34112592179300141C67 /* SearchResultView.swift */; };
 		4F9C341A2592293400141C67 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C34192592293400141C67 /* SearchView.swift */; };
 		4F9C34B12593565B00141C67 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C34B02593565B00141C67 /* HomeView.swift */; };
+		4FC9992825954324009A0CC3 /* ResultCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC9992725954324009A0CC3 /* ResultCategoryView.swift */; };
+		4FC9992D2595DB3F009A0CC3 /* ResultCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC9992C2595DB3F009A0CC3 /* ResultCategoryCollectionViewCell.swift */; };
+		4FC9993A2595F654009A0CC3 /* ResultAllCastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC999392595F654009A0CC3 /* ResultAllCastView.swift */; };
+		4FC9994725960D9D009A0CC3 /* ResultDetailing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC9994625960D9D009A0CC3 /* ResultDetailing.swift */; };
 		B7FB2A9B95C28BB4BC42F0C9 /* Pods_NetflixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7813E6D14EDF5A935930396B /* Pods_NetflixTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -128,6 +132,10 @@
 		4F9C34112592179300141C67 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 		4F9C34192592293400141C67 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		4F9C34B02593565B00141C67 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		4FC9992725954324009A0CC3 /* ResultCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCategoryView.swift; sourceTree = "<group>"; };
+		4FC9992C2595DB3F009A0CC3 /* ResultCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		4FC999392595F654009A0CC3 /* ResultAllCastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultAllCastView.swift; sourceTree = "<group>"; };
+		4FC9994625960D9D009A0CC3 /* ResultDetailing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDetailing.swift; sourceTree = "<group>"; };
 		69F07A74B4A63FEEAE096974 /* Pods_Netflix_NetflixUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Netflix_NetflixUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		762D5866AF19BE304F2B44CC /* Pods-NetflixTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetflixTests.debug.xcconfig"; path = "Target Support Files/Pods-NetflixTests/Pods-NetflixTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7813E6D14EDF5A935930396B /* Pods_NetflixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetflixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -353,6 +361,8 @@
 				4F46A12E25952722001CAB8D /* ResultDetailView.swift */,
 				4F46A13525952829001CAB8D /* TitleDetailView.swift */,
 				4F364CF125953C58006BB75C /* SummaryView.swift */,
+				4FC9992725954324009A0CC3 /* ResultCategoryView.swift */,
+				4FC999392595F654009A0CC3 /* ResultAllCastView.swift */,
 			);
 			path = ResultDetail;
 			sourceTree = "<group>";
@@ -369,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				4F9C33D22590E78500141C67 /* SearchResultCollectionViewCell.swift */,
+				4FC9992C2595DB3F009A0CC3 /* ResultCategoryCollectionViewCell.swift */,
 			);
 			path = UICollectionViewCells;
 			sourceTree = "<group>";
@@ -377,6 +388,7 @@
 			isa = PBXGroup;
 			children = (
 				4F9C340625920B6500141C67 /* SearchResulting.swift */,
+				4FC9994625960D9D009A0CC3 /* ResultDetailing.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -633,12 +645,14 @@
 				4F135457258E5E8000F2C585 /* NetworkConstants.swift in Sources */,
 				4F135438258E3DED00F2C585 /* TabBarViewController.swift in Sources */,
 				4F9C340C259215F100141C67 /* GenresView.swift in Sources */,
+				4FC9992825954324009A0CC3 /* ResultCategoryView.swift in Sources */,
 				4F46A12A259526F1001CAB8D /* ResultDetailViewController.swift in Sources */,
 				4F46A13625952829001CAB8D /* TitleDetailView.swift in Sources */,
 				4F135469258E8E4A00F2C585 /* SearchResult.swift in Sources */,
 				4F135473258EAE5E00F2C585 /* Episode.swift in Sources */,
 				4F46A1202594CD18001CAB8D /* CategoryViewModel.swift in Sources */,
 				4F1354A2258FAE9F00F2C585 /* UIColor+Hex.swift in Sources */,
+				4FC9993A2595F654009A0CC3 /* ResultAllCastView.swift in Sources */,
 				4F13544C258E5C2E00F2C585 /* NetflixRouter.swift in Sources */,
 				4F9C33FE259207A800141C67 /* ProfileCoordinator.swift in Sources */,
 				4F9C33E52591DFA300141C67 /* Coordinator.swift in Sources */,
@@ -658,7 +672,9 @@
 				4F9C33F92592079B00141C67 /* SearchCoordinator.swift in Sources */,
 				4F364CED259532E6006BB75C /* ResultDetailViewModel.swift in Sources */,
 				4F135478258EB22600F2C585 /* Image.swift in Sources */,
+				4FC9994725960D9D009A0CC3 /* ResultDetailing.swift in Sources */,
 				4F46A12F25952722001CAB8D /* ResultDetailView.swift in Sources */,
+				4FC9992D2595DB3F009A0CC3 /* ResultCategoryCollectionViewCell.swift in Sources */,
 				4F135497258FA6AF00F2C585 /* ProfileViewController.swift in Sources */,
 				4F9C34122592179300141C67 /* SearchResultView.swift in Sources */,
 				4F364CF225953C58006BB75C /* SummaryView.swift in Sources */,
