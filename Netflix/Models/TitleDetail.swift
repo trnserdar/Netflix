@@ -21,6 +21,25 @@ struct TitleDetail: Codable {
     let mgname, genreid: [String]?
     let people: [Person]?
     let country: [Country]?
+    
+    var genres: [Genre] {
+        get {
+            guard let mgName = mgname,
+                  !mgName.isEmpty,
+                  let genreId = genreid,
+                  !genreId.isEmpty,
+                  mgName.count == genreId.count else {
+                return []
+            }
+            
+            var tmpGenres: [Genre] = []
+            for index in 0..<mgName.count {
+                tmpGenres.append(Genre(name: mgName[index], ids: [Int(genreId[index]) ?? 0]))
+            }
+            
+            return tmpGenres
+        }
+    }
 
     enum CodingKeys: String, CodingKey {
         case nfinfo, imdbinfo, mgname
