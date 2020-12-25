@@ -31,12 +31,18 @@ class CategoryView: UIView {
     
     lazy var searchResultView: SearchResultView = {
         let searchResultView = SearchResultView(scrollDirection: .horizontal)
+        searchResultView.resultSelected = resultSelected
         searchResultView.translatesAutoresizingMaskIntoConstraints = false
         return searchResultView
     }()
     
     var showAllTapped: (([SearchResult]) -> Void)?
-    
+    var resultSelected: ((SearchResultViewModel) -> Void)? {
+        didSet {
+            searchResultView.resultSelected = resultSelected
+        }
+    }
+
     var viewModel: CategoryViewModel? {
         didSet {
             

@@ -30,12 +30,14 @@ class HomeView: UIView {
     
     lazy var newReleaseView : CategoryView = {
         let categoryView = CategoryView(viewModel: viewModel.newRelease)
+        categoryView.resultSelected = resultSelected
         categoryView.translatesAutoresizingMaskIntoConstraints = false
         return categoryView
     }()
     
     lazy var actionView : CategoryView = {
         let categoryView = CategoryView(viewModel: viewModel.action)
+        categoryView.resultSelected = resultSelected
         categoryView.translatesAutoresizingMaskIntoConstraints = false
         return categoryView
     }()
@@ -45,6 +47,13 @@ class HomeView: UIView {
             
             newReleaseView.viewModel = viewModel.newRelease
             actionView.viewModel = viewModel.action
+        }
+    }
+    
+    var resultSelected: ((SearchResultViewModel) -> Void)? {
+        didSet {
+            newReleaseView.resultSelected = resultSelected
+            actionView.resultSelected = resultSelected
         }
     }
     

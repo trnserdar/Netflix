@@ -29,6 +29,10 @@ class HomeViewController: UIViewController {
             self?.coordinator?.showResult(selectedGenre: Genre(name: TextConstants.crimeActionAdventure, ids: [9584]), results: results)
         }
         
+        homeView.resultSelected = { [weak self] searchResultViewModel in
+            self?.coordinator?.showResultDetail(result: searchResultViewModel.searchResult)
+        }
+        
         getNewReleases()
         getNew100(genre: Genre(name: TextConstants.crimeActionAdventure, ids: [9584]))
     }
