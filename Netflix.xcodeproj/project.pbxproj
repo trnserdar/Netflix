@@ -58,6 +58,10 @@
 		4FC9992D2595DB3F009A0CC3 /* ResultCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC9992C2595DB3F009A0CC3 /* ResultCategoryCollectionViewCell.swift */; };
 		4FC9993A2595F654009A0CC3 /* ResultAllCastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC999392595F654009A0CC3 /* ResultAllCastView.swift */; };
 		4FC9994725960D9D009A0CC3 /* ResultDetailing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC9994625960D9D009A0CC3 /* ResultDetailing.swift */; };
+		4FC9994C25968C3B009A0CC3 /* SeasonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC9994B25968C3B009A0CC3 /* SeasonCollectionViewCell.swift */; };
+		4FC9995925968CF0009A0CC3 /* EpisodeResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC9995825968CF0009A0CC3 /* EpisodeResultViewModel.swift */; };
+		4FC9995E25968F6A009A0CC3 /* SeasonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC9995D25968F6A009A0CC3 /* SeasonView.swift */; };
+		4FC999632596923D009A0CC3 /* ResultEpisodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC999622596923D009A0CC3 /* ResultEpisodeView.swift */; };
 		B7FB2A9B95C28BB4BC42F0C9 /* Pods_NetflixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7813E6D14EDF5A935930396B /* Pods_NetflixTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -136,6 +140,10 @@
 		4FC9992C2595DB3F009A0CC3 /* ResultCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		4FC999392595F654009A0CC3 /* ResultAllCastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultAllCastView.swift; sourceTree = "<group>"; };
 		4FC9994625960D9D009A0CC3 /* ResultDetailing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDetailing.swift; sourceTree = "<group>"; };
+		4FC9994B25968C3B009A0CC3 /* SeasonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonCollectionViewCell.swift; sourceTree = "<group>"; };
+		4FC9995825968CF0009A0CC3 /* EpisodeResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeResultViewModel.swift; sourceTree = "<group>"; };
+		4FC9995D25968F6A009A0CC3 /* SeasonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonView.swift; sourceTree = "<group>"; };
+		4FC999622596923D009A0CC3 /* ResultEpisodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultEpisodeView.swift; sourceTree = "<group>"; };
 		69F07A74B4A63FEEAE096974 /* Pods_Netflix_NetflixUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Netflix_NetflixUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		762D5866AF19BE304F2B44CC /* Pods-NetflixTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetflixTests.debug.xcconfig"; path = "Target Support Files/Pods-NetflixTests/Pods-NetflixTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7813E6D14EDF5A935930396B /* Pods_NetflixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetflixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -272,6 +280,7 @@
 				4F46A11F2594CD18001CAB8D /* CategoryViewModel.swift */,
 				4F46A1242594D13D001CAB8D /* HomeViewModel.swift */,
 				4F364CEC259532E6006BB75C /* ResultDetailViewModel.swift */,
+				4FC9995825968CF0009A0CC3 /* EpisodeResultViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -363,6 +372,7 @@
 				4F364CF125953C58006BB75C /* SummaryView.swift */,
 				4FC9992725954324009A0CC3 /* ResultCategoryView.swift */,
 				4FC999392595F654009A0CC3 /* ResultAllCastView.swift */,
+				4FC9996725969241009A0CC3 /* Episode */,
 			);
 			path = ResultDetail;
 			sourceTree = "<group>";
@@ -380,6 +390,7 @@
 			children = (
 				4F9C33D22590E78500141C67 /* SearchResultCollectionViewCell.swift */,
 				4FC9992C2595DB3F009A0CC3 /* ResultCategoryCollectionViewCell.swift */,
+				4FC9994B25968C3B009A0CC3 /* SeasonCollectionViewCell.swift */,
 			);
 			path = UICollectionViewCells;
 			sourceTree = "<group>";
@@ -391,6 +402,15 @@
 				4FC9994625960D9D009A0CC3 /* ResultDetailing.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		4FC9996725969241009A0CC3 /* Episode */ = {
+			isa = PBXGroup;
+			children = (
+				4FC999622596923D009A0CC3 /* ResultEpisodeView.swift */,
+				4FC9995D25968F6A009A0CC3 /* SeasonView.swift */,
+			);
+			path = Episode;
 			sourceTree = "<group>";
 		};
 		5FAD5D5CD170E1A72D92B8D3 /* Frameworks */ = {
@@ -655,7 +675,9 @@
 				4FC9993A2595F654009A0CC3 /* ResultAllCastView.swift in Sources */,
 				4F13544C258E5C2E00F2C585 /* NetflixRouter.swift in Sources */,
 				4F9C33FE259207A800141C67 /* ProfileCoordinator.swift in Sources */,
+				4FC9995E25968F6A009A0CC3 /* SeasonView.swift in Sources */,
 				4F9C33E52591DFA300141C67 /* Coordinator.swift in Sources */,
+				4FC999632596923D009A0CC3 /* ResultEpisodeView.swift in Sources */,
 				4F135447258E5C1900F2C585 /* ServiceClient.swift in Sources */,
 				4F1353F1258E3D1500F2C585 /* AppDelegate.swift in Sources */,
 				4F13546E258EAB9F00F2C585 /* TitleDetail.swift in Sources */,
@@ -683,8 +705,10 @@
 				4F13549C258FA78C00F2C585 /* StyleConstants.swift in Sources */,
 				4F9C341A2592293400141C67 /* SearchView.swift in Sources */,
 				4F13545C258E63B700F2C585 /* Genre.swift in Sources */,
+				4FC9994C25968C3B009A0CC3 /* SeasonCollectionViewCell.swift in Sources */,
 				4F135485258FA66C00F2C585 /* HomeViewController.swift in Sources */,
 				4F9C33D32590E78500141C67 /* SearchResultCollectionViewCell.swift in Sources */,
+				4FC9995925968CF0009A0CC3 /* EpisodeResultViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
