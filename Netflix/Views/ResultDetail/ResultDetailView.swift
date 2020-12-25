@@ -52,6 +52,12 @@ class ResultDetailView: UIView {
         return resultAllCastView
     }()
     
+    lazy var resultEpisodeView: ResultEpisodeView = {
+        let resultEpisodeView = ResultEpisodeView()
+        resultEpisodeView.translatesAutoresizingMaskIntoConstraints = false
+        return resultEpisodeView
+    }()
+    
     var viewModel: ResultDetailViewModel? {
         didSet {
             configureSubviews()
@@ -89,6 +95,11 @@ class ResultDetailView: UIView {
         if viewModel != nil &&
             viewModel!.allCastIsEnabled {
             configureResultAllCastView()
+        }
+        
+        if viewModel != nil &&
+            viewModel!.episodesIsEnabled {
+            configureResultEpisodeView()
         }
     }
     
@@ -158,10 +169,20 @@ class ResultDetailView: UIView {
         
     }
     
+    func configureResultEpisodeView() {
+        guard !stackView.subviews.contains(resultEpisodeView) else { return }
+        stackView.addArrangedSubview(resultEpisodeView)
+        NSLayoutConstraint.activate([
+            resultEpisodeView.widthAnchor.constraint(equalTo: stackView.widthAnchor),
+            resultEpisodeView.heightAnchor.constraint(greaterThanOrEqualToConstant: 30.0)
+        ])
+        
+    }
+    
     func configureView(viewModel: ResultDetailViewModel) {
         titleDetailView.viewModel = viewModel
         summaryView.viewModel = viewModel
         resultCategoryView.viewModels = viewModel.genreViewModels
-//        resultAllCastView.viewModel = viewModel
+        resultAllCastView.viewModel = viewModel
     }
 }
