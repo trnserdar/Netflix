@@ -11,17 +11,7 @@ class GenresViewController: UIViewController {
     
     let genresView = GenresView()
     lazy var netflixClient = NetflixClient()
-    private(set) var genres: [Genre] = [] {
-        didSet {
-            self.filteredViewModels = genres.filter({ !$0.name.contains("All") }).map({ GenreViewModel(genre: $0) })
-        }
-    }
-    private(set) var filteredViewModels: [GenreViewModel] = [] {
-        didSet {
-            self.genresView.tableView.reloadData()
-        }
-    }
-    
+    private(set) var genres: [Genre] = []
     weak var coordinator: GenresCoordinator?
     
     override func loadView() {
@@ -31,15 +21,19 @@ class GenresViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = TextConstants.genres
-        configureDelegates()
-        getGenres()
+
+        genresView.searchBarTextDidChange = { [weak self] searchText in
+            guard let self = self else { return }
+            let filteredGenres = self.genres.filter( { $0.name.lowercased().contains(searchText.lowercased()) && !$0.name.contains("All") })
+            self.genresView.filteredViewModels = !filteredGenres.isEmpty ? filteredGenres.map({ GenreViewModel(genre: $0) }) : self.genres.map({ GenreViewModel(genre: $0) })
+        }
         
-    }
-    
-    func configureDelegates() {
-        genresView.tableView.delegate = self
-        genresView.tableView.dataSource = self
-        genresView.searchBar.delegate = self
+        genresView.genreSelected = { [weak self] genre in
+            guard let self = self else { return }
+            self.getNew100(genre: genre)
+        }
+
+        getGenres()
         
     }
     
@@ -51,6 +45,7 @@ class GenresViewController: UIViewController {
             }
             
             self.genres = genres
+            self.genresView.filteredViewModels = genres.filter({ !$0.name.contains("All") }).map({ GenreViewModel(genre: $0) })
         }
         
     }
@@ -68,47 +63,4 @@ class GenresViewController: UIViewController {
         
     }
     
-}
-
-extension GenresViewController: UISearchBarDelegate {
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let filteredGenres = genres.filter( { $0.name.lowercased().contains(searchText.lowercased()) && !$0.name.contains("All") })
-        self.filteredViewModels = !filteredGenres.isEmpty ? filteredGenres.map({ GenreViewModel(genre: $0) }) : genres.map({ GenreViewModel(genre: $0) })
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.endEditing(true)
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.endEditing(true)
-    }
-}
-
-extension GenresViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        getNew100(genre: filteredViewModels[indexPath.row].genre)
-    }
-}
-
-extension GenresViewController: UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredViewModels.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.backgroundColor = StyleConstants.Color.lightGray
-        cell.selectionStyle = .none
-        cell.textLabel?.font = StyleConstants.Font.body
-        cell.textLabel?.text = filteredViewModels[indexPath.row].nameText
-        return cell
-    }
 }

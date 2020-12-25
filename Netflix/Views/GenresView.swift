@@ -16,6 +16,8 @@ class GenresView: UIView {
         tableView.backgroundColor = StyleConstants.Color.lightGray
         tableView.separatorStyle = .none
         tableView.keyboardDismissMode = .onDrag
+        tableView.delegate = self
+        tableView.dataSource = self
         return tableView
     }()
     
@@ -29,9 +31,19 @@ class GenresView: UIView {
         searchBar.sizeToFit()
         searchBar.showsCancelButton = true
         searchBar.returnKeyType = .search
+        searchBar.delegate = self
         return searchBar
     }()
     
+    var filteredViewModels: [GenreViewModel] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
+    var searchBarTextDidChange: ((String) -> Void)?
+    var genreSelected: ((Genre) -> Void)?
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureSubviews()
@@ -69,4 +81,46 @@ class GenresView: UIView {
         
     }
     
+}
+
+extension GenresView: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchBarTextDidChange?(searchText)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+}
+
+extension GenresView: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        genreSelected?(filteredViewModels[indexPath.row].genre)
+    }
+}
+
+extension GenresView: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return filteredViewModels.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.backgroundColor = StyleConstants.Color.lightGray
+        cell.selectionStyle = .none
+        cell.textLabel?.font = StyleConstants.Font.body
+        cell.textLabel?.text = filteredViewModels[indexPath.row].nameText
+        return cell
+    }
 }
