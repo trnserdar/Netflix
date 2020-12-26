@@ -11,6 +11,7 @@ import UIKit
 struct EpisodeResultViewModel {
     
     var episodeResult: EpisodeResult
+    var isSelected: Bool
     
     var seasonNameText: String {
         return episodeResult.seasnum ?? ""
@@ -22,5 +23,9 @@ struct EpisodeResultViewModel {
     
     var itemHeight: CGFloat {
         return 30.0
+    }
+    
+    var borderColor: UIColor {
+        return isSelected ? StyleConstants.Color.darkGray! : StyleConstants.Color.lightGray!
     }
 }

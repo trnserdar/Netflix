@@ -49,5 +49,6 @@ class SeasonCollectionViewCell: UICollectionViewCell {
     
     func configureCell(viewModel: EpisodeResultViewModel) {
         label.text = viewModel.seasonNameText
+        label.layer.borderColor = viewModel.borderColor.cgColor
     }
 }
