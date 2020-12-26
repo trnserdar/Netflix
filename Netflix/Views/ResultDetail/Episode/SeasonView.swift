@@ -78,7 +78,7 @@ class SeasonView: UIView {
             collectionView.leftAnchor.constraint(equalTo: self.leftAnchor),
             collectionView.rightAnchor.constraint(equalTo: self.rightAnchor),
             collectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8.0),
-            collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8.0),
             heightConstraint!
         ])
         

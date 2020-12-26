@@ -20,14 +20,16 @@ class EpisodeView: UIView {
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.showsVerticalScrollIndicator = false
         tableView.showsHorizontalScrollIndicator = false
+        tableView.isScrollEnabled = false
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.sectionFooterHeight = 0
         return tableView
     }()
     
     var viewModels: [EpisodeViewModel] = [] {
         didSet {
-            tableView.addObserver(self, forKeyPath: "contentSize", options: NSKeyValueObservingOptions.old, context: nil)
+            tableView.addObserver(self, forKeyPath: "contentSize", options: [.old, .new], context: nil)
             tableView.reloadData()
         }
     }
@@ -51,24 +53,21 @@ class EpisodeView: UIView {
         self.addSubview(tableView)
         heightConstraint = tableView.heightAnchor.constraint(greaterThanOrEqualToConstant: 0)
         NSLayoutConstraint.activate([
+            heightConstraint!,
             tableView.leftAnchor.constraint(equalTo: self.leftAnchor),
             tableView.rightAnchor.constraint(equalTo: self.rightAnchor),
-            tableView.topAnchor.constraint(equalTo: self.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            heightConstraint!
+            tableView.topAnchor.constraint(equalTo: self.layoutMarginsGuide.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: self.layoutMarginsGuide.bottomAnchor)
         ])
         
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
-        if object != nil,
-            let tableView = object as? UITableView,
-            keyPath != nil,
-            keyPath == "contentSize",
-            change != nil {
+        if keyPath != nil,
+            keyPath == "contentSize"{
             
-            heightConstraint?.constant = tableView.contentSize.height
+            heightConstraint?.constant = tableView.contentSize.height * 2
             tableView.removeObserver(self, forKeyPath: "contentSize")
         }
     }
