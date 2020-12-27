@@ -22,4 +22,7 @@ struct TextConstants {
     static let crimeActionAdventure = "Crime, Action, Adventure"
     static let allCast = "All Cast"
     static let seasons = "Seasons"
+    static let director = "Director"
+    static let creator = "Creator"
+    static let actor = "Actors"
 }
