@@ -11,7 +11,7 @@ class ResultCategoryView: UIView {
 
     lazy var collectionView: UICollectionView = {
         
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        let layout: UICollectionViewFlowLayout = LeftAlignedCollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
         layout.minimumLineSpacing = 8
         
