@@ -33,6 +33,10 @@
 		4F1866FA25969C0300F1EB4F /* EpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1866F925969C0300F1EB4F /* EpisodeTableViewCell.swift */; };
 		4F1866FF2596A00700F1EB4F /* EpisodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1866FE2596A00700F1EB4F /* EpisodeViewModel.swift */; };
 		4F1867042596A14E00F1EB4F /* EpisodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1867032596A14E00F1EB4F /* EpisodeView.swift */; };
+		4F18670E2598B0EB00F1EB4F /* CastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18670D2598B0EB00F1EB4F /* CastViewController.swift */; };
+		4F1867162598B10D00F1EB4F /* CastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1867152598B10D00F1EB4F /* CastView.swift */; };
+		4F18671B2598B17C00F1EB4F /* CastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18671A2598B17C00F1EB4F /* CastViewModel.swift */; };
+		4F1867202598BA5800F1EB4F /* CastDetailing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18671F2598BA5800F1EB4F /* CastDetailing.swift */; };
 		4F364CED259532E6006BB75C /* ResultDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F364CEC259532E6006BB75C /* ResultDetailViewModel.swift */; };
 		4F364CF225953C58006BB75C /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F364CF125953C58006BB75C /* SummaryView.swift */; };
 		4F41B3C72590E4C500429659 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F41B3C62590E4C500429659 /* SearchResultViewController.swift */; };
@@ -118,6 +122,10 @@
 		4F1866F925969C0300F1EB4F /* EpisodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTableViewCell.swift; sourceTree = "<group>"; };
 		4F1866FE2596A00700F1EB4F /* EpisodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewModel.swift; sourceTree = "<group>"; };
 		4F1867032596A14E00F1EB4F /* EpisodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeView.swift; sourceTree = "<group>"; };
+		4F18670D2598B0EB00F1EB4F /* CastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastViewController.swift; sourceTree = "<group>"; };
+		4F1867152598B10D00F1EB4F /* CastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastView.swift; sourceTree = "<group>"; };
+		4F18671A2598B17C00F1EB4F /* CastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastViewModel.swift; sourceTree = "<group>"; };
+		4F18671F2598BA5800F1EB4F /* CastDetailing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastDetailing.swift; sourceTree = "<group>"; };
 		4F364CEC259532E6006BB75C /* ResultDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDetailViewModel.swift; sourceTree = "<group>"; };
 		4F364CF125953C58006BB75C /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 		4F41B3C62590E4C500429659 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
@@ -275,6 +283,7 @@
 				4F9C34192592293400141C67 /* SearchView.swift */,
 				4F46A1172594C029001CAB8D /* CategoryView.swift */,
 				4F46A13425952811001CAB8D /* ResultDetail */,
+				4F1867152598B10D00F1EB4F /* CastView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -289,6 +298,7 @@
 				4F364CEC259532E6006BB75C /* ResultDetailViewModel.swift */,
 				4FC9995825968CF0009A0CC3 /* EpisodeResultViewModel.swift */,
 				4F1866FE2596A00700F1EB4F /* EpisodeViewModel.swift */,
+				4F18671A2598B17C00F1EB4F /* CastViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -304,6 +314,7 @@
 				4F135496258FA6AF00F2C585 /* ProfileViewController.swift */,
 				4F41B3C62590E4C500429659 /* SearchResultViewController.swift */,
 				4F46A129259526F1001CAB8D /* ResultDetailViewController.swift */,
+				4F18670D2598B0EB00F1EB4F /* CastViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -416,6 +427,7 @@
 			children = (
 				4F9C340625920B6500141C67 /* SearchResulting.swift */,
 				4FC9994625960D9D009A0CC3 /* ResultDetailing.swift */,
+				4F18671F2598BA5800F1EB4F /* CastDetailing.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -689,6 +701,7 @@
 				4F135469258E8E4A00F2C585 /* SearchResult.swift in Sources */,
 				4F135473258EAE5E00F2C585 /* Episode.swift in Sources */,
 				4F46A1202594CD18001CAB8D /* CategoryViewModel.swift in Sources */,
+				4F18671B2598B17C00F1EB4F /* CastViewModel.swift in Sources */,
 				4F1354A2258FAE9F00F2C585 /* UIColor+Hex.swift in Sources */,
 				4FC9993A2595F654009A0CC3 /* ResultAllCastView.swift in Sources */,
 				4F13544C258E5C2E00F2C585 /* NetflixRouter.swift in Sources */,
@@ -698,9 +711,11 @@
 				4F9C33E52591DFA300141C67 /* Coordinator.swift in Sources */,
 				4FC999632596923D009A0CC3 /* ResultEpisodeView.swift in Sources */,
 				4F135447258E5C1900F2C585 /* ServiceClient.swift in Sources */,
+				4F1867162598B10D00F1EB4F /* CastView.swift in Sources */,
 				4F1353F1258E3D1500F2C585 /* AppDelegate.swift in Sources */,
 				4F13546E258EAB9F00F2C585 /* TitleDetail.swift in Sources */,
 				4F1866FF2596A00700F1EB4F /* EpisodeViewModel.swift in Sources */,
+				4F1867202598BA5800F1EB4F /* CastDetailing.swift in Sources */,
 				4F135492258FA68E00F2C585 /* SearchViewController.swift in Sources */,
 				4F9C33D82590F0A700141C67 /* SearchResultViewModel.swift in Sources */,
 				4F975894259087D500E0300C /* TextConstants.swift in Sources */,
@@ -718,6 +733,7 @@
 				4F46A12F25952722001CAB8D /* ResultDetailView.swift in Sources */,
 				4FC9992D2595DB3F009A0CC3 /* ResultCategoryCollectionViewCell.swift in Sources */,
 				4F135497258FA6AF00F2C585 /* ProfileViewController.swift in Sources */,
+				4F18670E2598B0EB00F1EB4F /* CastViewController.swift in Sources */,
 				4F9C34122592179300141C67 /* SearchResultView.swift in Sources */,
 				4F364CF225953C58006BB75C /* SummaryView.swift in Sources */,
 				4F9C33EF2592078300141C67 /* HomeCoordinator.swift in Sources */,

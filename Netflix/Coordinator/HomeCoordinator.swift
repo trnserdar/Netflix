@@ -46,3 +46,13 @@ extension HomeCoordinator: ResultDetailing {
         navigationController.pushViewController(resultDetailViewController, animated: true)
     }
 }
+
+extension HomeCoordinator: CastDetailing {
+    
+    func showCastDetail(person: Person) {
+        let castViewController = CastViewController()
+        castViewController.coordinator = self
+        castViewController.person = person
+        navigationController.pushViewController(castViewController, animated: true)
+    }
+}

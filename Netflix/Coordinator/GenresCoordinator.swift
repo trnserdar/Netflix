@@ -48,3 +48,13 @@ extension GenresCoordinator: ResultDetailing {
         navigationController.pushViewController(resultDetailViewController, animated: true)
     }
 }
+
+extension GenresCoordinator: CastDetailing {
+    
+    func showCastDetail(person: Person) {
+        let castViewController = CastViewController()
+        castViewController.coordinator = self
+        castViewController.person = person
+        navigationController.pushViewController(castViewController, animated: true)
+    }
+}
