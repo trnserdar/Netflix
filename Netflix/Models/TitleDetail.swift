@@ -40,6 +40,25 @@ struct TitleDetail: Codable {
             return tmpGenres
         }
     }
+    
+    var cast: Person? {
+        get {
+            var tmpCast = Person(actor: nil, creator: nil, director: nil)
+            if let people = people?.first(where: {$0.director != nil && !$0.director!.isEmpty} ) {
+                tmpCast.director = people.director
+            }
+            
+            if let people = people?.first(where: {$0.creator != nil && !$0.creator!.isEmpty} ) {
+                tmpCast.creator = people.creator
+            }
+            
+            if let people = people?.first(where: {$0.actor != nil && !$0.actor!.isEmpty} ) {
+                tmpCast.actor = people.actor
+            }
+            
+            return tmpCast
+        }
+    }
 
     enum CodingKeys: String, CodingKey {
         case nfinfo, imdbinfo, mgname
@@ -96,5 +115,5 @@ struct Nfinfo: Codable {
 
 // MARK: - Person
 struct Person: Codable {
-    let actor, creator, director: [String]?
+    var actor, creator, director: [String]?
 }
