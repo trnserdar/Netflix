@@ -11,9 +11,7 @@ class ResultDetailViewController: UIViewController {
 
     let resultDetailView = ResultDetailView()
     lazy var netflixClient = NetflixClient()
-    weak var coordinator: (ResultDetailing & SearchResulting)?
-
-    
+    weak var coordinator: (ResultDetailing & SearchResulting & CastDetailing)?
     var searchResult: SearchResult?
     var viewModel: ResultDetailViewModel? {
         didSet {
@@ -45,7 +43,11 @@ class ResultDetailViewController: UIViewController {
         }
         
         resultDetailView.resultAllCastView.allCastButtonAction = { [weak self] viewModel in
-            print("Selected View Model: \(viewModel)")
+            guard let self = self else { return }
+            guard let cast = viewModel.titleDetail.cast else {
+                return
+            }
+            self.coordinator?.showCastDetail(person: cast)
         }
         
         if searchResult != nil,
