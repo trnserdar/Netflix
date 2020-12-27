@@ -15,18 +15,45 @@ class ResultEpisodeView: UIView {
         return seasonView
     }()
     
-    var viewModels: [EpisodeResultViewModel] = [] {
+    lazy var episodeView: EpisodeView = {
+        let episodeView = EpisodeView()
+        episodeView.translatesAutoresizingMaskIntoConstraints = false
+        return episodeView
+    }()
+    
+    var episodeResultViewModels: [EpisodeResultViewModel] = [] {
         didSet {
-            seasonView.viewModels = viewModels
+            seasonView.viewModels = episodeResultViewModels
+            if episodeViewModels.isEmpty,
+               let first = episodeResultViewModels.first,
+               let episodes = first.episodeResult.episodes {
+                self.episodeViewModels = episodes.filter({ $0.episode != nil }).map({ EpisodeViewModel(episode: $0.episode! )})
+            }
         }
     }
     
-    init(viewModels: [EpisodeResultViewModel] = []) {
-        self.viewModels = viewModels
+    var episodeViewModels: [EpisodeViewModel] = [] {
+        didSet {
+            episodeView.viewModels = episodeViewModels
+        }
+    }
+
+    init(episodeResultViewModels: [EpisodeResultViewModel] = [], episodeViewModels: [EpisodeViewModel] = []) {
+        self.episodeResultViewModels = episodeResultViewModels
+        self.episodeViewModels = episodeViewModels
         super.init(frame: .zero)
         
         self.backgroundColor = StyleConstants.Color.lightGray
         configureSubviews()
+        
+        seasonView.seasonSelected = { [weak self] viewModel in
+            guard let self = self else { return }
+            guard let episodes = viewModel.episodeResult.episodes else { return }
+            self.episodeViewModels = episodes.filter({ $0.episode != nil }).map({ EpisodeViewModel(episode: $0.episode! )})
+            for index in 0..<self.episodeResultViewModels.count {
+                self.episodeResultViewModels[index].isSelected = self.episodeResultViewModels[index].episodeResult == viewModel.episodeResult ? true : false
+            }
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -35,6 +62,7 @@ class ResultEpisodeView: UIView {
 
     func configureSubviews() {
         configureSeasonView()
+        configureEpisodeView()
     }
     
     func configureSeasonView() {
@@ -43,8 +71,18 @@ class ResultEpisodeView: UIView {
             seasonView.leftAnchor.constraint(equalTo: self.leftAnchor),
             seasonView.rightAnchor.constraint(equalTo: self.rightAnchor),
             seasonView.topAnchor.constraint(equalTo: self.topAnchor),
-            seasonView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             seasonView.heightAnchor.constraint(greaterThanOrEqualToConstant: 46)
+        ])
+    }
+    
+    func configureEpisodeView() {
+        self.addSubview(episodeView)
+        NSLayoutConstraint.activate([
+            episodeView.leftAnchor.constraint(equalTo: self.leftAnchor),
+            episodeView.rightAnchor.constraint(equalTo: self.rightAnchor),
+            episodeView.topAnchor.constraint(equalTo: seasonView.layoutMarginsGuide.bottomAnchor),
+            episodeView.bottomAnchor.constraint(equalTo: self.layoutMarginsGuide.bottomAnchor),
+            episodeView.heightAnchor.constraint(greaterThanOrEqualToConstant: 0.0)
         ])
     }
     
