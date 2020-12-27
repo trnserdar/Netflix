@@ -30,6 +30,7 @@ extension HomeCoordinator: SearchResulting {
     
     func showResult(selectedGenre: Genre?, results: [SearchResult]) {
         let searchResultViewController = SearchResultViewController()
+        searchResultViewController.coordinator = self
         searchResultViewController.genre = selectedGenre
         searchResultViewController.searchResults = results
         navigationController.pushViewController(searchResultViewController, animated: true)
