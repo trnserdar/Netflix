@@ -11,6 +11,7 @@ class HomeViewController: UIViewController {
 
     let homeView = HomeView()
     lazy var netflixClient = NetflixClient()
+    lazy var favoriteManager: FavoriteManagerProtocol = FavoriteManager()
     weak var coordinator: HomeCoordinator?
     
     override func loadView() {
@@ -21,24 +22,47 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = TextConstants.home
 
-        homeView.newReleaseView.showAllTapped = { [weak self] results in
-            self?.coordinator?.showResult(selectedGenre: nil, results: results)
-        }
-        
-        homeView.actionView.showAllTapped = { [weak self] results in
-            self?.coordinator?.showResult(selectedGenre: Genre(name: TextConstants.crimeActionAdventure, ids: [9584]), results: results)
-        }
-        
-        homeView.resultSelected = { [weak self] searchResultViewModel in
-            self?.coordinator?.showResultDetail(result: searchResultViewModel.searchResult)
-        }
-        
+        listenEvents()
         getNewReleases()
         getNew100(genre: Genre(name: TextConstants.crimeActionAdventure, ids: [9584]))
     }
     
-    func getNewReleases() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        favoriteManager.getFavorites()
+    }
+    
+    func listenEvents() {
+        homeView.newReleaseView.showAllTapped = { [weak self] results in
+            guard let self = self else { return }
+            self.coordinator?.showResult(navigationTitle: TextConstants.newReleases, results: results)
+        }
+        
+        homeView.actionView.showAllTapped = { [weak self] results in
+            guard let self = self else { return }
+            self.coordinator?.showResult(navigationTitle: TextConstants.crimeActionAdventure, results: results)
+        }
+        
+        homeView.resultSelected = { [weak self] searchResult in
+            guard let self = self else { return }
+            self.coordinator?.showResultDetail(result: searchResult)
+        }
+        
+        homeView.favoriteSelected = { [weak self] searchResult in
+            guard let self = self else { return }
+            self.favoriteManager.favoriteAction(result: searchResult)
+        }
+        
+        favoriteManager.favoritesChanged = { [weak self] favorites in
+            guard let self = self else { return }
+            self.homeView.viewModel.newRelease.favorites = favorites
+            self.homeView.viewModel.action.favorites = favorites
+        }
+        
+    }
+    
+    func getNewReleases() {
         netflixClient.newReleases(days: "7") { (response, error) in
             
             guard let searchResults = response,
