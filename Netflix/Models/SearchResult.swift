@@ -25,8 +25,12 @@ struct SearchResult: Codable, Equatable {
     let released, runtime: String?
     let largeimage: String?
     let unogsdate, imdbid, download: String?
+    let image1: String?
+    let matlevel, matlabel: String?
+    let avgrating, updated: String?
+    let image2: String?
     
-    static let dummy = SearchResult(netflixid: "81393502", title: "The Netflix Afterparty: The Best Shows of The Worst Year", image: "https://occ-0-70-1722.1.nflxso.net/dnm/api/v6/evlCitJPPCVCry0BZlEFb5-QjKc/AAAABfPuGHNTkJg2WD8laLv1uydXGE9PhgmA5z2BLwTUpplVnEiPbabWJswuaDYiHechuuTqzXKKBsj7Hl-iWgptPffEU2EPAUUfxiJTn_KlXz13vuv3THRxSAeMSiY.jpg?r=f4f", synopsis: "David Spade, Fortune Feimster and London Hughes welcome guests from &quot;Tiger King,&quot; &quot;Emily in Paris,&quot; &quot;The Queen&#39;s Gambit&quot; and more. Plus: Kevin Hart.<br><b>New on 2020-12-14</b>", rating: "6.0", type: "movie", released: "2020", runtime: "59m", largeimage: "https://occ-0-36-2568.1.nflxso.net/dnm/api/v6/evlCitJPPCVCry0BZlEFb5-QjKc/AAAABXrL-Kb2rtDdNFENdNsoHtpGgusfRernbo87LIGM-UApmi0kfVHIINQgcmaF16NFWfpPL--QaXvEbKh7qsD8qKSpdv9mkABdCCwg41U9EsASOVnF4aGygXZmCSrmnQ.jpg?r=f4f", unogsdate: "2020-12-14", imdbid: "", download: "0")
+    static let dummy = SearchResult(netflixid: "81393502", title: "The Netflix Afterparty: The Best Shows of The Worst Year", image: "https://occ-0-70-1722.1.nflxso.net/dnm/api/v6/evlCitJPPCVCry0BZlEFb5-QjKc/AAAABfPuGHNTkJg2WD8laLv1uydXGE9PhgmA5z2BLwTUpplVnEiPbabWJswuaDYiHechuuTqzXKKBsj7Hl-iWgptPffEU2EPAUUfxiJTn_KlXz13vuv3THRxSAeMSiY.jpg?r=f4f", synopsis: "David Spade, Fortune Feimster and London Hughes welcome guests from &quot;Tiger King,&quot; &quot;Emily in Paris,&quot; &quot;The Queen&#39;s Gambit&quot; and more. Plus: Kevin Hart.<br><b>New on 2020-12-14</b>", rating: "6.0", type: "movie", released: "2020", runtime: "59m", largeimage: "https://occ-0-36-2568.1.nflxso.net/dnm/api/v6/evlCitJPPCVCry0BZlEFb5-QjKc/AAAABXrL-Kb2rtDdNFENdNsoHtpGgusfRernbo87LIGM-UApmi0kfVHIINQgcmaF16NFWfpPL--QaXvEbKh7qsD8qKSpdv9mkABdCCwg41U9EsASOVnF4aGygXZmCSrmnQ.jpg?r=f4f", unogsdate: "2020-12-14", imdbid: "", download: "0", image1: nil, matlevel: nil, matlabel: nil, avgrating: nil, updated: nil, image2: nil)
     
     static func == (lhs: SearchResult, rhs: SearchResult) -> Bool {
         return lhs.netflixid == rhs.netflixid &&
@@ -42,4 +46,6 @@ struct SearchResult: Codable, Equatable {
             lhs.imdbid == rhs.imdbid &&
             lhs.download == rhs.download
     }
+    
+
 }

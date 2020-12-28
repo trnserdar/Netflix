@@ -16,7 +16,7 @@ struct TitleDetailResponse: Codable {
 }
 
 struct TitleDetail: Codable {
-    let nfinfo: Nfinfo?
+    let nfinfo: SearchResult?
     let imdbinfo: Imdbinfo?
     let mgname, genreid: [String]?
     let people: [Person]?
@@ -66,7 +66,7 @@ struct TitleDetail: Codable {
         case people, country
     }
     
-    static let dummy = TitleDetail(nfinfo: Nfinfo.dummy, imdbinfo: Imdbinfo.dummy, mgname: ["TV Comedies", "US TV Programmes", "TV Programmes", "Sitcoms"], genreid: ["10375", "72404", "83", "3903"], people: [Person(actor: [
+    static let dummy = TitleDetail(nfinfo: SearchResult.dummy, imdbinfo: Imdbinfo.dummy, mgname: ["TV Comedies", "US TV Programmes", "TV Programmes", "Sitcoms"], genreid: ["10375", "72404", "83", "3903"], people: [Person(actor: [
         "Joe Lo Truglio", "Terry Crews", "Melissa Fumero", "Andy Samberg", "Stephanie Beatriz", "Andre Braugher", "Dirk Blocker", "Joel McKinnon Miller", "Chelsea Peretti"], creator: ["Daniel J. Goor", "Michael Schur"], director: nil)], country: nil)
 }
 
