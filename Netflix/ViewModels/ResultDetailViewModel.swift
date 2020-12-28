@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
 struct ResultDetailViewModel {
     
     var titleDetail: TitleDetail
+    var favorites: [TitleDetail]
     
     var titleText: String {
         return titleDetail.nfinfo?.title ?? ""
@@ -70,5 +72,16 @@ struct ResultDetailViewModel {
     
     var episodesIsEnabled: Bool {
         return titleDetail.nfinfo?.type == "series" ? true : false
+    }
+    
+    var favoriteButtonImage: UIImage? {
+        
+        guard let netflixInfo = titleDetail.nfinfo,
+              let netflixId = netflixInfo.netflixid,
+              favorites.contains(where: { $0.nfinfo?.netflixid == netflixId }) else {
+            return StyleConstants.Image.heart
+        }
+        
+        return StyleConstants.Image.heartFill
     }
 }
