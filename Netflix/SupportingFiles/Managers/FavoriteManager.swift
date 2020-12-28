@@ -28,7 +28,6 @@ final class FavoriteManager: FavoriteManagerProtocol {
     var favoritesChanged: (([TitleDetail]) -> Void)?
     
     func getFavorites() {
-        print("FavoriteManager -> getFavorites")
         self.favorites = getLocale()
     }
     
@@ -40,12 +39,10 @@ final class FavoriteManager: FavoriteManagerProtocol {
         guard let netflixInfo = titleDetail.nfinfo,
               let netflixId = netflixInfo.netflixid,
               let index = favorites.firstIndex(where: { $0.nfinfo?.netflixid == netflixId }) else {
-            print("FavoriteManager -> addFavorite: \(titleDetail.nfinfo?.netflixid ?? "")")
             favorites.append(titleDetail)
             return
         }
         
-        print("FavoriteManager -> deleteFavorite: \(titleDetail.nfinfo?.netflixid ?? "")")
         favorites.remove(at: index)
     }
     
