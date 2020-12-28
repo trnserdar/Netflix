@@ -12,10 +12,12 @@ struct SearchResultViewModel {
     
     var searchResult: SearchResult
     var sizeOption: SizeOption
+    var favorites: [TitleDetail]
     
-    init(searchResult: SearchResult, sizeOption: SizeOption = .small) {
+    init(searchResult: SearchResult, sizeOption: SizeOption = .small, favorites: [TitleDetail]) {
         self.searchResult = searchResult
         self.sizeOption = sizeOption
+        self.favorites = favorites
     }
     
     var itemWidth: CGFloat {
@@ -65,5 +67,14 @@ struct SearchResultViewModel {
     
     var ratingText: String {
         return searchResult.rating ?? ""
+    }
+    
+    var favoriteButtonImage: UIImage? {
+        
+        guard favorites.contains(where: { $0.nfinfo?.netflixid == searchResult.netflixid }) else {
+            return StyleConstants.Image.heart
+        }
+        
+        return StyleConstants.Image.heartFill
     }
 }

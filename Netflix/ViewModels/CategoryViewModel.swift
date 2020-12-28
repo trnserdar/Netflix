@@ -18,11 +18,13 @@ struct CategoryViewModel {
     var categoryName: String
     var searchResults: [SearchResult]
     var sizeOption: SizeOption
+    var favorites: [TitleDetail]
     
-    init(categoryName: String, searchResults: [SearchResult], sizeOption: SizeOption = .small) {
+    init(categoryName: String, searchResults: [SearchResult], sizeOption: SizeOption = .small, favorites: [TitleDetail]) {
         self.categoryName = categoryName
         self.searchResults = searchResults
         self.sizeOption = sizeOption
+        self.favorites = favorites
     }
 
     
