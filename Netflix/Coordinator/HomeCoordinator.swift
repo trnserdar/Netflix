@@ -28,11 +28,11 @@ class HomeCoordinator: Coordinator {
 
 extension HomeCoordinator: SearchResulting {
     
-    func showResult(selectedGenre: Genre?, results: [SearchResult]) {
+    func showResult(navigationTitle: String? = nil, results: [SearchResult]) {
         let searchResultViewController = SearchResultViewController()
         searchResultViewController.coordinator = self
-        searchResultViewController.genre = selectedGenre
         searchResultViewController.searchResults = results
+        searchResultViewController.title = navigationTitle
         navigationController.pushViewController(searchResultViewController, animated: true)
         
     }

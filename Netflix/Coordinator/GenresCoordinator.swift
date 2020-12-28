@@ -29,11 +29,11 @@ class GenresCoordinator: Coordinator {
 
 extension GenresCoordinator: SearchResulting {
     
-    func showResult(selectedGenre: Genre?, results: [SearchResult]) {
+    func showResult(navigationTitle: String?, results: [SearchResult]) {
         let searchResultViewController = SearchResultViewController()
         searchResultViewController.coordinator = self
-        searchResultViewController.genre = selectedGenre
         searchResultViewController.searchResults = results
+        searchResultViewController.title = navigationTitle
         navigationController.pushViewController(searchResultViewController, animated: true)
         
     }
