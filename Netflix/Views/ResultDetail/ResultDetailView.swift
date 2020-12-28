@@ -9,6 +9,12 @@ import UIKit
 
 class ResultDetailView: UIView {
 
+    lazy var favoriteBarButtonItem: UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(image: StyleConstants.Image.heart, style: .plain, target: self, action: #selector(favoriteBarButtonItemTapped))
+        barButtonItem.tintColor = .red
+        return barButtonItem
+    }()
+    
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -70,6 +76,8 @@ class ResultDetailView: UIView {
         }
     }
     
+    var favoriteSelected: ((SearchResult) -> Void)?
+
     init(viewModel: ResultDetailViewModel? = nil) {
         self.viewModel = viewModel
         super.init(frame: .zero)
@@ -184,5 +192,16 @@ class ResultDetailView: UIView {
         summaryView.viewModel = viewModel
         resultCategoryView.viewModels = viewModel.genreViewModels
         resultAllCastView.viewModel = viewModel
+        favoriteBarButtonItem.image = viewModel.favoriteButtonImage
+    }
+    
+    @objc func favoriteBarButtonItemTapped() {
+        
+        guard let viewModel = self.viewModel,
+              let netflixInfo = viewModel.titleDetail.nfinfo else {
+            return
+        }
+        
+        favoriteSelected?(netflixInfo)
     }
 }

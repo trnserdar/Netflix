@@ -11,6 +11,7 @@ class ResultDetailViewController: UIViewController {
 
     let resultDetailView = ResultDetailView()
     lazy var netflixClient = NetflixClient()
+    lazy var favoriteManager: FavoriteManagerProtocol = FavoriteManager()
     weak var coordinator: (ResultDetailing & SearchResulting & CastDetailing)?
     var searchResult: SearchResult?
     var viewModel: ResultDetailViewModel? {
@@ -37,13 +38,18 @@ class ResultDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
                 
+        navigationItem.rightBarButtonItem = resultDetailView.favoriteBarButtonItem
         listenEvents()
         if searchResult != nil,
            searchResult!.netflixid != nil {
             getTitleDetail()
         }
 
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        favoriteManager.getFavorites()
     }
     
     func listenEvents() {
@@ -59,6 +65,16 @@ class ResultDetailViewController: UIViewController {
             }
             self.coordinator?.showCastDetail(person: cast)
         }
+    
+        resultDetailView.favoriteSelected = { [weak self] searchResult in
+            guard let self = self else { return }
+            self.favoriteManager.favoriteAction(result: searchResult)
+        }
+        
+        favoriteManager.favoritesChanged = { [weak self] favorites in
+            guard let self = self else { return }
+            self.viewModel = self.viewModel.map({ ResultDetailViewModel(titleDetail: $0.titleDetail, favorites: favorites) })
+        }
     }
     
     func getTitleDetail() {
@@ -68,7 +84,7 @@ class ResultDetailViewController: UIViewController {
                 return
             }
             
-            self.viewModel = ResultDetailViewModel(titleDetail: titleDetail)
+            self.viewModel = ResultDetailViewModel(titleDetail: titleDetail, favorites: self.favoriteManager.favorites)
         }
     }
     
