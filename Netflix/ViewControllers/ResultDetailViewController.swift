@@ -37,6 +37,16 @@ class ResultDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
                 
+        listenEvents()
+        if searchResult != nil,
+           searchResult!.netflixid != nil {
+            getTitleDetail()
+        }
+
+        // Do any additional setup after loading the view.
+    }
+    
+    func listenEvents() {
         resultDetailView.resultCategoryView.genreSelected = { [weak self] genreViewModel in
             guard let self = self else { return }
             self.getNew100(genre: genreViewModel.genre)
@@ -49,13 +59,6 @@ class ResultDetailViewController: UIViewController {
             }
             self.coordinator?.showCastDetail(person: cast)
         }
-        
-        if searchResult != nil,
-           searchResult!.netflixid != nil {
-            getTitleDetail()
-        }
-
-        // Do any additional setup after loading the view.
     }
     
     func getTitleDetail() {
@@ -76,7 +79,7 @@ class ResultDetailViewController: UIViewController {
                 return
             }
             
-            self.coordinator?.showResult(selectedGenre: genre, results: response)
+            self.coordinator?.showResult(navigationTitle: genre.name, results: response)
         }
         
     }

@@ -22,6 +22,11 @@ class GenresViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = TextConstants.genres
 
+        listenEvents()
+        getGenres()
+    }
+    
+    func listenEvents() {
         genresView.searchBarTextDidChange = { [weak self] searchText in
             guard let self = self else { return }
             let filteredGenres = self.genres.filter( { $0.name.lowercased().contains(searchText.lowercased()) && !$0.name.contains("All") })
@@ -33,8 +38,6 @@ class GenresViewController: UIViewController {
             self.getNew100(genre: genre)
         }
 
-        getGenres()
-        
     }
     
     func getGenres() {
@@ -58,7 +61,7 @@ class GenresViewController: UIViewController {
                 return
             }
             
-            self.coordinator?.showResult(selectedGenre: genre, results: response)
+            self.coordinator?.showResult(navigationTitle: genre.name, results: response)
         }
         
     }

@@ -43,7 +43,7 @@ class CastViewController: UIViewController {
                 return
             }
 
-            self.coordinator?.showResult(selectedGenre: nil, results: response)
+            self.coordinator?.showResult(navigationTitle: query, results: response)
         }
         
     }
