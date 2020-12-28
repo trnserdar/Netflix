@@ -40,15 +40,16 @@ class SearchView: UIView {
         return collectionView
     }()
     
-    var searchResultViewModels: [SearchResultViewModel] = [] {
+    var viewModels: [SearchResultViewModel] = [] {
         didSet {
             collectionView.reloadData()
         }
     }
     
     var searchButtonTapped: ((String) -> Void)?
-    var resultSelected: ((SearchResultViewModel) -> Void)?
-    
+    var resultSelected: ((SearchResult) -> Void)?
+    var favoriteSelected: ((SearchResult) -> Void)?
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureSubviews()
@@ -107,7 +108,7 @@ extension SearchView: UISearchBarDelegate {
 extension SearchView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        resultSelected?(searchResultViewModels[indexPath.row])
+        resultSelected?(viewModels[indexPath.row].searchResult)
     }
 }
 
@@ -118,12 +119,16 @@ extension SearchView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return searchResultViewModels.count
+        return viewModels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchResultCollectionViewCell.identifier, for: indexPath) as! SearchResultCollectionViewCell
-        cell.configureCell(viewModel: searchResultViewModels[indexPath.row])
+        cell.favoriteButtonAction = { [weak self] in
+            guard let self = self else { return }
+            self.favoriteSelected?(self.viewModels[indexPath.row].searchResult)
+        }
+        cell.configureCell(viewModel: viewModels[indexPath.row])
         return cell
     }
 
@@ -132,6 +137,6 @@ extension SearchView: UICollectionViewDataSource {
 extension SearchView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: searchResultViewModels[indexPath.row].itemWidth, height: searchResultViewModels[indexPath.row].itemHeight)
+        return CGSize(width: viewModels[indexPath.row].itemWidth, height: viewModels[indexPath.row].itemHeight)
     }
 }

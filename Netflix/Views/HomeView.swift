@@ -44,16 +44,22 @@ class HomeView: UIView {
     
     var viewModel: HomeViewModel = HomeViewModel() {
         didSet {
-            
             newReleaseView.viewModel = viewModel.newRelease
             actionView.viewModel = viewModel.action
         }
     }
     
-    var resultSelected: ((SearchResultViewModel) -> Void)? {
+    var resultSelected: ((SearchResult) -> Void)? {
         didSet {
             newReleaseView.resultSelected = resultSelected
             actionView.resultSelected = resultSelected
+        }
+    }
+    
+    var favoriteSelected: ((SearchResult) -> Void)? {
+        didSet {
+            newReleaseView.favoriteSelected = favoriteSelected
+            actionView.favoriteSelected = favoriteSelected
         }
     }
     

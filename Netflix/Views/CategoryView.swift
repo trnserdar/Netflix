@@ -37,9 +37,14 @@ class CategoryView: UIView {
     }()
     
     var showAllTapped: (([SearchResult]) -> Void)?
-    var resultSelected: ((SearchResultViewModel) -> Void)? {
+    var resultSelected: ((SearchResult) -> Void)? {
         didSet {
             searchResultView.resultSelected = resultSelected
+        }
+    }
+    var favoriteSelected: ((SearchResult) -> Void)? {
+        didSet {
+            searchResultView.favoriteSelected = favoriteSelected
         }
     }
 
@@ -54,7 +59,7 @@ class CategoryView: UIView {
                 categoryLabel.text = viewModel.categoryName
             }
             
-            searchResultView.searchResultViewModels = viewModel.searchResults.map({ SearchResultViewModel(searchResult: $0, sizeOption: viewModel.sizeOption) })
+            searchResultView.viewModels = viewModel.searchResults.map({ SearchResultViewModel(searchResult: $0, sizeOption: viewModel.sizeOption, favorites: viewModel.favorites) })
         }
     }
 
@@ -64,9 +69,8 @@ class CategoryView: UIView {
         configureSubviews()
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        configureSubviews()
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func configureSubviews() {
