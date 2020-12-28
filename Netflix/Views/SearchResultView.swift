@@ -29,13 +29,14 @@ class SearchResultView: UIView {
     }()
      
     var scrollDirection: UICollectionView.ScrollDirection = .vertical
-    var searchResultViewModels: [SearchResultViewModel] = [] {
+    var viewModels: [SearchResultViewModel] = [] {
         didSet {
             collectionView.reloadData()
         }
     }
     
-    var resultSelected: ((SearchResultViewModel) -> Void)?
+    var resultSelected: ((SearchResult) -> Void)?
+    var favoriteSelected: ((SearchResult) -> Void)?
     
     init(scrollDirection: UICollectionView.ScrollDirection = .vertical) {
         self.scrollDirection = scrollDirection
@@ -68,7 +69,7 @@ class SearchResultView: UIView {
 extension SearchResultView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        resultSelected?(searchResultViewModels[indexPath.row])
+        resultSelected?(viewModels[indexPath.row].searchResult)
     }
 }
 
@@ -79,12 +80,16 @@ extension SearchResultView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return searchResultViewModels.count
+        return viewModels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchResultCollectionViewCell.identifier, for: indexPath) as! SearchResultCollectionViewCell
-        cell.configureCell(viewModel: searchResultViewModels[indexPath.row])
+        cell.favoriteButtonAction = { [weak self] in
+            guard let self = self else { return }
+            self.favoriteSelected?(self.viewModels[indexPath.row].searchResult)
+        }
+        cell.configureCell(viewModel: viewModels[indexPath.row])
         return cell
     }
 
@@ -93,6 +98,6 @@ extension SearchResultView: UICollectionViewDataSource {
 extension SearchResultView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: searchResultViewModels[indexPath.row].itemWidth, height: searchResultViewModels[indexPath.row].itemHeight)
+        return CGSize(width: viewModels[indexPath.row].itemWidth, height: viewModels[indexPath.row].itemHeight)
     }
 }
