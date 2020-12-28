@@ -12,7 +12,7 @@ class TabBarViewController: UITabBarController {
     let homeCoordinator = HomeCoordinator(navigationController: MainNavigationController())
     let genresCoordinator = GenresCoordinator(navigationController: MainNavigationController())
     let searchCoordinator = SearchCoordinator(navigationController: MainNavigationController())
-    let profileCoordinator = ProfileCoordinator(navigationController: MainNavigationController())
+    let favoriteCoordinator = FavoriteCoordinator(navigationController: MainNavigationController())
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +32,8 @@ class TabBarViewController: UITabBarController {
         homeCoordinator.start()
         genresCoordinator.start()
         searchCoordinator.start()
-        profileCoordinator.start()
-        viewControllers = [homeCoordinator.navigationController, genresCoordinator.navigationController, searchCoordinator.navigationController, profileCoordinator.navigationController]
+        favoriteCoordinator.start()
+        viewControllers = [homeCoordinator.navigationController, genresCoordinator.navigationController, searchCoordinator.navigationController, favoriteCoordinator.navigationController]
         
     }
 
