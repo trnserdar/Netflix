@@ -19,14 +19,14 @@ struct StyleConstants {
             case home = "Home"
             case genres = "Genres"
             case search = "Search"
-            case profile = "Profile"
+            case favorite = "Favorite"
         }
         
         enum TabBarImage: String {
             case home = "house"
             case genres = "tray.full"
             case search = "magnifyingglass"
-            case profile = "person.crop.circle"
+            case favorite = "heart.fill"
         }
         
     }
@@ -54,5 +54,9 @@ struct StyleConstants {
         
     }
     
+    struct Image {
+        static let heart = UIImage(systemName: "heart")
+        static let heartFill = UIImage(systemName: "heart.fill")
+    }
     
 }
