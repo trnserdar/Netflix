@@ -24,6 +24,10 @@ class SearchViewController: UIViewController {
         navigationItem.title = TextConstants.search
 
         listenEvents()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         favoriteManager.getFavorites()
     }
     
