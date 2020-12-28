@@ -8,5 +8,5 @@
 import Foundation
 
 protocol SearchResulting: AnyObject {
-    func showResult(selectedGenre: Genre?, results: [SearchResult])
+    func showResult(navigationTitle: String?, results: [SearchResult])
 }
