@@ -27,7 +27,6 @@
 		4F135485258FA66C00F2C585 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F135484258FA66C00F2C585 /* HomeViewController.swift */; };
 		4F13548D258FA68000F2C585 /* GenresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13548C258FA68000F2C585 /* GenresViewController.swift */; };
 		4F135492258FA68E00F2C585 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F135491258FA68E00F2C585 /* SearchViewController.swift */; };
-		4F135497258FA6AF00F2C585 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F135496258FA6AF00F2C585 /* ProfileViewController.swift */; };
 		4F13549C258FA78C00F2C585 /* StyleConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13549B258FA78C00F2C585 /* StyleConstants.swift */; };
 		4F1354A2258FAE9F00F2C585 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1354A1258FAE9F00F2C585 /* UIColor+Hex.swift */; };
 		4F1866FA25969C0300F1EB4F /* EpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1866F925969C0300F1EB4F /* EpisodeTableViewCell.swift */; };
@@ -38,6 +37,10 @@
 		4F18671B2598B17C00F1EB4F /* CastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18671A2598B17C00F1EB4F /* CastViewModel.swift */; };
 		4F1867202598BA5800F1EB4F /* CastDetailing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18671F2598BA5800F1EB4F /* CastDetailing.swift */; };
 		4F1867252598C65E00F1EB4F /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1867242598C65E00F1EB4F /* LeftAlignedCollectionViewFlowLayout.swift */; };
+		4F18672B2599BB5000F1EB4F /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18672A2599BB5000F1EB4F /* FavoriteManager.swift */; };
+		4F1867302599C92500F1EB4F /* UserDefaultsKeyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18672F2599C92500F1EB4F /* UserDefaultsKeyConstants.swift */; };
+		4F186735259A0F3100F1EB4F /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F186734259A0F3100F1EB4F /* FavoritesViewController.swift */; };
+		4F18673A259A10A400F1EB4F /* FavoriteCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F186739259A10A400F1EB4F /* FavoriteCoordinator.swift */; };
 		4F364CED259532E6006BB75C /* ResultDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F364CEC259532E6006BB75C /* ResultDetailViewModel.swift */; };
 		4F364CF225953C58006BB75C /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F364CF125953C58006BB75C /* SummaryView.swift */; };
 		4F41B3C72590E4C500429659 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F41B3C62590E4C500429659 /* SearchResultViewController.swift */; };
@@ -56,7 +59,6 @@
 		4F9C33EF2592078300141C67 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C33EE2592078300141C67 /* HomeCoordinator.swift */; };
 		4F9C33F42592079000141C67 /* GenresCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C33F32592078F00141C67 /* GenresCoordinator.swift */; };
 		4F9C33F92592079B00141C67 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C33F82592079B00141C67 /* SearchCoordinator.swift */; };
-		4F9C33FE259207A800141C67 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C33FD259207A800141C67 /* ProfileCoordinator.swift */; };
 		4F9C340725920B6500141C67 /* SearchResulting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C340625920B6500141C67 /* SearchResulting.swift */; };
 		4F9C340C259215F100141C67 /* GenresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C340B259215F100141C67 /* GenresView.swift */; };
 		4F9C34122592179300141C67 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C34112592179300141C67 /* SearchResultView.swift */; };
@@ -117,7 +119,6 @@
 		4F135484258FA66C00F2C585 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4F13548C258FA68000F2C585 /* GenresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresViewController.swift; sourceTree = "<group>"; };
 		4F135491258FA68E00F2C585 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		4F135496258FA6AF00F2C585 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4F13549B258FA78C00F2C585 /* StyleConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleConstants.swift; sourceTree = "<group>"; };
 		4F1354A1258FAE9F00F2C585 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		4F1866F925969C0300F1EB4F /* EpisodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTableViewCell.swift; sourceTree = "<group>"; };
@@ -128,6 +129,10 @@
 		4F18671A2598B17C00F1EB4F /* CastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastViewModel.swift; sourceTree = "<group>"; };
 		4F18671F2598BA5800F1EB4F /* CastDetailing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastDetailing.swift; sourceTree = "<group>"; };
 		4F1867242598C65E00F1EB4F /* LeftAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		4F18672A2599BB5000F1EB4F /* FavoriteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteManager.swift; sourceTree = "<group>"; };
+		4F18672F2599C92500F1EB4F /* UserDefaultsKeyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeyConstants.swift; sourceTree = "<group>"; };
+		4F186734259A0F3100F1EB4F /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		4F186739259A10A400F1EB4F /* FavoriteCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCoordinator.swift; sourceTree = "<group>"; };
 		4F364CEC259532E6006BB75C /* ResultDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDetailViewModel.swift; sourceTree = "<group>"; };
 		4F364CF125953C58006BB75C /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 		4F41B3C62590E4C500429659 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
@@ -146,7 +151,6 @@
 		4F9C33EE2592078300141C67 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		4F9C33F32592078F00141C67 /* GenresCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresCoordinator.swift; sourceTree = "<group>"; };
 		4F9C33F82592079B00141C67 /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
-		4F9C33FD259207A800141C67 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		4F9C340625920B6500141C67 /* SearchResulting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResulting.swift; sourceTree = "<group>"; };
 		4F9C340B259215F100141C67 /* GenresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresView.swift; sourceTree = "<group>"; };
 		4F9C34112592179300141C67 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
@@ -313,7 +317,7 @@
 				4F135484258FA66C00F2C585 /* HomeViewController.swift */,
 				4F13548C258FA68000F2C585 /* GenresViewController.swift */,
 				4F135491258FA68E00F2C585 /* SearchViewController.swift */,
-				4F135496258FA6AF00F2C585 /* ProfileViewController.swift */,
+				4F186734259A0F3100F1EB4F /* FavoritesViewController.swift */,
 				4F41B3C62590E4C500429659 /* SearchResultViewController.swift */,
 				4F46A129259526F1001CAB8D /* ResultDetailViewController.swift */,
 				4F18670D2598B0EB00F1EB4F /* CastViewController.swift */,
@@ -336,6 +340,7 @@
 		4F13542E258E3D5300F2C585 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				4F1867292599BB3200F1EB4F /* Managers */,
 				4F135455258E5E5C00F2C585 /* Constants */,
 				4F1354A0258FAE8900F2C585 /* Extensions */,
 				4F1353FE258E3D1600F2C585 /* Info.plist */,
@@ -362,7 +367,7 @@
 				4F9C33EE2592078300141C67 /* HomeCoordinator.swift */,
 				4F9C33F32592078F00141C67 /* GenresCoordinator.swift */,
 				4F9C33F82592079B00141C67 /* SearchCoordinator.swift */,
-				4F9C33FD259207A800141C67 /* ProfileCoordinator.swift */,
+				4F186739259A10A400F1EB4F /* FavoriteCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -373,6 +378,7 @@
 				4F135456258E5E8000F2C585 /* NetworkConstants.swift */,
 				4F13549B258FA78C00F2C585 /* StyleConstants.swift */,
 				4F975893259087D500E0300C /* TextConstants.swift */,
+				4F18672F2599C92500F1EB4F /* UserDefaultsKeyConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -391,6 +397,14 @@
 				4F1866F925969C0300F1EB4F /* EpisodeTableViewCell.swift */,
 			);
 			path = UITableViewCells;
+			sourceTree = "<group>";
+		};
+		4F1867292599BB3200F1EB4F /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				4F18672A2599BB5000F1EB4F /* FavoriteManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		4F46A13425952811001CAB8D /* ResultDetail */ = {
@@ -703,12 +717,13 @@
 				4F46A13625952829001CAB8D /* TitleDetailView.swift in Sources */,
 				4F135469258E8E4A00F2C585 /* SearchResult.swift in Sources */,
 				4F135473258EAE5E00F2C585 /* Episode.swift in Sources */,
+				4F18673A259A10A400F1EB4F /* FavoriteCoordinator.swift in Sources */,
 				4F46A1202594CD18001CAB8D /* CategoryViewModel.swift in Sources */,
 				4F18671B2598B17C00F1EB4F /* CastViewModel.swift in Sources */,
+				4F1867302599C92500F1EB4F /* UserDefaultsKeyConstants.swift in Sources */,
 				4F1354A2258FAE9F00F2C585 /* UIColor+Hex.swift in Sources */,
 				4FC9993A2595F654009A0CC3 /* ResultAllCastView.swift in Sources */,
 				4F13544C258E5C2E00F2C585 /* NetflixRouter.swift in Sources */,
-				4F9C33FE259207A800141C67 /* ProfileCoordinator.swift in Sources */,
 				4F1867042596A14E00F1EB4F /* EpisodeView.swift in Sources */,
 				4FC9995E25968F6A009A0CC3 /* SeasonView.swift in Sources */,
 				4F9C33E52591DFA300141C67 /* Coordinator.swift in Sources */,
@@ -729,6 +744,7 @@
 				4F97589925908DF800E0300C /* GenreViewModel.swift in Sources */,
 				4F135451258E5C3900F2C585 /* NetflixClient.swift in Sources */,
 				4F13548D258FA68000F2C585 /* GenresViewController.swift in Sources */,
+				4F18672B2599BB5000F1EB4F /* FavoriteManager.swift in Sources */,
 				4F9C33F42592079000141C67 /* GenresCoordinator.swift in Sources */,
 				4F9C33F92592079B00141C67 /* SearchCoordinator.swift in Sources */,
 				4F364CED259532E6006BB75C /* ResultDetailViewModel.swift in Sources */,
@@ -736,7 +752,6 @@
 				4FC9994725960D9D009A0CC3 /* ResultDetailing.swift in Sources */,
 				4F46A12F25952722001CAB8D /* ResultDetailView.swift in Sources */,
 				4FC9992D2595DB3F009A0CC3 /* ResultCategoryCollectionViewCell.swift in Sources */,
-				4F135497258FA6AF00F2C585 /* ProfileViewController.swift in Sources */,
 				4F18670E2598B0EB00F1EB4F /* CastViewController.swift in Sources */,
 				4F9C34122592179300141C67 /* SearchResultView.swift in Sources */,
 				4F364CF225953C58006BB75C /* SummaryView.swift in Sources */,
@@ -748,6 +763,7 @@
 				4FC9994C25968C3B009A0CC3 /* SeasonCollectionViewCell.swift in Sources */,
 				4F135485258FA66C00F2C585 /* HomeViewController.swift in Sources */,
 				4F9C33D32590E78500141C67 /* SearchResultCollectionViewCell.swift in Sources */,
+				4F186735259A0F3100F1EB4F /* FavoritesViewController.swift in Sources */,
 				4FC9995925968CF0009A0CC3 /* EpisodeResultViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
