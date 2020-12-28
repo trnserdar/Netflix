@@ -12,7 +12,7 @@ struct TextConstants {
     static let home = "Home"
     static let genres = "Genres"
     static let search = "Search"
-    static let profile = "Profile"
+    static let favorites = "Favorites"
     
     static let searchPlaceholder = "Search..."
     
