@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class GenresView: UIView {
+class GenresView: BaseView {
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()

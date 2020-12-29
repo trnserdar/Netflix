@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CastView: UIView {
+class CastView: BaseView {
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()

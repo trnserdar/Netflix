@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class SearchView: UIView {
+class SearchView: BaseView {
     
     lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()

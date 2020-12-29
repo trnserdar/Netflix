@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeView: UIView {
+class HomeView: BaseView {
 
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()

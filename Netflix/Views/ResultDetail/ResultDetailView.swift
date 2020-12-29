@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ResultDetailView: UIView {
+class ResultDetailView: BaseView {
 
     lazy var favoriteBarButtonItem: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(image: StyleConstants.Image.heart, style: .plain, target: self, action: #selector(favoriteBarButtonItemTapped))
