@@ -42,18 +42,34 @@ struct SearchResultViewModel {
         
         if sizeOption == .small {
          
-            guard let urlString = searchResult.image else {
-                return nil
+            if let urlString = searchResult.image {
+                return URL(string: urlString)
             }
             
-            return URL(string: urlString)
-        }
-
-        guard let urlString = searchResult.largeimage else {
+            if let urlString = searchResult.image1 {
+                return URL(string: urlString)
+            }
+            
+            if let urlString = searchResult.image2 {
+                return URL(string: urlString)
+            }
+            
             return nil
         }
+
+        if let urlString = searchResult.largeimage {
+            return URL(string: urlString)
+        }
         
-        return URL(string: urlString)
+        if let urlString = searchResult.image1 {
+            return URL(string: urlString)
+        }
+        
+        if let urlString = searchResult.image2 {
+            return URL(string: urlString)
+        }
+        
+        return nil
     }
     
     var ratingIsHidden: Bool {
