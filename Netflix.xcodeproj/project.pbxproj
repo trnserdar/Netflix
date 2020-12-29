@@ -290,8 +290,8 @@
 				4F1353FB258E3D1600F2C585 /* LaunchScreen.storyboard */,
 				4F9C34B02593565B00141C67 /* HomeView.swift */,
 				4F9C340B259215F100141C67 /* GenresView.swift */,
-				4F9C34112592179300141C67 /* SearchResultView.swift */,
 				4F9C34192592293400141C67 /* SearchView.swift */,
+				4F9C34112592179300141C67 /* SearchResultView.swift */,
 				4F46A1172594C029001CAB8D /* CategoryView.swift */,
 				4F46A13425952811001CAB8D /* ResultDetail */,
 				4F1867152598B10D00F1EB4F /* CastView.swift */,
@@ -302,15 +302,15 @@
 		4F13542B258E3D3E00F2C585 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				4F18675D259B794600F1EB4F /* Base */,
+				4F46A1242594D13D001CAB8D /* HomeViewModel.swift */,
 				4F97589825908DF800E0300C /* GenreViewModel.swift */,
 				4F9C33D72590F0A700141C67 /* SearchResultViewModel.swift */,
 				4F46A11F2594CD18001CAB8D /* CategoryViewModel.swift */,
-				4F46A1242594D13D001CAB8D /* HomeViewModel.swift */,
 				4F364CEC259532E6006BB75C /* ResultDetailViewModel.swift */,
 				4FC9995825968CF0009A0CC3 /* EpisodeResultViewModel.swift */,
 				4F1866FE2596A00700F1EB4F /* EpisodeViewModel.swift */,
 				4F18671A2598B17C00F1EB4F /* CastViewModel.swift */,
-				4F186755259B451600F1EB4F /* BaseViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -417,6 +417,14 @@
 			isa = PBXGroup;
 			children = (
 				4F18674D259B427000F1EB4F /* BaseView.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		4F18675D259B794600F1EB4F /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				4F186755259B451600F1EB4F /* BaseViewModel.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
