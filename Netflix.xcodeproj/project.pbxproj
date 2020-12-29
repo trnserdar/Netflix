@@ -41,6 +41,8 @@
 		4F1867302599C92500F1EB4F /* UserDefaultsKeyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18672F2599C92500F1EB4F /* UserDefaultsKeyConstants.swift */; };
 		4F186735259A0F3100F1EB4F /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F186734259A0F3100F1EB4F /* FavoritesViewController.swift */; };
 		4F18673A259A10A400F1EB4F /* FavoriteCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F186739259A10A400F1EB4F /* FavoriteCoordinator.swift */; };
+		4F18674E259B427000F1EB4F /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18674D259B427000F1EB4F /* BaseView.swift */; };
+		4F186756259B451600F1EB4F /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F186755259B451600F1EB4F /* BaseViewModel.swift */; };
 		4F364CED259532E6006BB75C /* ResultDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F364CEC259532E6006BB75C /* ResultDetailViewModel.swift */; };
 		4F364CF225953C58006BB75C /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F364CF125953C58006BB75C /* SummaryView.swift */; };
 		4F41B3C72590E4C500429659 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F41B3C62590E4C500429659 /* SearchResultViewController.swift */; };
@@ -133,6 +135,8 @@
 		4F18672F2599C92500F1EB4F /* UserDefaultsKeyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeyConstants.swift; sourceTree = "<group>"; };
 		4F186734259A0F3100F1EB4F /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		4F186739259A10A400F1EB4F /* FavoriteCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCoordinator.swift; sourceTree = "<group>"; };
+		4F18674D259B427000F1EB4F /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		4F186755259B451600F1EB4F /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		4F364CEC259532E6006BB75C /* ResultDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDetailViewModel.swift; sourceTree = "<group>"; };
 		4F364CF125953C58006BB75C /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 		4F41B3C62590E4C500429659 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
@@ -280,6 +284,7 @@
 		4F13542A258E3D3800F2C585 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4F18674C259B426000F1EB4F /* Base */,
 				4F1866F825969BA200F1EB4F /* UITableViewCells */,
 				4F9C33D12590E76F00141C67 /* UICollectionViewCells */,
 				4F1353FB258E3D1600F2C585 /* LaunchScreen.storyboard */,
@@ -305,6 +310,7 @@
 				4FC9995825968CF0009A0CC3 /* EpisodeResultViewModel.swift */,
 				4F1866FE2596A00700F1EB4F /* EpisodeViewModel.swift */,
 				4F18671A2598B17C00F1EB4F /* CastViewModel.swift */,
+				4F186755259B451600F1EB4F /* BaseViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -405,6 +411,14 @@
 				4F18672A2599BB5000F1EB4F /* FavoriteManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		4F18674C259B426000F1EB4F /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				4F18674D259B427000F1EB4F /* BaseView.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		4F46A13425952811001CAB8D /* ResultDetail */ = {
@@ -718,6 +732,7 @@
 				4F135469258E8E4A00F2C585 /* SearchResult.swift in Sources */,
 				4F135473258EAE5E00F2C585 /* Episode.swift in Sources */,
 				4F18673A259A10A400F1EB4F /* FavoriteCoordinator.swift in Sources */,
+				4F186756259B451600F1EB4F /* BaseViewModel.swift in Sources */,
 				4F46A1202594CD18001CAB8D /* CategoryViewModel.swift in Sources */,
 				4F18671B2598B17C00F1EB4F /* CastViewModel.swift in Sources */,
 				4F1867302599C92500F1EB4F /* UserDefaultsKeyConstants.swift in Sources */,
@@ -743,6 +758,7 @@
 				4F46A1182594C029001CAB8D /* CategoryView.swift in Sources */,
 				4F97589925908DF800E0300C /* GenreViewModel.swift in Sources */,
 				4F135451258E5C3900F2C585 /* NetflixClient.swift in Sources */,
+				4F18674E259B427000F1EB4F /* BaseView.swift in Sources */,
 				4F13548D258FA68000F2C585 /* GenresViewController.swift in Sources */,
 				4F18672B2599BB5000F1EB4F /* FavoriteManager.swift in Sources */,
 				4F9C33F42592079000141C67 /* GenresCoordinator.swift in Sources */,
