@@ -51,7 +51,7 @@ struct ResultDetailViewModel {
     }
     
     var ratingIsEnabled: Bool {
-        return titleDetail.imdbinfo?.rating != nil || titleDetail.imdbinfo?.rating != "0" ? true : false
+        return titleDetail.imdbinfo?.rating != nil && titleDetail.imdbinfo?.rating != "0" ? true : false
     }
     
     var ratingText: String {
