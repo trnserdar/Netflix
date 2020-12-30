@@ -34,7 +34,7 @@ enum NetflixRouter: URLRequestConvertible {
         }
     }
     
-    var parameters: [String: Any] {
+    var parameters: [String: String] {
         
         switch self {
         case .genres:
