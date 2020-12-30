@@ -12,7 +12,6 @@
 		4F1353F1258E3D1500F2C585 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1353F0258E3D1500F2C585 /* AppDelegate.swift */; };
 		4F1353FA258E3D1600F2C585 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F1353F9258E3D1600F2C585 /* Assets.xcassets */; };
 		4F1353FD258E3D1600F2C585 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F1353FB258E3D1600F2C585 /* LaunchScreen.storyboard */; };
-		4F135408258E3D1600F2C585 /* NetflixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F135407258E3D1600F2C585 /* NetflixTests.swift */; };
 		4F135413258E3D1600F2C585 /* NetflixUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F135412258E3D1600F2C585 /* NetflixUITests.swift */; };
 		4F135438258E3DED00F2C585 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F135437258E3DED00F2C585 /* TabBarViewController.swift */; };
 		4F135447258E5C1900F2C585 /* ServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F135446258E5C1900F2C585 /* ServiceClient.swift */; };
@@ -43,6 +42,19 @@
 		4F18673A259A10A400F1EB4F /* FavoriteCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F186739259A10A400F1EB4F /* FavoriteCoordinator.swift */; };
 		4F18674E259B427000F1EB4F /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18674D259B427000F1EB4F /* BaseView.swift */; };
 		4F186756259B451600F1EB4F /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F186755259B451600F1EB4F /* BaseViewModel.swift */; };
+		4F18677B259C5F9700F1EB4F /* NetflixRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18677A259C5F9700F1EB4F /* NetflixRouterTests.swift */; };
+		4F186785259C90ED00F1EB4F /* genres.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F186782259C90ED00F1EB4F /* genres.json */; };
+		4F186786259C90ED00F1EB4F /* titleDetail.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F186783259C90ED00F1EB4F /* titleDetail.json */; };
+		4F186787259C90ED00F1EB4F /* newReleases.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F186784259C90ED00F1EB4F /* newReleases.json */; };
+		4F186791259C914B00F1EB4F /* episodes.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F18678E259C914A00F1EB4F /* episodes.json */; };
+		4F186792259C914B00F1EB4F /* images.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F18678F259C914A00F1EB4F /* images.json */; };
+		4F186793259C914B00F1EB4F /* search.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F186790259C914B00F1EB4F /* search.json */; };
+		4F18679F259C919000F1EB4F /* GenreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18679E259C919000F1EB4F /* GenreTests.swift */; };
+		4F1867A7259C985000F1EB4F /* SearchResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1867A6259C985000F1EB4F /* SearchResultTests.swift */; };
+		4F1867AC259C9A3200F1EB4F /* SearchResultResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1867AB259C9A3200F1EB4F /* SearchResultResponseTests.swift */; };
+		4F1867B5259CA21E00F1EB4F /* GenreViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1867B4259CA21E00F1EB4F /* GenreViewModelTests.swift */; };
+		4F1867BD259CA56700F1EB4F /* SearchResultViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1867BC259CA56700F1EB4F /* SearchResultViewModelTests.swift */; };
+		4F1867C2259CAE2900F1EB4F /* ResultDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1867C1259CAE2900F1EB4F /* ResultDetailViewModelTests.swift */; };
 		4F364CED259532E6006BB75C /* ResultDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F364CEC259532E6006BB75C /* ResultDetailViewModel.swift */; };
 		4F364CF225953C58006BB75C /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F364CF125953C58006BB75C /* SummaryView.swift */; };
 		4F41B3C72590E4C500429659 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F41B3C62590E4C500429659 /* SearchResultViewController.swift */; };
@@ -103,7 +115,6 @@
 		4F1353FC258E3D1600F2C585 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F1353FE258E3D1600F2C585 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F135403258E3D1600F2C585 /* NetflixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetflixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F135407258E3D1600F2C585 /* NetflixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixTests.swift; sourceTree = "<group>"; };
 		4F135409258E3D1600F2C585 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F13540E258E3D1600F2C585 /* NetflixUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetflixUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F135412258E3D1600F2C585 /* NetflixUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixUITests.swift; sourceTree = "<group>"; };
@@ -137,6 +148,19 @@
 		4F186739259A10A400F1EB4F /* FavoriteCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCoordinator.swift; sourceTree = "<group>"; };
 		4F18674D259B427000F1EB4F /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		4F186755259B451600F1EB4F /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		4F18677A259C5F9700F1EB4F /* NetflixRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixRouterTests.swift; sourceTree = "<group>"; };
+		4F186782259C90ED00F1EB4F /* genres.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = genres.json; sourceTree = "<group>"; };
+		4F186783259C90ED00F1EB4F /* titleDetail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = titleDetail.json; sourceTree = "<group>"; };
+		4F186784259C90ED00F1EB4F /* newReleases.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = newReleases.json; sourceTree = "<group>"; };
+		4F18678E259C914A00F1EB4F /* episodes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = episodes.json; sourceTree = "<group>"; };
+		4F18678F259C914A00F1EB4F /* images.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = images.json; sourceTree = "<group>"; };
+		4F186790259C914B00F1EB4F /* search.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = search.json; sourceTree = "<group>"; };
+		4F18679E259C919000F1EB4F /* GenreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreTests.swift; sourceTree = "<group>"; };
+		4F1867A6259C985000F1EB4F /* SearchResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTests.swift; sourceTree = "<group>"; };
+		4F1867AB259C9A3200F1EB4F /* SearchResultResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultResponseTests.swift; sourceTree = "<group>"; };
+		4F1867B4259CA21E00F1EB4F /* GenreViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreViewModelTests.swift; sourceTree = "<group>"; };
+		4F1867BC259CA56700F1EB4F /* SearchResultViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewModelTests.swift; sourceTree = "<group>"; };
+		4F1867C1259CAE2900F1EB4F /* ResultDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDetailViewModelTests.swift; sourceTree = "<group>"; };
 		4F364CEC259532E6006BB75C /* ResultDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDetailViewModel.swift; sourceTree = "<group>"; };
 		4F364CF125953C58006BB75C /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 		4F41B3C62590E4C500429659 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
@@ -258,7 +282,10 @@
 		4F135406258E3D1600F2C585 /* NetflixTests */ = {
 			isa = PBXGroup;
 			children = (
-				4F135407258E3D1600F2C585 /* NetflixTests.swift */,
+				4F186769259C5B1500F1EB4F /* Cases */,
+				4F186781259C90C000F1EB4F /* Data */,
+				4F18676A259C5B1D00F1EB4F /* Mocks */,
+				4F18676B259C5B2200F1EB4F /* HelperClasses */,
 				4F135409258E3D1600F2C585 /* Info.plist */,
 			);
 			path = NetflixTests;
@@ -429,6 +456,71 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		4F186769259C5B1500F1EB4F /* Cases */ = {
+			isa = PBXGroup;
+			children = (
+				4F18679D259C917A00F1EB4F /* Models */,
+				4F18676C259C5B3F00F1EB4F /* Networking */,
+				4F1867B3259CA1EF00F1EB4F /* ViewModel */,
+			);
+			path = Cases;
+			sourceTree = "<group>";
+		};
+		4F18676A259C5B1D00F1EB4F /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		4F18676B259C5B2200F1EB4F /* HelperClasses */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HelperClasses;
+			sourceTree = "<group>";
+		};
+		4F18676C259C5B3F00F1EB4F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				4F18677A259C5F9700F1EB4F /* NetflixRouterTests.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		4F186781259C90C000F1EB4F /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				4F18678E259C914A00F1EB4F /* episodes.json */,
+				4F186782259C90ED00F1EB4F /* genres.json */,
+				4F18678F259C914A00F1EB4F /* images.json */,
+				4F186784259C90ED00F1EB4F /* newReleases.json */,
+				4F186790259C914B00F1EB4F /* search.json */,
+				4F186783259C90ED00F1EB4F /* titleDetail.json */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		4F18679D259C917A00F1EB4F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4F18679E259C919000F1EB4F /* GenreTests.swift */,
+				4F1867AB259C9A3200F1EB4F /* SearchResultResponseTests.swift */,
+				4F1867A6259C985000F1EB4F /* SearchResultTests.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4F1867B3259CA1EF00F1EB4F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4F1867B4259CA21E00F1EB4F /* GenreViewModelTests.swift */,
+				4F1867BC259CA56700F1EB4F /* SearchResultViewModelTests.swift */,
+				4F1867C1259CAE2900F1EB4F /* ResultDetailViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		4F46A13425952811001CAB8D /* ResultDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -566,6 +658,7 @@
 					};
 					4F135402258E3D1600F2C585 = {
 						CreatedOnToolsVersion = 12.0.1;
+						LastSwiftMigration = 1200;
 						TestTargetID = 4F1353EC258E3D1500F2C585;
 					};
 					4F13540D258E3D1600F2C585 = {
@@ -608,6 +701,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F186785259C90ED00F1EB4F /* genres.json in Resources */,
+				4F186791259C914B00F1EB4F /* episodes.json in Resources */,
+				4F186792259C914B00F1EB4F /* images.json in Resources */,
+				4F186793259C914B00F1EB4F /* search.json in Resources */,
+				4F186786259C90ED00F1EB4F /* titleDetail.json in Resources */,
+				4F186787259C90ED00F1EB4F /* newReleases.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -796,7 +895,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F135408258E3D1600F2C585 /* NetflixTests.swift in Sources */,
+				4F1867BD259CA56700F1EB4F /* SearchResultViewModelTests.swift in Sources */,
+				4F18677B259C5F9700F1EB4F /* NetflixRouterTests.swift in Sources */,
+				4F1867AC259C9A3200F1EB4F /* SearchResultResponseTests.swift in Sources */,
+				4F18679F259C919000F1EB4F /* GenreTests.swift in Sources */,
+				4F1867C2259CAE2900F1EB4F /* ResultDetailViewModelTests.swift in Sources */,
+				4F1867B5259CA21E00F1EB4F /* GenreViewModelTests.swift in Sources */,
+				4F1867A7259C985000F1EB4F /* SearchResultTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -999,6 +1104,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 75PKQ5LQ7V;
 				INFOPLIST_FILE = NetflixTests/Info.plist;
@@ -1010,6 +1116,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = serdarturan.NetflixTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Netflix.app/Netflix";
@@ -1022,6 +1129,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 75PKQ5LQ7V;
 				INFOPLIST_FILE = NetflixTests/Info.plist;
