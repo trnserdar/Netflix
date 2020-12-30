@@ -74,7 +74,7 @@ struct SearchResultViewModel {
     
     var ratingIsHidden: Bool {
         
-        guard ratingText != "" else {
+        guard ratingText != "" && ratingText != "0" else {
             return true
         }
         

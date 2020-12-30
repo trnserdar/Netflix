@@ -129,6 +129,11 @@ class SearchResultViewModelTests: XCTestCase {
         whenSUTSetFromSearchResult(rating: nil)
         XCTAssertTrue(sut.ratingIsHidden)
     }
+    
+    func test_initSearchResult_whenRating0_setRatingIsHidden() {
+        whenSUTSetFromSearchResult(rating: "0")
+        XCTAssertTrue(sut.ratingIsHidden)
+    }
 
     func test_initSearchResult_setRatingText() {
         XCTAssertEqual(sut.ratingText, "9.9")
