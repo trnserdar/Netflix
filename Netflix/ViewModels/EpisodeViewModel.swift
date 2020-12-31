@@ -21,7 +21,16 @@ struct EpisodeViewModel {
     }
     
     var titleText: String {
-        return "\(episode.epnum ?? "")." + " " + "\(episode.title ?? "")"
+        var titleText = ""
+        if episode.epnum != nil {
+            titleText += "\(episode.epnum!). "
+        }
+        
+        if episode.title != nil {
+            titleText += "\(episode.title!)"
+        }
+
+        return titleText
     }
     
     var summaryText: String {
