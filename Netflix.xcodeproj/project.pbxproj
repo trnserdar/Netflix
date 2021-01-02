@@ -472,6 +472,7 @@
 				4F18679D259C917A00F1EB4F /* Models */,
 				4F18676C259C5B3F00F1EB4F /* Networking */,
 				4F1867B3259CA1EF00F1EB4F /* ViewModel */,
+				4FFA26F725A0A35300D22E46 /* Views */,
 			);
 			path = Cases;
 			sourceTree = "<group>";
@@ -586,6 +587,13 @@
 				4F1867032596A14E00F1EB4F /* EpisodeView.swift */,
 			);
 			path = Episode;
+			sourceTree = "<group>";
+		};
+		4FFA26F725A0A35300D22E46 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		5FAD5D5CD170E1A72D92B8D3 /* Frameworks */ = {
