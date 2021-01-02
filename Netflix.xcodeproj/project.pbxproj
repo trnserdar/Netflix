@@ -594,9 +594,17 @@
 		4FFA26F725A0A35300D22E46 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4FFA26F825A0A39C00D22E46 /* TitleDetailViewTests.swift */,
+				4FFA270025A0EC9A00D22E46 /* ResultDetail */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		4FFA270025A0EC9A00D22E46 /* ResultDetail */ = {
+			isa = PBXGroup;
+			children = (
+				4FFA26F825A0A39C00D22E46 /* TitleDetailViewTests.swift */,
+			);
+			path = ResultDetail;
 			sourceTree = "<group>";
 		};
 		5FAD5D5CD170E1A72D92B8D3 /* Frameworks */ = {
