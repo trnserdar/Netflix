@@ -92,6 +92,7 @@
 		4FFA26E8259FA30A00D22E46 /* TitleDetailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFA26E7259FA30A00D22E46 /* TitleDetailTests.swift */; };
 		4FFA26ED259FA37500D22E46 /* SearchResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFA26EC259FA37500D22E46 /* SearchResultTests.swift */; };
 		4FFA26F925A0A39C00D22E46 /* TitleDetailViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFA26F825A0A39C00D22E46 /* TitleDetailViewTests.swift */; };
+		4FFA270225A0ECED00D22E46 /* ResultAllCastViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFA270125A0ECED00D22E46 /* ResultAllCastViewTests.swift */; };
 		B7FB2A9B95C28BB4BC42F0C9 /* Pods_NetflixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7813E6D14EDF5A935930396B /* Pods_NetflixTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -204,6 +205,7 @@
 		4FFA26E7259FA30A00D22E46 /* TitleDetailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleDetailTests.swift; sourceTree = "<group>"; };
 		4FFA26EC259FA37500D22E46 /* SearchResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTests.swift; sourceTree = "<group>"; };
 		4FFA26F825A0A39C00D22E46 /* TitleDetailViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleDetailViewTests.swift; sourceTree = "<group>"; };
+		4FFA270125A0ECED00D22E46 /* ResultAllCastViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultAllCastViewTests.swift; sourceTree = "<group>"; };
 		69F07A74B4A63FEEAE096974 /* Pods_Netflix_NetflixUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Netflix_NetflixUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		762D5866AF19BE304F2B44CC /* Pods-NetflixTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetflixTests.debug.xcconfig"; path = "Target Support Files/Pods-NetflixTests/Pods-NetflixTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7813E6D14EDF5A935930396B /* Pods_NetflixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetflixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -603,6 +605,7 @@
 			isa = PBXGroup;
 			children = (
 				4FFA26F825A0A39C00D22E46 /* TitleDetailViewTests.swift */,
+				4FFA270125A0ECED00D22E46 /* ResultAllCastViewTests.swift */,
 			);
 			path = ResultDetail;
 			sourceTree = "<group>";
@@ -931,6 +934,7 @@
 			files = (
 				4F1867BD259CA56700F1EB4F /* SearchResultViewModelTests.swift in Sources */,
 				4FFA26A8259DC6EF00D22E46 /* EpisodeResultViewModelTests.swift in Sources */,
+				4FFA270225A0ECED00D22E46 /* ResultAllCastViewTests.swift in Sources */,
 				4FFA26ED259FA37500D22E46 /* SearchResultTests.swift in Sources */,
 				4FFA26D1259FA08700D22E46 /* EpisodeResultTests.swift in Sources */,
 				4FFA26C4259F9FD100D22E46 /* EpisodeElementTests.swift in Sources */,

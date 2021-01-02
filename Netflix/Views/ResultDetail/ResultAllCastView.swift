@@ -14,7 +14,7 @@ class ResultAllCastView: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(StyleConstants.Color.darkGray, for: .normal)
-        button.setTitle("All Cast", for: .normal)
+        button.setTitle(TextConstants.allCast, for: .normal)
         button.layer.borderWidth = 1.0
         button.layer.borderColor = StyleConstants.Color.darkGray!.cgColor
         button.layer.cornerRadius = 15.0
@@ -34,7 +34,7 @@ class ResultAllCastView: UIView {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        return nil
     }
 
     func configureSubviews() {
