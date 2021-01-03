@@ -36,7 +36,7 @@ class SeasonView: UIView {
     
     var viewModels: [EpisodeResultViewModel] = [] {
         didSet {
-            collectionView.addObserver(self, forKeyPath: "contentSize", options: NSKeyValueObservingOptions.old, context: nil)
+            collectionView.addObserver(self, forKeyPath: "contentSize", options: [.old, .new], context: nil)
             collectionView.reloadData()
         }
     }
@@ -52,7 +52,7 @@ class SeasonView: UIView {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        return nil
     }
     
     func configureSubviews() {
@@ -73,24 +73,21 @@ class SeasonView: UIView {
     
     func configureCollectionView() {
         self.addSubview(collectionView)
-        heightConstraint = collectionView.heightAnchor.constraint(greaterThanOrEqualToConstant: 46)
+        heightConstraint = collectionView.heightAnchor.constraint(greaterThanOrEqualToConstant: 0)
         NSLayoutConstraint.activate([
+            heightConstraint!,
             collectionView.leftAnchor.constraint(equalTo: self.leftAnchor),
             collectionView.rightAnchor.constraint(equalTo: self.rightAnchor),
             collectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8.0),
-            collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8.0),
-            heightConstraint!
+            collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8.0)
         ])
         
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
-        if object != nil,
-            let collectionView = object as? UICollectionView,
-            keyPath != nil,
-            keyPath == "contentSize",
-            change != nil {
+        if keyPath != nil,
+            keyPath == "contentSize" {
             
             heightConstraint?.constant = collectionView.contentSize.height
             collectionView.removeObserver(self, forKeyPath: "contentSize")
