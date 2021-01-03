@@ -34,15 +34,15 @@ class EpisodeView: UIView {
         }
     }
     var heightConstraint: NSLayoutConstraint?
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    
+    init(viewModels: [EpisodeViewModel] = []) {
+        self.viewModels = viewModels
+        super.init(frame: .zero)
         configureSubviews()
     }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        configureSubviews()
+    
+    required init?(coder: NSCoder) {
+        return nil
     }
 
     func configureSubviews() {

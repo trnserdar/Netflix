@@ -94,6 +94,7 @@
 		4FFA26F925A0A39C00D22E46 /* TitleDetailViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFA26F825A0A39C00D22E46 /* TitleDetailViewTests.swift */; };
 		4FFA270225A0ECED00D22E46 /* ResultAllCastViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFA270125A0ECED00D22E46 /* ResultAllCastViewTests.swift */; };
 		4FFA270A25A0F23900D22E46 /* SummaryViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFA270925A0F23900D22E46 /* SummaryViewTests.swift */; };
+		4FFA271325A1D14500D22E46 /* EpisodeViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFA271225A1D14500D22E46 /* EpisodeViewTests.swift */; };
 		B7FB2A9B95C28BB4BC42F0C9 /* Pods_NetflixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7813E6D14EDF5A935930396B /* Pods_NetflixTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -208,6 +209,7 @@
 		4FFA26F825A0A39C00D22E46 /* TitleDetailViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleDetailViewTests.swift; sourceTree = "<group>"; };
 		4FFA270125A0ECED00D22E46 /* ResultAllCastViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultAllCastViewTests.swift; sourceTree = "<group>"; };
 		4FFA270925A0F23900D22E46 /* SummaryViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewTests.swift; sourceTree = "<group>"; };
+		4FFA271225A1D14500D22E46 /* EpisodeViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewTests.swift; sourceTree = "<group>"; };
 		69F07A74B4A63FEEAE096974 /* Pods_Netflix_NetflixUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Netflix_NetflixUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		762D5866AF19BE304F2B44CC /* Pods-NetflixTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetflixTests.debug.xcconfig"; path = "Target Support Files/Pods-NetflixTests/Pods-NetflixTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7813E6D14EDF5A935930396B /* Pods_NetflixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetflixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -609,8 +611,17 @@
 				4FFA26F825A0A39C00D22E46 /* TitleDetailViewTests.swift */,
 				4FFA270925A0F23900D22E46 /* SummaryViewTests.swift */,
 				4FFA270125A0ECED00D22E46 /* ResultAllCastViewTests.swift */,
+				4FFA271125A1D13300D22E46 /* Episode */,
 			);
 			path = ResultDetail;
+			sourceTree = "<group>";
+		};
+		4FFA271125A1D13300D22E46 /* Episode */ = {
+			isa = PBXGroup;
+			children = (
+				4FFA271225A1D14500D22E46 /* EpisodeViewTests.swift */,
+			);
+			path = Episode;
 			sourceTree = "<group>";
 		};
 		5FAD5D5CD170E1A72D92B8D3 /* Frameworks */ = {
@@ -943,6 +954,7 @@
 				4FFA26D1259FA08700D22E46 /* EpisodeResultTests.swift in Sources */,
 				4FFA26C4259F9FD100D22E46 /* EpisodeElementTests.swift in Sources */,
 				4F18677B259C5F9700F1EB4F /* NetflixRouterTests.swift in Sources */,
+				4FFA271325A1D14500D22E46 /* EpisodeViewTests.swift in Sources */,
 				4F1867C2259CAE2900F1EB4F /* ResultDetailViewModelTests.swift in Sources */,
 				4F1867B5259CA21E00F1EB4F /* GenreViewModelTests.swift in Sources */,
 				4FFA26BF259F9F2600D22E46 /* EpisodeTests.swift in Sources */,
