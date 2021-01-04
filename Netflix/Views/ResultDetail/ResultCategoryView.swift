@@ -24,12 +24,12 @@ class ResultCategoryView: UIView {
         collectionView.dataSource = self
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.addObserver(self, forKeyPath: "contentSize", options: NSKeyValueObservingOptions.old, context: nil)
         return collectionView
     }()
     
     var viewModels: [GenreViewModel] = [] {
         didSet {
+            collectionView.addObserver(self, forKeyPath: "contentSize", options: [.new], context: nil)
             collectionView.reloadData()
         }
     }
@@ -44,7 +44,7 @@ class ResultCategoryView: UIView {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        return nil
     }
     
     func configureSubviews() {
@@ -53,13 +53,13 @@ class ResultCategoryView: UIView {
 
     func configureCollectionView() {
         self.addSubview(collectionView)
-        heightConstraint = collectionView.heightAnchor.constraint(greaterThanOrEqualToConstant: 46)
+        heightConstraint = collectionView.heightAnchor.constraint(greaterThanOrEqualToConstant: 0)
         NSLayoutConstraint.activate([
+            heightConstraint!,
             collectionView.leftAnchor.constraint(equalTo: self.leftAnchor),
             collectionView.rightAnchor.constraint(equalTo: self.rightAnchor),
             collectionView.topAnchor.constraint(equalTo: self.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            heightConstraint!
+            collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
     
