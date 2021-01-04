@@ -77,6 +77,12 @@
 		4F9C34B12593565B00141C67 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C34B02593565B00141C67 /* HomeView.swift */; };
 		4FAA1A9625A202B3007A3E3F /* SeasonViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAA1A9525A202B3007A3E3F /* SeasonViewTests.swift */; };
 		4FAA1A9F25A22ACC007A3E3F /* EpisodeTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAA1A9E25A22ACC007A3E3F /* EpisodeTableViewCellTests.swift */; };
+		4FAA1AA825A2E5CF007A3E3F /* BaseViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAA1AA725A2E5CF007A3E3F /* BaseViewTests.swift */; };
+		4FAA1AB025A2F256007A3E3F /* ResultCategoryViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAA1AAF25A2F256007A3E3F /* ResultCategoryViewTests.swift */; };
+		4FAA1AB925A302D0007A3E3F /* ResultCategoryCollectionViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAA1AB825A302D0007A3E3F /* ResultCategoryCollectionViewCellTests.swift */; };
+		4FAA1AC125A304DC007A3E3F /* ResultDetailViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAA1AC025A304DC007A3E3F /* ResultDetailViewTests.swift */; };
+		4FAA1AC925A3269A007A3E3F /* CastViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAA1AC825A3269A007A3E3F /* CastViewTests.swift */; };
+		4FAA1ACF25A3433F007A3E3F /* CategoryViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAA1ACE25A3433F007A3E3F /* CategoryViewTests.swift */; };
 		4FC9992825954324009A0CC3 /* ResultCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC9992725954324009A0CC3 /* ResultCategoryView.swift */; };
 		4FC9992D2595DB3F009A0CC3 /* ResultCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC9992C2595DB3F009A0CC3 /* ResultCategoryCollectionViewCell.swift */; };
 		4FC9993A2595F654009A0CC3 /* ResultAllCastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC999392595F654009A0CC3 /* ResultAllCastView.swift */; };
@@ -195,6 +201,12 @@
 		4F9C34B02593565B00141C67 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		4FAA1A9525A202B3007A3E3F /* SeasonViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonViewTests.swift; sourceTree = "<group>"; };
 		4FAA1A9E25A22ACC007A3E3F /* EpisodeTableViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTableViewCellTests.swift; sourceTree = "<group>"; };
+		4FAA1AA725A2E5CF007A3E3F /* BaseViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewTests.swift; sourceTree = "<group>"; };
+		4FAA1AAF25A2F256007A3E3F /* ResultCategoryViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCategoryViewTests.swift; sourceTree = "<group>"; };
+		4FAA1AB825A302D0007A3E3F /* ResultCategoryCollectionViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCategoryCollectionViewCellTests.swift; sourceTree = "<group>"; };
+		4FAA1AC025A304DC007A3E3F /* ResultDetailViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDetailViewTests.swift; sourceTree = "<group>"; };
+		4FAA1AC825A3269A007A3E3F /* CastViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastViewTests.swift; sourceTree = "<group>"; };
+		4FAA1ACE25A3433F007A3E3F /* CategoryViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewTests.swift; sourceTree = "<group>"; };
 		4FC9992725954324009A0CC3 /* ResultCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCategoryView.swift; sourceTree = "<group>"; };
 		4FC9992C2595DB3F009A0CC3 /* ResultCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		4FC999392595F654009A0CC3 /* ResultAllCastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultAllCastView.swift; sourceTree = "<group>"; };
@@ -601,6 +613,22 @@
 			path = UITableViewCells;
 			sourceTree = "<group>";
 		};
+		4FAA1AA625A2E4B9007A3E3F /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				4FAA1AA725A2E5CF007A3E3F /* BaseViewTests.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		4FAA1AB725A302B7007A3E3F /* UICollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				4FAA1AB825A302D0007A3E3F /* ResultCategoryCollectionViewCellTests.swift */,
+			);
+			path = UICollectionViewCells;
+			sourceTree = "<group>";
+		};
 		4FC9996725969241009A0CC3 /* Episode */ = {
 			isa = PBXGroup;
 			children = (
@@ -614,8 +642,12 @@
 		4FFA26F725A0A35300D22E46 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4FAA1AA625A2E4B9007A3E3F /* Base */,
 				4FAA1A9D25A22AB4007A3E3F /* UITableViewCells */,
+				4FAA1AB725A302B7007A3E3F /* UICollectionViewCells */,
+				4FAA1ACE25A3433F007A3E3F /* CategoryViewTests.swift */,
 				4FFA270025A0EC9A00D22E46 /* ResultDetail */,
+				4FAA1AC825A3269A007A3E3F /* CastViewTests.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -623,8 +655,10 @@
 		4FFA270025A0EC9A00D22E46 /* ResultDetail */ = {
 			isa = PBXGroup;
 			children = (
+				4FAA1AC025A304DC007A3E3F /* ResultDetailViewTests.swift */,
 				4FFA26F825A0A39C00D22E46 /* TitleDetailViewTests.swift */,
 				4FFA270925A0F23900D22E46 /* SummaryViewTests.swift */,
+				4FAA1AAF25A2F256007A3E3F /* ResultCategoryViewTests.swift */,
 				4FFA270125A0ECED00D22E46 /* ResultAllCastViewTests.swift */,
 				4FFA271125A1D13300D22E46 /* Episode */,
 			);
@@ -966,22 +1000,28 @@
 				4F1867BD259CA56700F1EB4F /* SearchResultViewModelTests.swift in Sources */,
 				4FFA270A25A0F23900D22E46 /* SummaryViewTests.swift in Sources */,
 				4FFA26A8259DC6EF00D22E46 /* EpisodeResultViewModelTests.swift in Sources */,
+				4FAA1AA825A2E5CF007A3E3F /* BaseViewTests.swift in Sources */,
 				4FFA270225A0ECED00D22E46 /* ResultAllCastViewTests.swift in Sources */,
 				4FFA26ED259FA37500D22E46 /* SearchResultTests.swift in Sources */,
 				4FFA26D1259FA08700D22E46 /* EpisodeResultTests.swift in Sources */,
+				4FAA1AC925A3269A007A3E3F /* CastViewTests.swift in Sources */,
 				4FFA26C4259F9FD100D22E46 /* EpisodeElementTests.swift in Sources */,
 				4FAA1A9625A202B3007A3E3F /* SeasonViewTests.swift in Sources */,
 				4F18677B259C5F9700F1EB4F /* NetflixRouterTests.swift in Sources */,
 				4FFA271325A1D14500D22E46 /* EpisodeViewTests.swift in Sources */,
+				4FAA1AC125A304DC007A3E3F /* ResultDetailViewTests.swift in Sources */,
 				4F1867C2259CAE2900F1EB4F /* ResultDetailViewModelTests.swift in Sources */,
 				4F1867B5259CA21E00F1EB4F /* GenreViewModelTests.swift in Sources */,
 				4FFA26BF259F9F2600D22E46 /* EpisodeTests.swift in Sources */,
 				4FFA271B25A1EC6300D22E46 /* ResultEpisodeViewTests.swift in Sources */,
 				4FFA26B5259DCA8800D22E46 /* EpisodeViewModelTests.swift in Sources */,
+				4FAA1AB025A2F256007A3E3F /* ResultCategoryViewTests.swift in Sources */,
+				4FAA1AB925A302D0007A3E3F /* ResultCategoryCollectionViewCellTests.swift in Sources */,
 				4FFA26BA259DD0F400D22E46 /* CastViewModelTests.swift in Sources */,
 				4FAA1A9F25A22ACC007A3E3F /* EpisodeTableViewCellTests.swift in Sources */,
 				4FFA26E8259FA30A00D22E46 /* TitleDetailTests.swift in Sources */,
 				4FFA26F925A0A39C00D22E46 /* TitleDetailViewTests.swift in Sources */,
+				4FAA1ACF25A3433F007A3E3F /* CategoryViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
