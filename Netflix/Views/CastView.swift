@@ -37,11 +37,10 @@ class CastView: BaseView {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        return nil
     }
     
     func configureSubviews() {
-        
         configureTableView()
     }
     
@@ -66,13 +65,7 @@ extension CastView: UITableViewDelegate {
         }
         castSelected?(viewModel!.getPerson(section: indexPath.section, row: indexPath.row))
     }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        guard viewModel != nil else {
-            return nil
-        }
-        return viewModel!.getTitle(section: section)
-    }
+
 }
 
 extension CastView: UITableViewDataSource {
@@ -101,5 +94,12 @@ extension CastView: UITableViewDataSource {
             cell.textLabel?.text = viewModel!.getPerson(section: indexPath.section, row: indexPath.row)
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard viewModel != nil else {
+            return nil
+        }
+        return viewModel!.getTitle(section: section)
     }
 }
