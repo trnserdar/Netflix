@@ -49,9 +49,8 @@ class GenresView: BaseView {
         configureSubviews()
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        configureSubviews()
+    required init?(coder: NSCoder) {
+        return nil
     }
 
     func configureSubviews() {
