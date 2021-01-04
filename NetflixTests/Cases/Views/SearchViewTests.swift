@@ -69,6 +69,10 @@ class SearchViewTests: XCTestCase {
         XCTAssertNil(sut)
     }
     
+    func test_initSearch_conformsToBaseView() {
+        XCTAssertTrue((sut as Any) is BaseView)
+    }
+    
     func test_initSearch_setSearchBar() {
         XCTAssertTrue(sut.subviews.contains(sut.searchBar))
     }
@@ -154,6 +158,31 @@ class SearchViewTests: XCTestCase {
         }
         sut.collectionView.delegate?.collectionView?(sut.collectionView, didSelectItemAt: IndexPath(row: 0, section: 0))
     }
+    
+    func test_searchBarAppearance_setBackgroundColor() {
+        XCTAssertEqual(sut.searchBar.backgroundColor, StyleConstants.Color.lightGray)
+    }
+    
+    func test_searchBarAppearance_setIsTransclucent() {
+        XCTAssertEqual(sut.searchBar.isTranslucent, true)
+    }
+    
+    func test_searchBarAppearance_setSearchBarStyle() {
+        XCTAssertEqual(sut.searchBar.searchBarStyle, .prominent)
+    }
+    
+    func test_searchBarAppearance_setPlaceholder() {
+        XCTAssertEqual(sut.searchBar.placeholder, TextConstants.searchPlaceholder)
+    }
+    
+    func test_searchBarAppearance_setShowsCancelButton() {
+        XCTAssertEqual(sut.searchBar.showsCancelButton, true)
+    }
+    
+    func test_searchBarAppearance_setReturnType() {
+        XCTAssertEqual(sut.searchBar.returnKeyType, .search)
+    }
+    
     
     func test_collectionViewAppearance_setBackgroundColor() {
         XCTAssertEqual(sut.collectionView.backgroundColor, StyleConstants.Color.lightGray)
