@@ -15,9 +15,16 @@ protocol FavoriteManagerProtocol {
     var favoritesChanged: (([TitleDetail]) -> Void)? { get set }
 }
 
+protocol UserDefaultsProtocol {
+    func data(forKey defaultName: String) -> Data?
+    func setValue(_ value: Any?, forKey defaultName: String)
+}
+
+extension UserDefaults: UserDefaultsProtocol { }
+
 final class FavoriteManager: FavoriteManagerProtocol {
     
-    var userDefaults = UserDefaults.standard
+    var userDefaults: UserDefaultsProtocol = UserDefaults.standard
     var favorites: [TitleDetail] = [] {
         didSet {
             favoritesChanged?(favorites)
@@ -48,7 +55,8 @@ final class FavoriteManager: FavoriteManagerProtocol {
     
     func getLocale() -> [TitleDetail] {
         guard let favoritesData = userDefaults.data(forKey: UserDefaultsKeyConstants.favorites),
-              let favorites = try? JSONDecoder().decode([TitleDetail].self, from: favoritesData) else {
+              let favorites = try? JSONDecoder().decode([TitleDetail].self, from: favoritesData),
+              !favorites.isEmpty else {
             return []
         }
         
@@ -61,8 +69,6 @@ final class FavoriteManager: FavoriteManagerProtocol {
         }
 
         userDefaults.setValue(encoded, forKey: UserDefaultsKeyConstants.favorites)
-        userDefaults.synchronize()
-        
     }
     
 }

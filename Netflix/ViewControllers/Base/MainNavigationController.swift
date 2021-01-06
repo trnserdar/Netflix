@@ -10,14 +10,6 @@ import UIKit
 
 class MainNavigationController: UINavigationController {
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
-    override var childForStatusBarStyle: UIViewController? {
-        return self.topViewController
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
