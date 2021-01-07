@@ -30,9 +30,14 @@ class ServiceClientTests: XCTestCase {
     func test_serviceClient_makeRequest_whenGivenId_setTitleDetail() {
         let requestExpectation = expectation(description: "Request Expectation")
         var titleDetail: TitleDetail?
-        sut.makeRequest(route: NetflixRouter.titleDetail(id: "81297141"), decodingType: TitleDetailResponse.self) { (response, responseError) in
-            titleDetail = response?.result
-            requestExpectation.fulfill()
+        sut.makeRequestWithData(route: NetflixRouter.titleDetail(id: "81297141")) { (responseData, error) in
+            do {
+                let response = try JSONDecoder().decode(TitleDetailResponse.self, from: responseData!)
+                titleDetail = response.result
+                requestExpectation.fulfill()
+            } catch {
+                requestExpectation.fulfill()
+            }
         }
         wait(for: [requestExpectation], timeout: 10.0)
         XCTAssertEqual(titleDetail?.nfinfo?.type, "movie")
@@ -41,9 +46,17 @@ class ServiceClientTests: XCTestCase {
     func test_serviceClient_makeRequest_whenGivenWrongId_setTitleDetail() {
         let requestExpectation = expectation(description: "Request Expectation")
         var titleDetail: TitleDetail?
-        sut.makeRequest(route: NetflixRouter.titleDetail(id: "9999999999"), decodingType: TitleDetailResponse.self) { (response, _) in
-            titleDetail = response?.result
-            requestExpectation.fulfill()
+        sut.makeRequestWithData(route: NetflixRouter.titleDetail(id: "9999999999")) { (responseData, error) in
+            do {
+                defer { requestExpectation.fulfill() }
+                guard responseData != nil else {
+                    return
+                }
+                let response = try JSONDecoder().decode(TitleDetailResponse.self, from: responseData!)
+                titleDetail = response.result
+            } catch {
+                requestExpectation.fulfill()
+            }
         }
         wait(for: [requestExpectation], timeout: 10.0)
         XCTAssertNil(titleDetail)
