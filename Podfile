@@ -11,6 +11,7 @@ pod 'Kingfisher', '~> 5.0'
 
   target 'NetflixTests' do
     inherit! :search_paths
+    pod 'Alamofire', '~> 5.2'
     # Pods for testing
   end
 
