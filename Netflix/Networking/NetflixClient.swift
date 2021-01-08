@@ -7,7 +7,17 @@
 
 import Foundation
 
-class NetflixClient {
+protocol NetflixClientProtocol {
+    func getGenres(completion: @escaping (_ genres: [Genre]?, _ error: Error?) -> Void)
+    func search(query: String, genreId: String, completion: @escaping (_ searchResults: [SearchResult]?, _ error: Error?) -> Void)
+    func titleDetail(netflixId: String, completion: @escaping (_ titleDetail: TitleDetail?, _ error: Error?) -> Void)
+    func episodeDetail(netflixId: String, completion: @escaping (_ episodeDetail: [EpisodeResult]?, _ error: Error?) -> Void)
+    func newReleases(days: String, completion: @escaping (_ newReleases: [SearchResult]?, _ error: Error?) -> Void)
+    func images(netflixId: String, completion: @escaping (_ imageResults: [ImageResult]?, _ error: Error?) -> Void)
+    func imdbDetail(netflixId: String, completion: @escaping (_ imdbDetail: Imdbinfo?, _ error: Error?) -> Void)
+}
+
+class NetflixClient: NetflixClientProtocol {
     
     private let serviceClient: ServiceClientProtocol
     
@@ -38,9 +48,10 @@ class NetflixClient {
     }
     
     func search(query: String, genreId: String = "0", completion: @escaping (_ searchResults: [SearchResult]?, _ error: Error?) -> Void) {
-        serviceClient.makeRequest(route: NetflixRouter.search(query: query, genreId: genreId), decodingType: SearchResultResponse.self) { (response, error) in
-            
-            guard let response = response,
+        serviceClient.makeRequestWithData(route: NetflixRouter.search(query: query, genreId: genreId)) { (responseData, error) in
+    
+            guard let responseData = responseData,
+                  let response = self.convertToModel(data: responseData, decodingType: SearchResultResponse.self),
                   let items = response.items,
                   items.count > 0 else {
                 completion(nil, error)
@@ -52,9 +63,10 @@ class NetflixClient {
     }
     
     func titleDetail(netflixId: String, completion: @escaping (_ titleDetail: TitleDetail?, _ error: Error?) -> Void) {
-        serviceClient.makeRequest(route: NetflixRouter.titleDetail(id: netflixId), decodingType: TitleDetailResponse.self) { (response, error) in
+        serviceClient.makeRequestWithData(route: NetflixRouter.titleDetail(id: netflixId)) { (responseData, error) in
             
-            guard let response = response,
+            guard let responseData = responseData,
+                  let response = self.convertToModel(data: responseData, decodingType: TitleDetailResponse.self),
                   let result = response.result else {
                 completion(nil, error)
                 return
@@ -65,9 +77,10 @@ class NetflixClient {
     }
     
     func episodeDetail(netflixId: String, completion: @escaping (_ episodeDetail: [EpisodeResult]?, _ error: Error?) -> Void) {
-        serviceClient.makeRequest(route: NetflixRouter.episodeDetail(id: netflixId), decodingType: EpisodeResponse.self) { (response, error) in
+        serviceClient.makeRequestWithData(route: NetflixRouter.episodeDetail(id: netflixId)) { (responseData, error) in
             
-            guard let response = response,
+            guard let responseData = responseData,
+                  let response = self.convertToModel(data: responseData, decodingType: EpisodeResponse.self),
                   let results = response.results else {
                 completion(nil, error)
                 return
@@ -78,9 +91,10 @@ class NetflixClient {
     }
     
     func newReleases(days: String, completion: @escaping (_ newReleases: [SearchResult]?, _ error: Error?) -> Void) {
-        serviceClient.makeRequest(route: NetflixRouter.newReleases(days: days), decodingType: SearchResultResponse.self) { (response, error) in
+        serviceClient.makeRequestWithData(route: NetflixRouter.newReleases(days: days)) { (responseData, error) in
             
-            guard let response = response,
+            guard let responseData = responseData,
+                  let response = self.convertToModel(data: responseData, decodingType: SearchResultResponse.self),
                   let items = response.items,
                   items.count > 0 else {
                 completion(nil, error)
@@ -92,9 +106,10 @@ class NetflixClient {
     }
     
     func images(netflixId: String, completion: @escaping (_ imageResults: [ImageResult]?, _ error: Error?) -> Void) {
-        serviceClient.makeRequest(route: NetflixRouter.images(id: netflixId), decodingType: ImageResponse.self) { (response, error) in
+        serviceClient.makeRequestWithData(route: NetflixRouter.images(id: netflixId)) { (responseData, error) in
             
-            guard let response = response,
+            guard let responseData = responseData,
+                  let response = self.convertToModel(data: responseData, decodingType: ImageResponse.self),
                   let results = response.results,
                   results.count > 0 else {
                 completion(nil, error)
@@ -106,7 +121,23 @@ class NetflixClient {
     }
     
     func imdbDetail(netflixId: String, completion: @escaping (_ imdbDetail: Imdbinfo?, _ error: Error?) -> Void) {
-        serviceClient.makeRequest(route: NetflixRouter.imdbDetail(id: netflixId), decodingType: Imdbinfo.self, completion: completion)
+        serviceClient.makeRequestWithData(route: NetflixRouter.imdbDetail(id: netflixId)) { (responseData, error) in
+            
+            guard let responseData = responseData,
+                  let response = self.convertToModel(data: responseData, decodingType: Imdbinfo.self) else {
+                completion(nil, error)
+                return
+            }
+            
+            completion(response, nil)
+        }
     }
     
+    func convertToModel<T: Codable>(data: Data, decodingType: T.Type) -> T? {
+        do {
+            return try JSONDecoder().decode(T.self, from: data)
+        } catch {
+            return nil
+        }
+    }
 }
