@@ -10,11 +10,11 @@ import UIKit
 class HomeViewController: UIViewController {
 
     let homeView = HomeView()
-    lazy var netflixClient = NetflixClient()
-    private let group = DispatchGroup()
-    private let queue = DispatchQueue.global(qos: .utility)
-    private var newReleases: [SearchResult] = []
-    private var actions: [SearchResult] = []
+    lazy var netflixClient: NetflixClientProtocol = NetflixClient()
+    let group = DispatchGroup()
+    let queue = DispatchQueue.global(qos: .utility)
+    var newReleases: [SearchResult] = []
+    var actions: [SearchResult] = []
     lazy var favoriteManager: FavoriteManagerProtocol = FavoriteManager()
     weak var coordinator: HomeCoordinator?
 
@@ -38,29 +38,24 @@ class HomeViewController: UIViewController {
     
     func listenEvents() {
         homeView.newReleaseView.showAllTapped = { [weak self] results in
-            guard let self = self else { return }
-            self.coordinator?.showResult(navigationTitle: TextConstants.newReleases, results: results)
+            self?.coordinator?.showResult(navigationTitle: TextConstants.newReleases, results: results)
         }
         
         homeView.actionView.showAllTapped = { [weak self] results in
-            guard let self = self else { return }
-            self.coordinator?.showResult(navigationTitle: TextConstants.crimeActionAdventure, results: results)
+            self?.coordinator?.showResult(navigationTitle: TextConstants.crimeActionAdventure, results: results)
         }
         
         homeView.resultSelected = { [weak self] searchResult in
-            guard let self = self else { return }
-            self.coordinator?.showResultDetail(result: searchResult)
+            self?.coordinator?.showResultDetail(result: searchResult)
         }
         
         homeView.favoriteSelected = { [weak self] searchResult in
-            guard let self = self else { return }
-            self.favoriteManager.favoriteAction(result: searchResult)
+            self?.favoriteManager.favoriteAction(result: searchResult)
         }
         
         favoriteManager.favoritesChanged = { [weak self] favorites in
-            guard let self = self else { return }
-            self.homeView.viewModel.newRelease.favorites = favorites
-            self.homeView.viewModel.action.favorites = favorites
+            self?.homeView.viewModel.newRelease.favorites = favorites
+            self?.homeView.viewModel.action.favorites = favorites
         }
         
     }
@@ -78,10 +73,9 @@ class HomeViewController: UIViewController {
         }
         
         group.notify(queue: .main) { [weak self] in
-            guard let self = self else { return }
-            self.homeView.baseViewModel.isActivityIndicatorEnabled = false
-            self.homeView.viewModel.newRelease.searchResults = self.newReleases
-            self.homeView.viewModel.action.searchResults = self.actions
+            self?.homeView.baseViewModel.isActivityIndicatorEnabled = false
+            self?.homeView.viewModel.newRelease.searchResults = self?.newReleases ?? []
+            self?.homeView.viewModel.action.searchResults = self?.actions ?? []
         }
         
     }
