@@ -5,7 +5,7 @@ Netflix like iOS Application based on MVVM and implemented using the Test Driven
 
 # Requirements
 * Xcode 11 or later
-* iOS 11 or later
+* iOS 13 or later
 
 # Getting Started
 * Clone or download
