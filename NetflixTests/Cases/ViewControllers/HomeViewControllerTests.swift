@@ -32,6 +32,7 @@ class HomeViewControllerTests: XCTestCase {
     }
     
     func test_listenEvents_newReleaseView_whenShowAllTapped_whenSearchResultsEmpty_setResults() {
+        sut.listenEvents()
         sut.homeView.newReleaseView.showAllTapped = { results in
             XCTAssertEqual(results.count, 0)
         }
@@ -39,13 +40,15 @@ class HomeViewControllerTests: XCTestCase {
     }
     
     func test_listenEvents_newReleaseView_whenShowAllTapped_whenGiven1SearchResult_setResults() {
+        sut.listenEvents()
         sut.homeView.newReleaseView.showAllTapped = { results in
             XCTAssertEqual(results.count, 1)
         }
         sut.homeView.newReleaseView.showAllTapped?([SearchResult.dummy])
     }
     
-    func test_listenEvents_newReleaseView_whenShowAllTapped_whenGiven2SearchResults_setResults() {
+    func test_listenEvents_newReleaseView_whenShowAllTapped_whenGiven2SearchResults_setShowResultCount() {
+        sut.listenEvents()
         sut.homeView.newReleaseView.showAllTapped = { results in
             XCTAssertEqual(results.count, 2)
         }
@@ -53,6 +56,7 @@ class HomeViewControllerTests: XCTestCase {
     }
     
     func test_listenEvents_newReleaseView_whenShowAllTapped_setWeakReference() {
+        sut.listenEvents()
         sut.homeView.newReleaseView.showAllTapped = { [weak sut] results in
             XCTAssertNotNil(sut)
         }
@@ -60,6 +64,7 @@ class HomeViewControllerTests: XCTestCase {
     }
 
     func test_listenEvents_actionView_whenShowAllTapped_whenSearchResultsEmpty_setResults() {
+        sut.listenEvents()
         sut.homeView.actionView.showAllTapped = { results in
             XCTAssertEqual(results.count, 0)
         }
@@ -67,6 +72,7 @@ class HomeViewControllerTests: XCTestCase {
     }
     
     func test_listenEvents_actionView_whenShowAllTapped_whenGiven1SearchResult_setResults() {
+        sut.listenEvents()
         sut.homeView.actionView.showAllTapped = { results in
             XCTAssertEqual(results.count, 1)
         }
@@ -74,6 +80,7 @@ class HomeViewControllerTests: XCTestCase {
     }
     
     func test_listenEvents_actionView_whenShowAllTapped_whenGiven2SearchResults_setResults() {
+        sut.listenEvents()
         sut.homeView.actionView.showAllTapped = { results in
             XCTAssertEqual(results.count, 2)
         }
@@ -81,6 +88,7 @@ class HomeViewControllerTests: XCTestCase {
     }
     
     func test_listenEvents_actionView_whenShowAllTapped_setWeakReference() {
+        sut.listenEvents()
         sut.homeView.actionView.showAllTapped = { [weak sut] results in
             XCTAssertNotNil(sut)
         }
@@ -88,6 +96,7 @@ class HomeViewControllerTests: XCTestCase {
     }
     
     func test_listenEvents_whenResultSelected_setResult() {
+        sut.listenEvents()
         sut.homeView.resultSelected = { result in
             XCTAssertEqual(result.title, SearchResult.dummy.title)
         }
@@ -95,6 +104,7 @@ class HomeViewControllerTests: XCTestCase {
     }
     
     func test_listenEvents_whenResultSelected_setWeakReference() {
+        sut.listenEvents()
         sut.homeView.resultSelected = { [weak sut] result in
             XCTAssertNotNil(sut)
         }
@@ -102,6 +112,7 @@ class HomeViewControllerTests: XCTestCase {
     }
     
     func test_listenEvents_whenFavoriteSelected_setResult() {
+        sut.listenEvents()
         sut.homeView.favoriteSelected = { result in
             XCTAssertEqual(result.title, SearchResult.dummy.title)
         }
@@ -109,6 +120,7 @@ class HomeViewControllerTests: XCTestCase {
     }
     
     func test_listenEvents_whenFavoriteSelected_setWeakReference() {
+        sut.listenEvents()
         sut.homeView.favoriteSelected = { [weak sut] result in
             XCTAssertNotNil(sut)
         }
@@ -116,6 +128,7 @@ class HomeViewControllerTests: XCTestCase {
     }
     
     func test_listenEvents_whenFavoriteChanged_setFavorites() {
+        sut.listenEvents()
         sut.favoriteManager.favoritesChanged = { favorites in
             XCTAssertEqual(favorites.count, 2)
         }
@@ -123,6 +136,7 @@ class HomeViewControllerTests: XCTestCase {
     }
     
     func test_listenEvents_whenFavoriteChanged_setWeakReference() {
+        sut.listenEvents()
         sut.favoriteManager.favoritesChanged = { [weak sut] favorites in
             XCTAssertNotNil(sut)
         }

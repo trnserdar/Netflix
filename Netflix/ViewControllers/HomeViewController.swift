@@ -16,7 +16,7 @@ class HomeViewController: UIViewController {
     var newReleases: [SearchResult] = []
     var actions: [SearchResult] = []
     lazy var favoriteManager: FavoriteManagerProtocol = FavoriteManager()
-    weak var coordinator: HomeCoordinator?
+    weak var coordinator: (SearchResulting & ResultDetailing)?
 
     override func loadView() {
         view = homeView
