@@ -75,6 +75,7 @@
 		4F5F9A0A25A6DD0F00B9CF67 /* MockServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F9A0925A6DD0F00B9CF67 /* MockServiceClient.swift */; };
 		4F5F9A1F25A6E0E600B9CF67 /* NetflixClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F9A1E25A6E0E600B9CF67 /* NetflixClientTests.swift */; };
 		4F5F9A2425A6F21C00B9CF67 /* MockNetflixClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F9A2325A6F21C00B9CF67 /* MockNetflixClient.swift */; };
+		4F921EBF25AA608800905E77 /* GenresViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F921EBE25AA608800905E77 /* GenresViewControllerTests.swift */; };
 		4F97588C25906C7B00E0300C /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F97588B25906C7B00E0300C /* MainNavigationController.swift */; };
 		4F975894259087D500E0300C /* TextConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F975893259087D500E0300C /* TextConstants.swift */; };
 		4F97589925908DF800E0300C /* GenreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F97589825908DF800E0300C /* GenreViewModel.swift */; };
@@ -102,6 +103,10 @@
 		4FB3D67A25A73A690054062B /* ServiceClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB3D67925A73A690054062B /* ServiceClientTests.swift */; };
 		4FB3D67F25A83D280054062B /* imdbInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 4FB3D67E25A83D280054062B /* imdbInfo.json */; };
 		4FB3D68725A83DD60054062B /* episodesBroken.json in Resources */ = {isa = PBXBuildFile; fileRef = 4FB3D68625A83DD60054062B /* episodesBroken.json */; };
+		4FC7BFA125AF174E009EDEFF /* CastViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC7BFA025AF174E009EDEFF /* CastViewControllerTests.swift */; };
+		4FC7BFA625AF1BB1009EDEFF /* SearchViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC7BFA525AF1BB1009EDEFF /* SearchViewControllerTests.swift */; };
+		4FC7BFAE25AF1D25009EDEFF /* MockCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC7BFAD25AF1D25009EDEFF /* MockCoordinator.swift */; };
+		4FC7BFB325AF2223009EDEFF /* MockFavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC7BFB225AF2223009EDEFF /* MockFavoriteManager.swift */; };
 		4FC9992825954324009A0CC3 /* ResultCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC9992725954324009A0CC3 /* ResultCategoryView.swift */; };
 		4FC9992D2595DB3F009A0CC3 /* ResultCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC9992C2595DB3F009A0CC3 /* ResultCategoryCollectionViewCell.swift */; };
 		4FC9993A2595F654009A0CC3 /* ResultAllCastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC999392595F654009A0CC3 /* ResultAllCastView.swift */; };
@@ -218,6 +223,7 @@
 		4F5F9A0925A6DD0F00B9CF67 /* MockServiceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceClient.swift; sourceTree = "<group>"; };
 		4F5F9A1E25A6E0E600B9CF67 /* NetflixClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixClientTests.swift; sourceTree = "<group>"; };
 		4F5F9A2325A6F21C00B9CF67 /* MockNetflixClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetflixClient.swift; sourceTree = "<group>"; };
+		4F921EBE25AA608800905E77 /* GenresViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresViewControllerTests.swift; sourceTree = "<group>"; };
 		4F97588B25906C7B00E0300C /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		4F975893259087D500E0300C /* TextConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextConstants.swift; sourceTree = "<group>"; };
 		4F97589825908DF800E0300C /* GenreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreViewModel.swift; sourceTree = "<group>"; };
@@ -245,6 +251,10 @@
 		4FB3D67925A73A690054062B /* ServiceClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceClientTests.swift; sourceTree = "<group>"; };
 		4FB3D67E25A83D280054062B /* imdbInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = imdbInfo.json; sourceTree = "<group>"; };
 		4FB3D68625A83DD60054062B /* episodesBroken.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = episodesBroken.json; sourceTree = "<group>"; };
+		4FC7BFA025AF174E009EDEFF /* CastViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastViewControllerTests.swift; sourceTree = "<group>"; };
+		4FC7BFA525AF1BB1009EDEFF /* SearchViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTests.swift; sourceTree = "<group>"; };
+		4FC7BFAD25AF1D25009EDEFF /* MockCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoordinator.swift; sourceTree = "<group>"; };
+		4FC7BFB225AF2223009EDEFF /* MockFavoriteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFavoriteManager.swift; sourceTree = "<group>"; };
 		4FC9992725954324009A0CC3 /* ResultCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCategoryView.swift; sourceTree = "<group>"; };
 		4FC9992C2595DB3F009A0CC3 /* ResultCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		4FC999392595F654009A0CC3 /* ResultAllCastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultAllCastView.swift; sourceTree = "<group>"; };
@@ -551,6 +561,8 @@
 			children = (
 				4F5F9A0925A6DD0F00B9CF67 /* MockServiceClient.swift */,
 				4F5F9A2325A6F21C00B9CF67 /* MockNetflixClient.swift */,
+				4FC7BFAD25AF1D25009EDEFF /* MockCoordinator.swift */,
+				4FC7BFB225AF2223009EDEFF /* MockFavoriteManager.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -630,6 +642,9 @@
 			isa = PBXGroup;
 			children = (
 				4F5F99C825A599C700B9CF67 /* HomeViewControllerTests.swift */,
+				4F921EBE25AA608800905E77 /* GenresViewControllerTests.swift */,
+				4FC7BFA525AF1BB1009EDEFF /* SearchViewControllerTests.swift */,
+				4FC7BFA025AF174E009EDEFF /* CastViewControllerTests.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1139,6 +1154,7 @@
 				4F5F99D225A5B51C00B9CF67 /* HomeCoordinatorsTests.swift in Sources */,
 				4F5F9A1F25A6E0E600B9CF67 /* NetflixClientTests.swift in Sources */,
 				4FAA1AC925A3269A007A3E3F /* CastViewTests.swift in Sources */,
+				4F921EBF25AA608800905E77 /* GenresViewControllerTests.swift in Sources */,
 				4FFA26C4259F9FD100D22E46 /* EpisodeElementTests.swift in Sources */,
 				4FAA1A9625A202B3007A3E3F /* SeasonViewTests.swift in Sources */,
 				4FAA1AE225A38B29007A3E3F /* SearchViewTests.swift in Sources */,
@@ -1154,15 +1170,19 @@
 				4FFA26BF259F9F2600D22E46 /* EpisodeTests.swift in Sources */,
 				4FFA271B25A1EC6300D22E46 /* ResultEpisodeViewTests.swift in Sources */,
 				4F5F99BB25A3992A00B9CF67 /* HomeViewTests.swift in Sources */,
+				4FC7BFA125AF174E009EDEFF /* CastViewControllerTests.swift in Sources */,
 				4FFA26B5259DCA8800D22E46 /* EpisodeViewModelTests.swift in Sources */,
+				4FC7BFB325AF2223009EDEFF /* MockFavoriteManager.swift in Sources */,
 				4F5F99C925A599C700B9CF67 /* HomeViewControllerTests.swift in Sources */,
 				4FAA1AB025A2F256007A3E3F /* ResultCategoryViewTests.swift in Sources */,
 				4FAA1AB925A302D0007A3E3F /* ResultCategoryCollectionViewCellTests.swift in Sources */,
 				4FFA26BA259DD0F400D22E46 /* CastViewModelTests.swift in Sources */,
 				4FAA1A9F25A22ACC007A3E3F /* EpisodeTableViewCellTests.swift in Sources */,
 				4FFA26E8259FA30A00D22E46 /* TitleDetailTests.swift in Sources */,
+				4FC7BFA625AF1BB1009EDEFF /* SearchViewControllerTests.swift in Sources */,
 				4FFA26F925A0A39C00D22E46 /* TitleDetailViewTests.swift in Sources */,
 				4F5F99B025A3921500B9CF67 /* GenresViewTests.swift in Sources */,
+				4FC7BFAE25AF1D25009EDEFF /* MockCoordinator.swift in Sources */,
 				4FAA1ACF25A3433F007A3E3F /* CategoryViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
