@@ -19,7 +19,7 @@ struct TitleDetail: Codable {
     let nfinfo: SearchResult?
     let imdbinfo: Imdbinfo?
     let mgname, genreid: [String]?
-    let people: [Person]?
+    var people: [Person]?
     let country: [Country]?
     
     var genres: [Genre] {

@@ -18,7 +18,7 @@ struct SearchResultResponse: Codable {
 }
 
 struct SearchResult: Codable, Equatable {
-    let netflixid, title: String?
+    var netflixid, title: String?
     let image: String?
     let synopsis, rating: String?
     let type: String?
