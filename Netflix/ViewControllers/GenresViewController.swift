@@ -10,12 +10,10 @@ import UIKit
 class GenresViewController: UIViewController {
     
     let genresView = GenresView()
-    lazy var netflixClient = NetflixClient()
-    private let group = DispatchGroup()
-    private let queue = DispatchQueue.global(qos: .utility)
-    private var genres: [Genre] = []
-    private var searchResults: [SearchResult] = []
-    weak var coordinator: GenresCoordinator?
+    var netflixClient: NetflixClientProtocol = NetflixClient()
+    var genres: [Genre] = []
+    var searchResults: [SearchResult] = []
+    weak var coordinator: SearchResulting?
     
     override func loadView() {
         view = genresView
@@ -26,73 +24,45 @@ class GenresViewController: UIViewController {
         navigationItem.title = TextConstants.genres
 
         listenEvents()
-        configureNetworkOperationForGenres()
+        getGenres()
     }
     
     func listenEvents() {
         genresView.searchBarTextDidChange = { [weak self] searchText in
-            guard let self = self else { return }
-            let filteredGenres = self.genres.filter( { $0.name.lowercased().contains(searchText.lowercased()) && !$0.name.contains("All") })
-            self.genresView.filteredViewModels = !filteredGenres.isEmpty ? filteredGenres.map({ GenreViewModel(genre: $0) }) : self.genres.map({ GenreViewModel(genre: $0) })
+            let filteredGenres = self?.genres.filter( { $0.name.lowercased().contains(searchText.lowercased()) && !$0.name.contains("All") }) ?? []
+            self?.genresView.filteredViewModels = !filteredGenres.isEmpty ? filteredGenres.map({ GenreViewModel(genre: $0) }) : self?.genres.map({ GenreViewModel(genre: $0) }) ?? []
         }
         
         genresView.genreSelected = { [weak self] genre in
-            guard let self = self else { return }
-            self.configureNetworkOperation(genre: genre)
+            self?.getNew100(genre: genre)
         }
 
     }
     
-    func configureNetworkOperationForGenres() {
-        genresView.baseViewModel.isActivityIndicatorEnabled = true
-        queue.async(group: group) {
-            self.group.enter()
-            self.getGenres()
-        }
-        
-        group.notify(queue: .main) { [weak self] in
-            guard let self = self else { return }
-            self.genresView.baseViewModel.isActivityIndicatorEnabled = false
-            self.genresView.filteredViewModels = self.genres.filter({ !$0.name.contains("All") }).map({ GenreViewModel(genre: $0) })
-        }
-    }
-    
     func getGenres() {
-        netflixClient.getGenres { (genres, error) in
-            defer { self.group.leave() }
-            guard let genres = genres,
-                  genres.count > 0 else {
-                return
-            }
-            
-            self.genres = genres
-        }
-        
-    }
-    
-    func configureNetworkOperation(genre: Genre) {
         genresView.baseViewModel.isActivityIndicatorEnabled = true
-        queue.async(group: group) {
-            self.group.enter()
-            self.getNew100(genre: genre)
+        netflixClient.getGenres { [weak self] (genres, error) in
+            defer {
+                DispatchQueue.main.async {
+                    self?.genresView.baseViewModel.isActivityIndicatorEnabled = false
+                    self?.genresView.filteredViewModels = self?.genres.filter({ !$0.name.contains("All") }).map({ GenreViewModel(genre: $0) }) ?? []
+                }
+            }
+            self?.genres = genres ?? []
         }
         
-        group.notify(queue: .main) { [weak self] in
-            guard let self = self else { return }
-            self.genresView.baseViewModel.isActivityIndicatorEnabled = false
-            self.coordinator?.showResult(navigationTitle: genre.name, results: self.searchResults)
-        }
     }
-    
+
     func getNew100(genre: Genre) {
-        netflixClient.search(query: "get:new100", genreId: "\(genre.ids?.first ?? 0)") { (response, error) in
-            defer { self.group.leave() }
-            guard let response = response,
-                  (response.count != 0) else {
-                return
+        genresView.baseViewModel.isActivityIndicatorEnabled = true
+        netflixClient.search(query: "get:new100", genreId: "\(genre.ids?.first ?? 0)") { [weak self] (response, error) in
+            defer {
+                DispatchQueue.main.async {
+                    self?.genresView.baseViewModel.isActivityIndicatorEnabled = false
+                    self?.coordinator?.showResult(navigationTitle: genre.name, results: self?.searchResults ?? [])
+                }
             }
-            
-            self.searchResults = response
+            self?.searchResults = response ?? []
         }
         
     }
