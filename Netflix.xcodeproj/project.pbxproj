@@ -75,6 +75,9 @@
 		4F5F9A0A25A6DD0F00B9CF67 /* MockServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F9A0925A6DD0F00B9CF67 /* MockServiceClient.swift */; };
 		4F5F9A1F25A6E0E600B9CF67 /* NetflixClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F9A1E25A6E0E600B9CF67 /* NetflixClientTests.swift */; };
 		4F5F9A2425A6F21C00B9CF67 /* MockNetflixClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F9A2325A6F21C00B9CF67 /* MockNetflixClient.swift */; };
+		4F8AB0C925AF37EB00C638D4 /* FavoritesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8AB0C825AF37EB00C638D4 /* FavoritesViewControllerTests.swift */; };
+		4F8AB0D925AF893000C638D4 /* SearchResultViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8AB0D825AF893000C638D4 /* SearchResultViewControllerTests.swift */; };
+		4F8AB0E125AF8D8D00C638D4 /* ResultDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8AB0E025AF8D8D00C638D4 /* ResultDetailViewControllerTests.swift */; };
 		4F921EBF25AA608800905E77 /* GenresViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F921EBE25AA608800905E77 /* GenresViewControllerTests.swift */; };
 		4F97588C25906C7B00E0300C /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F97588B25906C7B00E0300C /* MainNavigationController.swift */; };
 		4F975894259087D500E0300C /* TextConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F975893259087D500E0300C /* TextConstants.swift */; };
@@ -223,6 +226,9 @@
 		4F5F9A0925A6DD0F00B9CF67 /* MockServiceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceClient.swift; sourceTree = "<group>"; };
 		4F5F9A1E25A6E0E600B9CF67 /* NetflixClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixClientTests.swift; sourceTree = "<group>"; };
 		4F5F9A2325A6F21C00B9CF67 /* MockNetflixClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetflixClient.swift; sourceTree = "<group>"; };
+		4F8AB0C825AF37EB00C638D4 /* FavoritesViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewControllerTests.swift; sourceTree = "<group>"; };
+		4F8AB0D825AF893000C638D4 /* SearchResultViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewControllerTests.swift; sourceTree = "<group>"; };
+		4F8AB0E025AF8D8D00C638D4 /* ResultDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDetailViewControllerTests.swift; sourceTree = "<group>"; };
 		4F921EBE25AA608800905E77 /* GenresViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresViewControllerTests.swift; sourceTree = "<group>"; };
 		4F97588B25906C7B00E0300C /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		4F975893259087D500E0300C /* TextConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextConstants.swift; sourceTree = "<group>"; };
@@ -644,6 +650,9 @@
 				4F5F99C825A599C700B9CF67 /* HomeViewControllerTests.swift */,
 				4F921EBE25AA608800905E77 /* GenresViewControllerTests.swift */,
 				4FC7BFA525AF1BB1009EDEFF /* SearchViewControllerTests.swift */,
+				4F8AB0C825AF37EB00C638D4 /* FavoritesViewControllerTests.swift */,
+				4F8AB0D825AF893000C638D4 /* SearchResultViewControllerTests.swift */,
+				4F8AB0E025AF8D8D00C638D4 /* ResultDetailViewControllerTests.swift */,
 				4FC7BFA025AF174E009EDEFF /* CastViewControllerTests.swift */,
 			);
 			path = ViewControllers;
@@ -1176,9 +1185,12 @@
 				4F5F99C925A599C700B9CF67 /* HomeViewControllerTests.swift in Sources */,
 				4FAA1AB025A2F256007A3E3F /* ResultCategoryViewTests.swift in Sources */,
 				4FAA1AB925A302D0007A3E3F /* ResultCategoryCollectionViewCellTests.swift in Sources */,
+				4F8AB0D925AF893000C638D4 /* SearchResultViewControllerTests.swift in Sources */,
+				4F8AB0E125AF8D8D00C638D4 /* ResultDetailViewControllerTests.swift in Sources */,
 				4FFA26BA259DD0F400D22E46 /* CastViewModelTests.swift in Sources */,
 				4FAA1A9F25A22ACC007A3E3F /* EpisodeTableViewCellTests.swift in Sources */,
 				4FFA26E8259FA30A00D22E46 /* TitleDetailTests.swift in Sources */,
+				4F8AB0C925AF37EB00C638D4 /* FavoritesViewControllerTests.swift in Sources */,
 				4FC7BFA625AF1BB1009EDEFF /* SearchViewControllerTests.swift in Sources */,
 				4FFA26F925A0A39C00D22E46 /* TitleDetailViewTests.swift in Sources */,
 				4F5F99B025A3921500B9CF67 /* GenresViewTests.swift in Sources */,
