@@ -36,18 +36,15 @@ class SearchResultViewController: UIViewController {
     
     func listenEvents() {
         searchResultView.resultSelected = { [weak self] searchResult in
-            guard let self = self else { return }
-            self.coordinator?.showResultDetail(result: searchResult)
+            self?.coordinator?.showResultDetail(result: searchResult)
         }
         
         searchResultView.favoriteSelected = { [weak self] searchResult in
-            guard let self = self else { return }
-            self.favoriteManager.favoriteAction(result: searchResult)
+            self?.favoriteManager.favoriteAction(result: searchResult)
         }
         
         favoriteManager.favoritesChanged = { [weak self] favorites in
-            guard let self = self else { return }
-            self.searchResultView.viewModels = self.searchResultView.viewModels.map({ SearchResultViewModel(searchResult: $0.searchResult, favorites: favorites)})
+            self?.searchResultView.viewModels = self?.searchResultView.viewModels.map({ SearchResultViewModel(searchResult: $0.searchResult, favorites: favorites)}) ?? []
         }
         
     }
