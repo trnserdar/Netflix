@@ -1,7 +1,7 @@
 # Netflix
 
 # About
-Netflix like iOS Application based on MVVM and implemented using the Test Driven Development (TDD) concept.
+Netflix like iOS Application based on MVVM-C and implemented using the Test Driven Development (TDD) concept.
 
 # Requirements
 * Xcode 11 or later
@@ -13,6 +13,7 @@ Netflix like iOS Application based on MVVM and implemented using the Test Driven
 
 # Technical Features
 * MVVM Arhitecture
+* Coordinator Pattern
 * Using UIKit with programmatically
 * Includes 687 Unit Tests and Code Coverage: %95,1
 
