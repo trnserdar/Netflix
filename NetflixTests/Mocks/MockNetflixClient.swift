@@ -37,7 +37,7 @@ class MockNetflixClient: NetflixClientProtocol {
         genresCompletion = completion
     }
     
-    func search(query: String, genreId: String, completion: @escaping ([SearchResult]?, Error?) -> Void) {
+    func search(query: String, genreId: String?, completion: @escaping ([SearchResult]?, Error?) -> Void) {
         searchCount += 1
         searchCompletion = completion
     }

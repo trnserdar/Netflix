@@ -9,7 +9,7 @@ import Foundation
 
 protocol NetflixClientProtocol {
     func getGenres(completion: @escaping (_ genres: [Genre]?, _ error: Error?) -> Void)
-    func search(query: String, genreId: String, completion: @escaping (_ searchResults: [SearchResult]?, _ error: Error?) -> Void)
+    func search(query: String, genreId: String?, completion: @escaping (_ searchResults: [SearchResult]?, _ error: Error?) -> Void)
     func titleDetail(netflixId: String, completion: @escaping (_ titleDetail: TitleDetail?, _ error: Error?) -> Void)
     func episodeDetail(netflixId: String, completion: @escaping (_ episodeDetail: [EpisodeResult]?, _ error: Error?) -> Void)
     func newReleases(days: String, completion: @escaping (_ newReleases: [SearchResult]?, _ error: Error?) -> Void)
@@ -47,8 +47,8 @@ class NetflixClient: NetflixClientProtocol {
         }
     }
     
-    func search(query: String, genreId: String = "0", completion: @escaping (_ searchResults: [SearchResult]?, _ error: Error?) -> Void) {
-        serviceClient.makeRequestWithData(route: NetflixRouter.search(query: query, genreId: genreId)) { (responseData, error) in
+    func search(query: String, genreId: String? = "0", completion: @escaping (_ searchResults: [SearchResult]?, _ error: Error?) -> Void) {
+        serviceClient.makeRequestWithData(route: NetflixRouter.search(query: query, genreId: genreId ?? "0")) { (responseData, error) in
     
             guard let responseData = responseData,
                   let response = self.convertToModel(data: responseData, decodingType: SearchResultResponse.self),
