@@ -25,4 +25,8 @@ struct TextConstants {
     static let director = "Director"
     static let creator = "Creator"
     static let actor = "Actors"
+    
+    static let ok = "OK"
+    static let errorTitle = "Warning"
+    static let errorMessage = "Something went wrong!"
 }

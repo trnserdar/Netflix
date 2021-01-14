@@ -52,6 +52,8 @@
 		4F1867B5259CA21E00F1EB4F /* GenreViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1867B4259CA21E00F1EB4F /* GenreViewModelTests.swift */; };
 		4F1867BD259CA56700F1EB4F /* SearchResultViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1867BC259CA56700F1EB4F /* SearchResultViewModelTests.swift */; };
 		4F1867C2259CAE2900F1EB4F /* ResultDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1867C1259CAE2900F1EB4F /* ResultDetailViewModelTests.swift */; };
+		4F1E898C25B030BD000B65B5 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1E898B25B030BD000B65B5 /* AlertManager.swift */; };
+		4F1E899225B032EE000B65B5 /* ComingBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1E899125B032EE000B65B5 /* ComingBack.swift */; };
 		4F364CED259532E6006BB75C /* ResultDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F364CEC259532E6006BB75C /* ResultDetailViewModel.swift */; };
 		4F364CF225953C58006BB75C /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F364CF125953C58006BB75C /* SummaryView.swift */; };
 		4F41B3C72590E4C500429659 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F41B3C62590E4C500429659 /* SearchResultViewController.swift */; };
@@ -203,6 +205,8 @@
 		4F1867B4259CA21E00F1EB4F /* GenreViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreViewModelTests.swift; sourceTree = "<group>"; };
 		4F1867BC259CA56700F1EB4F /* SearchResultViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewModelTests.swift; sourceTree = "<group>"; };
 		4F1867C1259CAE2900F1EB4F /* ResultDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDetailViewModelTests.swift; sourceTree = "<group>"; };
+		4F1E898B25B030BD000B65B5 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		4F1E899125B032EE000B65B5 /* ComingBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingBack.swift; sourceTree = "<group>"; };
 		4F364CEC259532E6006BB75C /* ResultDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDetailViewModel.swift; sourceTree = "<group>"; };
 		4F364CF125953C58006BB75C /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 		4F41B3C62590E4C500429659 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
@@ -528,6 +532,7 @@
 			isa = PBXGroup;
 			children = (
 				4F18672A2599BB5000F1EB4F /* FavoriteManager.swift */,
+				4F1E898B25B030BD000B65B5 /* AlertManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -726,6 +731,7 @@
 				4F9C340625920B6500141C67 /* SearchResulting.swift */,
 				4FC9994625960D9D009A0CC3 /* ResultDetailing.swift */,
 				4F18671F2598BA5800F1EB4F /* CastDetailing.swift */,
+				4F1E899125B032EE000B65B5 /* ComingBack.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1107,6 +1113,7 @@
 				4F1353F1258E3D1500F2C585 /* AppDelegate.swift in Sources */,
 				4F13546E258EAB9F00F2C585 /* TitleDetail.swift in Sources */,
 				4F1866FF2596A00700F1EB4F /* EpisodeViewModel.swift in Sources */,
+				4F1E899225B032EE000B65B5 /* ComingBack.swift in Sources */,
 				4F1867202598BA5800F1EB4F /* CastDetailing.swift in Sources */,
 				4F135492258FA68E00F2C585 /* SearchViewController.swift in Sources */,
 				4F9C33D82590F0A700141C67 /* SearchResultViewModel.swift in Sources */,
@@ -1134,6 +1141,7 @@
 				4F13549C258FA78C00F2C585 /* StyleConstants.swift in Sources */,
 				4F9C341A2592293400141C67 /* SearchView.swift in Sources */,
 				4F13545C258E63B700F2C585 /* Genre.swift in Sources */,
+				4F1E898C25B030BD000B65B5 /* AlertManager.swift in Sources */,
 				4FC9994C25968C3B009A0CC3 /* SeasonCollectionViewCell.swift in Sources */,
 				4F135485258FA66C00F2C585 /* HomeViewController.swift in Sources */,
 				4F9C33D32590E78500141C67 /* SearchResultCollectionViewCell.swift in Sources */,

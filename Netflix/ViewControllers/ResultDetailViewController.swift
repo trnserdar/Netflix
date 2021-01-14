@@ -19,7 +19,8 @@ class ResultDetailViewController: UIViewController {
     private(set) var episodeResults: [EpisodeResult] = []
     private(set) var genreSearchResults: [SearchResult] = []
     lazy var favoriteManager: FavoriteManagerProtocol = FavoriteManager()
-    weak var coordinator: (ResultDetailing & SearchResulting & CastDetailing)?
+    weak var coordinator: (ResultDetailing & SearchResulting & CastDetailing & ComingBack)?
+    var alertManager = AlertManager()
 
     override func loadView() {
         view = resultDetailView
@@ -83,6 +84,10 @@ class ResultDetailViewController: UIViewController {
                 self?.resultDetailView.baseViewModel.isActivityIndicatorEnabled = false
                 if let titleDetail = self?.titleDetail {
                     self?.resultDetailView.viewModel = ResultDetailViewModel(titleDetail: titleDetail, favorites: self?.favoriteManager.favorites ?? [])
+                } else {
+                    self?.alertManager.showAlert(alertAction: {
+                        self?.coordinator?.comingBack()
+                    }, viewController: self)
                 }
                 self?.resultDetailView.resultEpisodeView.episodeResultViewModels = self?.episodeResults.enumerated().map({ (index, element) in
                     return EpisodeResultViewModel(episodeResult: element, isSelected: index == 0 ? true : false)
