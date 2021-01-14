@@ -57,3 +57,10 @@ extension HomeCoordinator: CastDetailing {
         navigationController.pushViewController(castViewController, animated: true)
     }
 }
+
+extension HomeCoordinator: ComingBack {
+    
+    func comingBack() {
+        navigationController.popViewController(animated: true)
+    }
+}

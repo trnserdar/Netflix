@@ -58,3 +58,10 @@ extension GenresCoordinator: CastDetailing {
         navigationController.pushViewController(castViewController, animated: true)
     }
 }
+
+extension GenresCoordinator: ComingBack {
+    
+    func comingBack() {
+        navigationController.popViewController(animated: true)
+    }
+}

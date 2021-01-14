@@ -56,3 +56,10 @@ extension FavoriteCoordinator: CastDetailing {
         navigationController.pushViewController(castViewController, animated: true)
     }
 }
+
+extension FavoriteCoordinator: ComingBack {
+    
+    func comingBack() {
+        navigationController.popViewController(animated: true)
+    }
+}

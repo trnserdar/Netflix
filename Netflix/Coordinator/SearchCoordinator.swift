@@ -57,3 +57,10 @@ extension SearchCoordinator: CastDetailing {
         navigationController.pushViewController(castViewController, animated: true)
     }
 }
+
+extension SearchCoordinator: ComingBack {
+    
+    func comingBack() {
+        navigationController.popViewController(animated: true)
+    }
+}
