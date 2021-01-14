@@ -9,6 +9,7 @@ iOS Application(similar to Netflix) based on MVVM and implemented using the Test
 
 # Getting Started
 * Clone or download
+* Pod install
 * Build and Run
 
 # Technical Features
